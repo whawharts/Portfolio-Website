@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+
+<html class="dark scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Joseph.dev | Building clean websites and useful web apps.</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary-fixed": "#f1dfd7",
+                        "on-primary-fixed": "#291800",
+                        "surface-container-lowest": "#0f0e0d",
+                        "tertiary": "#e0cec7",
+                        "glow-amber": "rgba(245, 166, 35, 0.15)",
+                        "on-error-container": "#ffdad6",
+                        "inverse-primary": "#835500",
+                        "background": "#141312",
+                        "border-subtle": "#2E2824",
+                        "outline-variant": "#524534",
+                        "surface-card": "#1A1614",
+                        "surface-dim": "#141312",
+                        "tertiary-fixed-dim": "#d4c3bb",
+                        "on-secondary-container": "#c2b39f",
+                        "surface": "#141312",
+                        "on-surface": "#e6e1df",
+                        "inverse-surface": "#e6e1df",
+                        "on-surface-variant": "#d7c3ae",
+                        "inverse-on-surface": "#32302f",
+                        "surface-bright": "#3b3937",
+                        "text-muted": "#A89F94",
+                        "surface-tint": "#ffb955",
+                        "secondary-fixed": "#f1e0ca",
+                        "secondary": "#d4c4af",
+                        "secondary-container": "#504535",
+                        "error": "#ffb4ab",
+                        "outline": "#9f8e7a",
+                        "on-tertiary-container": "#51453f",
+                        "surface-container-highest": "#363433",
+                        "background-main": "#0D0C0B",
+                        "primary-fixed": "#ffddb4",
+                        "primary": "#ffc880",
+                        "text-primary": "#F9F6F1",
+                        "secondary-fixed-dim": "#d4c4af",
+                        "on-primary": "#452b00",
+                        "surface-variant": "#363433",
+                        "surface-container-high": "#2b2a28",
+                        "on-tertiary": "#392e29",
+                        "on-error": "#690005",
+                        "on-secondary-fixed-variant": "#504535",
+                        "on-primary-fixed-variant": "#633f00",
+                        "error-container": "#93000a",
+                        "primary-fixed-dim": "#ffb955",
+                        "on-secondary": "#392f20",
+                        "on-tertiary-fixed": "#231a15",
+                        "on-background": "#e6e1df",
+                        "surface-container-low": "#1d1b1a",
+                        "surface-container": "#211f1e",
+                        "on-primary-container": "#644000",
+                        "on-tertiary-fixed-variant": "#50443f",
+                        "tertiary-container": "#c4b3ac",
+                        "on-secondary-fixed": "#221a0d",
+                        "primary-container": "#f5a623"
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.125rem",
+                        lg: "0.25rem",
+                        xl: "0.5rem",
+                        full: "0.75rem"
+                    },
+                    spacing: {
+                        "section-gap": "120px",
+                        "margin-desktop": "80px",
+                        "unit": "4px",
+                        "gutter": "24px",
+                        "margin-mobile": "20px"
+                    },
+                    fontFamily: {
+                        "display-lg": ["Hanken Grotesk"],
+                        "label-code": ["JetBrains Mono"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "body-md": ["Hanken Grotesk"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "headline-sm": ["Hanken Grotesk"],
+                        "label-caps": ["JetBrains Mono"],
+                        "display-lg-mobile": ["Hanken Grotesk"]
+                    },
+                    fontSize: {
+                        "display-lg": ["64px", { lineHeight: "72px", letterSpacing: "-0.02em", fontWeight: "700" }],
+                        "label-code": ["14px", { lineHeight: "20px", letterSpacing: "0.02em", fontWeight: "500" }],
+                        "headline-md": ["32px", { lineHeight: "40px", fontWeight: "600" }],
+                        "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+                        "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+                        "headline-sm": ["24px", { lineHeight: "32px", fontWeight: "600" }],
+                        "label-caps": ["12px", { lineHeight: "16px", letterSpacing: "0.1em", fontWeight: "700" }],
+                        "display-lg-mobile": ["40px", { lineHeight: "48px", letterSpacing: "-0.02em", fontWeight: "700" }]
+                    },
+                    backgroundImage: {
+                        'night-park': "radial-gradient(circle at 50% -20%, rgba(245, 166, 35, 0.05), transparent 60%), radial-gradient(circle at 80% 60%, rgba(20, 19, 18, 0.8), #141312 70%)"
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #141312; color: #e6e1df; }
+        .glass-nav { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+        .glow-hover:hover { box-shadow: 0 0 30px rgba(245, 166, 35, 0.15); border-color: rgba(245, 166, 35, 0.3); }
+        .glow-text:hover { text-shadow: 0 0 10px rgba(245, 166, 35, 0.4); }
+        
+        /* Subtle park silhouettes for the background */
+        .park-bg {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: -1;
+            background: 
+                radial-gradient(circle at 70% 30%, rgba(245, 166, 35, 0.03) 0%, transparent 40%),
+                radial-gradient(circle at 20% 80%, rgba(245, 166, 35, 0.02) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .floating-element { animation: float 6s ease-in-out infinite; }
+        .floating-element-delayed { animation: float 7s ease-in-out infinite 1s; }
+        .floating-element-fast { animation: float 5s ease-in-out infinite 0.5s; }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md antialiased relative overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+<div class="park-bg"></div>
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-background/80 glass-nav border-b border-border-subtle shadow-glow-amber flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 transition-all duration-300" id="navbar">
+<a class="font-headline-sm text-headline-sm text-primary font-bold tracking-tight active:scale-95 transition-transform" href="#">Joseph.dev</a>
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-body-md text-body-md text-primary font-semibold border-b-2 border-primary pb-1 active:scale-95 transition-transform" href="#home">Home</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-all duration-300 active:scale-95 transition-transform" href="#projects">Projects</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-all duration-300 active:scale-95 transition-transform" href="#stack">Tech Stack</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-all duration-300 active:scale-95 transition-transform" href="#certificates">Certificates</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-all duration-300 active:scale-95 transition-transform" href="#about">About</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-all duration-300 active:scale-95 transition-transform" href="#contact">Contact</a>
+</div>
+<button class="hidden md:block bg-primary-container text-on-primary-container px-6 py-2 rounded font-label-caps text-label-caps hover:bg-primary transition-colors active:scale-95 shadow-[0_0_15px_rgba(245,166,35,0.1)] hover:shadow-[0_0_25px_rgba(245,166,35,0.25)]">Resume</button>
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
+</button>
+</nav>
+<main class="pt-[100px] pb-section-gap">
+<!-- Hero Section -->
+<section class="min-h-[85vh] flex items-center px-margin-mobile md:px-margin-desktop py-section-gap relative" id="home">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-gutter w-full">
+<!-- Left Content -->
+<div class="flex flex-col justify-center z-10">
+<div class="inline-flex items-center gap-2 bg-surface-card border border-border-subtle rounded-full px-4 py-1.5 w-max mb-6">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-code text-label-code text-on-surface-variant">Available for web projects</span>
+</div>
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-text-primary mb-6">
+                        Building clean websites and <span class="text-primary glow-text transition-all duration-300">useful web apps.</span>
+</h1>
+<p class="font-body-lg text-body-lg text-text-muted mb-10 max-w-xl">
+                        I'm a full-stack developer focused on crafting thoughtful digital experiences. I blend technical precision with minimalist design to create products that work beautifully.
+                    </p>
+<div class="flex flex-wrap gap-4 mb-16">
+<a class="bg-primary-container text-on-primary-container px-8 py-4 rounded font-label-code text-label-code shadow-[0_0_20px_rgba(245,166,35,0.15)] hover:shadow-[0_0_30px_rgba(245,166,35,0.3)] transition-all active:scale-95 flex items-center gap-2 hover:brightness-110" href="#projects">
+                            View Projects
+                            <span class="material-symbols-outlined" style="font-size: 18px;">arrow_forward</span>
+</a>
+<a class="bg-transparent border border-tertiary-fixed text-tertiary-fixed hover:border-primary hover:text-primary px-8 py-4 rounded font-label-code text-label-code transition-all active:scale-95 shadow-none hover:shadow-[0_0_15px_rgba(245,166,35,0.1)]" href="#contact">
+                            Contact Me
+                        </a>
+</div>
+<div class="grid grid-cols-3 gap-6 pt-8 border-t border-border-subtle max-w-xl">
+<div>
+<div class="font-display-lg text-headline-md text-primary mb-1">12+</div>
+<div class="font-label-caps text-label-caps text-text-muted">Projects Built</div>
+</div>
+<div>
+<div class="font-display-lg text-headline-md text-primary mb-1">8+</div>
+<div class="font-label-caps text-label-caps text-text-muted">Tech Practiced</div>
+</div>
+<div>
+<div class="font-display-lg text-headline-md text-primary mb-1">UI/UX</div>
+<div class="font-label-caps text-label-caps text-text-muted">Current Focus</div>
+</div>
+</div>
+</div>
+<!-- Right Visual -->
+<div class="relative flex justify-center items-center mt-12 lg:mt-0 h-[500px]">
+<!-- Streetlight Glow Background -->
+<div class="absolute inset-0 bg-primary/10 blur-[100px] rounded-full w-3/4 h-3/4 m-auto z-0"></div>
+<!-- Chibi Developer Image -->
+<div class="relative z-10 w-full max-w-md">
+<img alt="Developer Avatar" class="w-full h-auto drop-shadow-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXeHsi4b5s6uIrpGxmdj7pw5f0ThcoIIMpdYlUyTYGW2deBb2A24Fq76JA722g048BgDz21FD-3AfxI5TYNzbf3tep55XTGSmokaGnyYsqbHpepGkRwwoV2gR1XrAcUtqRU3xOHTlEkvSi3yrUP_EaEObl_SdyFhDS-qrWFbUHEu4hRnxyac640E3UpxWOITIVyNHyUoxqzIBhKlvl5LneiE_lP09RoTSdW01Ca1Wde7m_JTYb5ki5xxItwSFm6Gs4Dc6xbkmpfI4"/>
+</div>
+<!-- Floating UI Elements -->
+<div class="absolute top-10 right-0 lg:-right-10 bg-surface-card border border-border-subtle rounded p-4 shadow-xl z-20 floating-element glass-nav">
+<div class="flex items-center gap-2 mb-2 border-b border-border-subtle pb-2">
+<div class="w-2.5 h-2.5 rounded-full bg-error"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-primary-container"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-tertiary-fixed"></div>
+<span class="font-label-code text-[10px] text-text-muted ml-2">terminal</span>
+</div>
+<div class="font-label-code text-label-code text-primary">~ npm run dev</div>
+<div class="font-label-code text-[12px] text-text-muted mt-1">Starting server...</div>
+</div>
+<div class="absolute bottom-20 left-0 lg:-left-10 bg-surface-card border border-border-subtle rounded p-3 shadow-xl z-20 floating-element-delayed glass-nav flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-background flex items-center justify-center border border-border-subtle">
+<span class="material-symbols-outlined text-primary">code</span>
+</div>
+<div>
+<div class="font-label-code text-[12px] text-on-surface">React.FC</div>
+<div class="font-label-caps text-[10px] text-text-muted mt-1">Component</div>
+</div>
+</div>
+<div class="absolute top-1/2 right-10 translate-x-1/2 bg-surface-card border border-border-subtle rounded p-3 shadow-xl z-20 floating-element-fast glass-nav">
+<div class="w-24 h-2 bg-border-subtle rounded mb-2"></div>
+<div class="w-16 h-2 bg-primary/30 rounded mb-2"></div>
+<div class="w-20 h-2 bg-border-subtle rounded"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Featured Projects -->
+<section class="px-margin-mobile md:px-margin-desktop py-section-gap relative" id="projects">
+<div class="mb-16">
+<h2 class="font-headline-md text-headline-md text-text-primary mb-4">Featured Projects</h2>
+<div class="w-16 h-1 bg-primary rounded"></div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-gutter">
+<!-- Project 1 -->
+<div class="group bg-surface-card border border-border-subtle rounded-xl overflow-hidden glow-hover transition-all duration-500 flex flex-col">
+<div class="relative h-64 overflow-hidden bg-surface-dim">
+<div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors z-10"></div>
+<img alt="Padayon App Dashboard Interface" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiW8s_t2QhNKbDVNw3XdOhw9kw0Dk4AGlN9ImAx5aVbu6DSZt-WNc-qBJ-7J1L0BN6OF-MrIiLjlmQhcfNE2OrvoryYdqwzT89JIF3NHw5k4_7OKf891sUovLLHqSz6X_GEVRfbWkcdXO9-ER1PiM_pyBpgANDVWoHJxOAS1FMxF-zG2eLCl3qlEcNOPFMh7-xv22z8cEk5I9NFk2qY-ZtDju8Mdb-zEfxbPQezIuO_Bd4owjPL9GGYVXHrypgBk9w3ohkjlIyOZI"/>
+</div>
+<div class="p-8 flex flex-col flex-grow">
+<h3 class="font-headline-sm text-headline-sm text-text-primary mb-3">Padayon App</h3>
+<p class="font-body-md text-body-md text-text-muted mb-6 flex-grow">A comprehensive productivity suite designed for seamless task management and team collaboration. Built with real-time updates and a focus on minimal friction.</p>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="font-label-code text-label-caps text-on-surface-variant bg-surface px-3 py-1 rounded">React</span>
+<span class="font-label-code text-label-caps text-on-surface-variant bg-surface px-3 py-1 rounded">Node.js</span>
+<span class="font-label-code text-label-caps text-on-surface-variant bg-surface px-3 py-1 rounded">MongoDB</span>
+</div>
+<div class="flex gap-4 border-t border-border-subtle pt-6">
+<button class="flex items-center gap-2 font-label-code text-label-code text-text-primary hover:text-primary transition-colors">
+<span class="material-symbols-outlined" style="font-size: 20px;">open_in_new</span> Live Demo
+                            </button>
+<button class="flex items-center gap-2 font-label-code text-label-code text-text-muted hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined" style="font-size: 20px;">code</span> GitHub
+                            </button>
+</div>
+</div>
+</div>
+<!-- Project 2 -->
+<div class="group bg-surface-card border border-border-subtle rounded-xl overflow-hidden glow-hover transition-all duration-500 flex flex-col">
+<div class="relative h-64 overflow-hidden bg-surface-dim">
+<div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors z-10"></div>
+<img alt="Personal Portfolio Website Layout" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCQrimj1OoKurg2bKZMKiU1y3zAeuHfZfQM1fUCM-48lPLnTj1X65TobuwbwpOKnG3u_GCSand9Md5zlS2LTrD2ilD2pn3pzOauxNdHgHfv-3xK1nBIQ0dNmzBwmdjVi4j95Jzyi61xzV8GKVZeUEKv1IlkfEVsUQTVuH66sa3jrC0ZvTwgI3f9BflwOZEQLCbLPP8JMfGnLuXLw9nzEhIGs5yhcm6lTRKxwZ9aoVgv0JLwLy-6K6am4mkVweVMcusG89qbsxcN9Q"/>
+</div>
+<div class="p-8 flex flex-col flex-grow">
+<h3 class="font-headline-sm text-headline-sm text-text-primary mb-3">Personal Portfolio</h3>
+<p class="font-body-md text-body-md text-text-muted mb-6 flex-grow">A design-forward digital identity built to showcase technical projects. Features custom animations, a fluid grid system, and a carefully curated dark theme.</p>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="font-label-code text-label-caps text-on-surface-variant bg-surface px-3 py-1 rounded">Next.js</span>
+<span class="font-label-code text-label-caps text-on-surface-variant bg-surface px-3 py-1 rounded">Tailwind</span>
+<span class="font-label-code text-label-caps text-on-surface-variant bg-surface px-3 py-1 rounded">Framer Motion</span>
+</div>
+<div class="flex gap-4 border-t border-border-subtle pt-6">
+<button class="flex items-center gap-2 font-label-code text-label-code text-text-primary hover:text-primary transition-colors">
+<span class="material-symbols-outlined" style="font-size: 20px;">open_in_new</span> Live Demo
+                            </button>
+<button class="flex items-center gap-2 font-label-code text-label-code text-text-muted hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined" style="font-size: 20px;">code</span> GitHub
+                            </button>
+</div>
+</div>
+</div>
+<!-- Project 3 -->
+<div class="group bg-surface-card border border-border-subtle rounded-xl overflow-hidden glow-hover transition-all duration-500 flex flex-col">
+<div class="relative h-64 overflow-hidden bg-surface-dim">
+<div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors z-10"></div>
+<img alt="Business Landing Page Design" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0f6vRCc9_ZMyDttLIgvntIogEt-oWFMGPiCsyH_5WHgKaIy28GgMWb_rqTHQTzLSxL1vjf7LtsQ_tdKtAbZHaCDgVjziN2UDirUsV0AT9d1ThNxfU9Alll7v-evGbG-4wiiRrVtxTKOR2pil9FFS_FrOc1XZ5rdnZu7hG2VVbYvFFs8IFQ9PxpVAr2J4dM5Y0cFMlVoOVCe7K8Lgdy8vkq2iC-4i2mFnJ-TPIgOVtClaZBv9EL5Tun5pEBpTtF2RmzQOTQ5mkhKk"/>
+</div>
+<div class="p-8 flex flex-col flex-grow">
+<h3 class="font-headline-sm text-headline-sm text-text-primary mb-3">Business Landing Page</h3>
+<p class="font-body-md text-body-md text-text-muted mb-6 flex-grow">High-converting landing page for a SaaS product. Optimized for performance and accessibility, with integrated lead generation forms and dynamic content delivery.</p>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="font-label-code text-label-caps text-on-surface-variant bg-surface px-3 py-1 rounded">Vue.js</span>
+<span class="font-label-code text-label-caps text-on-surface-variant bg-surface px-3 py-1 rounded">SCSS</span>
+<span class="font-label-code text-label-caps text-on-surface-variant bg-surface px-3 py-1 rounded">Firebase</span>
+</div>
+<div class="flex gap-4 border-t border-border-subtle pt-6">
+<button class="flex items-center gap-2 font-label-code text-label-code text-text-primary hover:text-primary transition-colors">
+<span class="material-symbols-outlined" style="font-size: 20px;">open_in_new</span> Live Demo
+                            </button>
+<button class="flex items-center gap-2 font-label-code text-label-code text-text-muted hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined" style="font-size: 20px;">code</span> GitHub
+                            </button>
+</div>
+</div>
+</div>
+<!-- Project 4 -->
+<div class="group bg-surface-card border border-border-subtle rounded-xl overflow-hidden glow-hover transition-all duration-500 flex flex-col">
+<div class="relative h-64 overflow-hidden bg-surface-dim">
+<div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors z-10"></div>
+<img alt="Website Redesign Code View" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_j6EiycG1xPi5rLRQDqwD42LyCHS81wnbjwSsiW2KpIwq7WvKglDFeL0-hNYX0RRSakG8BT0tzcth0KJqT9Eve70834i8GOiDzFxTsDMfurZQGUl2kK58xYwjxxTwK9MUT-UiyFVOKPuNBxaZpuybw46ueqIJu-r4Qi7UCZnAvbRzodwu6DflFAkj-9ZfzbKgp4gojUGbrKfTVA8dJaV1c9vLo5Pe9wx5fl7bJX0Q_v7yXzjeKz266znNcEO6QMrKWWzPi83yg7o"/>
+</div>
+<div class="p-8 flex flex-col flex-grow">
+<h3 class="font-headline-sm text-headline-sm text-text-primary mb-3">Website Redesign</h3>
+<p class="font-body-md text-body-md text-text-muted mb-6 flex-grow">Complete architectural and visual overhaul of an existing legacy platform. Improved load times by 40% and established a cohesive design system.</p>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="font-label-code text-label-caps text-on-surface-variant bg-surface px-3 py-1 rounded">React</span>
+<span class="font-label-code text-label-caps text-on-surface-variant bg-surface px-3 py-1 rounded">TypeScript</span>
+<span class="font-label-code text-label-caps text-on-surface-variant bg-surface px-3 py-1 rounded">GraphQL</span>
+</div>
+<div class="flex gap-4 border-t border-border-subtle pt-6">
+<button class="flex items-center gap-2 font-label-code text-label-code text-text-primary hover:text-primary transition-colors">
+<span class="material-symbols-outlined" style="font-size: 20px;">open_in_new</span> Live Demo
+                            </button>
+<button class="flex items-center gap-2 font-label-code text-label-code text-text-muted hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined" style="font-size: 20px;">code</span> GitHub
+                            </button>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-12 flex justify-center">
+<a class="group flex items-center gap-2 font-label-code text-label-code text-primary hover:text-primary-fixed transition-colors" href="/projects">
+        View All Projects
+        <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" style="font-size: 18px;">arrow_forward</span>
+</a>
+</div>
+</section>
+<!-- Tech Stack -->
+<section class="px-margin-mobile md:px-margin-desktop py-section-gap" id="stack">
+<div class="mb-16">
+<h2 class="font-headline-md text-headline-md text-text-primary mb-4">Tech Stack</h2>
+<div class="w-16 h-1 bg-primary rounded"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Frontend -->
+<div class="bg-surface-card border border-border-subtle rounded-lg p-6 hover:border-primary/50 transition-colors">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary">desktop_windows</span>
+<h3 class="font-headline-sm text-[20px] text-text-primary">Frontend</h3>
+</div>
+<div class="flex flex-col gap-3">
+<div class="bg-surface px-4 py-2 rounded font-label-code text-label-code text-on-surface-variant border border-border-subtle/50">React</div>
+<div class="bg-surface px-4 py-2 rounded font-label-code text-label-code text-on-surface-variant border border-border-subtle/50">Tailwind CSS</div>
+<div class="bg-surface px-4 py-2 rounded font-label-code text-label-code text-on-surface-variant border border-border-subtle/50">JavaScript (ES6+)</div>
+<div class="bg-surface px-4 py-2 rounded font-label-code text-label-code text-on-surface-variant border border-border-subtle/50">HTML5 / CSS3</div>
+</div>
+</div>
+<!-- Backend -->
+<div class="bg-surface-card border border-border-subtle rounded-lg p-6 hover:border-primary/50 transition-colors">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary">dns</span>
+<h3 class="font-headline-sm text-[20px] text-text-primary">Backend</h3>
+</div>
+<div class="flex flex-col gap-3">
+<div class="bg-surface px-4 py-2 rounded font-label-code text-label-code text-on-surface-variant border border-border-subtle/50">Node.js</div>
+<div class="bg-surface px-4 py-2 rounded font-label-code text-label-code text-on-surface-variant border border-border-subtle/50">Express.js</div>
+<div class="bg-surface px-4 py-2 rounded font-label-code text-label-code text-on-surface-variant border border-border-subtle/50">RESTful APIs</div>
+<div class="bg-surface px-4 py-2 rounded font-label-code text-label-code text-on-surface-variant border border-border-subtle/50">Authentication</div>
+</div>
+</div>
+<!-- Database -->
+<div class="bg-surface-card border border-border-subtle rounded-lg p-6 hover:border-primary/50 transition-colors">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary">database</span>
+<h3 class="font-headline-sm text-[20px] text-text-primary">Database</h3>
+</div>
+<div class="flex flex-col gap-3">
+<div class="bg-surface px-4 py-2 rounded font-label-code text-label-code text-on-surface-variant border border-border-subtle/50">PostgreSQL</div>
+<div class="bg-surface px-4 py-2 rounded font-label-code text-label-code text-on-surface-variant border border-border-subtle/50">MongoDB</div>
+<div class="bg-surface px-4 py-2 rounded font-label-code text-label-code text-on-surface-variant border border-border-subtle/50">Supabase</div>
+<div class="bg-surface px-4 py-2 rounded font-label-code text-label-code text-on-surface-variant border border-border-subtle/50">Redis</div>
+</div>
+</div>
+<!-- Tools -->
+<div class="bg-surface-card border border-border-subtle rounded-lg p-6 hover:border-primary/50 transition-colors">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary">build</span>
+<h3 class="font-headline-sm text-[20px] text-text-primary">Tools</h3>
+</div>
+<div class="flex flex-col gap-3">
+<div class="bg-surface px-4 py-2 rounded font-label-code text-label-code text-on-surface-variant border border-border-subtle/50">Git &amp; GitHub</div>
+<div class="bg-surface px-4 py-2 rounded font-label-code text-label-code text-on-surface-variant border border-border-subtle/50">VS Code</div>
+<div class="bg-surface px-4 py-2 rounded font-label-code text-label-code text-on-surface-variant border border-border-subtle/50">Figma</div>
+<div class="bg-surface px-4 py-2 rounded font-label-code text-label-code text-on-surface-variant border border-border-subtle/50">Vercel</div>
+</div>
+</div>
+</div>
+<div class="mt-12 flex justify-center">
+<a class="group flex items-center gap-2 font-label-code text-label-code text-primary hover:text-primary-fixed transition-colors" href="/tech-stack">
+        View Full Stack
+        <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" style="font-size: 18px;">arrow_forward</span>
+</a>
+</div>
+</section>
+<!-- About Me & Certificates -->
+<section class="px-margin-mobile md:px-margin-desktop py-section-gap" id="about">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+<!-- About Content -->
+<div>
+<h2 class="font-headline-md text-headline-md text-text-primary mb-4">About Me</h2>
+<div class="w-16 h-1 bg-primary rounded mb-8"></div>
+<div class="font-body-lg text-body-lg text-text-muted space-y-6">
+<p>
+                            I'm a developer who enjoys building things that live on the internet. My interest in web development started back when I decided to try editing custom Tumblr themes — turns out hacking together HTML &amp; CSS taught me a lot about logic and structure.
+                        </p>
+<p>
+                            Fast-forward to today, and I've had the privilege of building software for a start-up, a student-led initiative, and a few local businesses. My main focus these days is building accessible, inclusive products and digital experiences for a variety of clients.
+                        </p>
+<p>
+                            When I'm not at the computer, I'm usually reading, hanging out with my dogs, or exploring the city at night, drawing inspiration from the quiet architecture and neon lights.
+                        </p>
+</div>
+<div class="mt-8">
+<a class="group flex items-center gap-2 font-label-code text-label-code text-primary hover:text-primary-fixed transition-colors" href="/about">
+        Read More About Me
+        <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" style="font-size: 18px;">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Certificates -->
+<div id="certificates">
+<h2 class="font-headline-md text-headline-md text-text-primary mb-4">Certificates</h2>
+<div class="w-16 h-1 bg-primary rounded mb-8"></div>
+<div class="space-y-4">
+<div class="bg-surface-card border border-border-subtle p-5 rounded flex justify-between items-center group hover:border-primary/50 transition-colors">
+<div>
+<h4 class="font-headline-sm text-[18px] text-on-surface mb-1">Full Stack Web Development</h4>
+<p class="font-label-code text-[12px] text-text-muted">Tech Bootcamp Inc. · 2023</p>
+</div>
+<button class="p-2 text-text-muted group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined">launch</span>
+</button>
+</div>
+<div class="bg-surface-card border border-border-subtle p-5 rounded flex justify-between items-center group hover:border-primary/50 transition-colors">
+<div>
+<h4 class="font-headline-sm text-[18px] text-on-surface mb-1">Advanced React Patterns</h4>
+<p class="font-label-code text-[12px] text-text-muted">Frontend Masters · 2022</p>
+</div>
+<button class="p-2 text-text-muted group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined">launch</span>
+</button>
+</div>
+<div class="bg-surface-card border border-border-subtle p-5 rounded flex justify-between items-center group hover:border-primary/50 transition-colors">
+<div>
+<h4 class="font-headline-sm text-[18px] text-on-surface mb-1">UI/UX Design Foundations</h4>
+<p class="font-label-code text-[12px] text-text-muted">Design Academy · 2022</p>
+</div>
+<button class="p-2 text-text-muted group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined">launch</span>
+</button>
+</div>
+</div>
+<div class="mt-8">
+<a class="group flex items-center gap-2 font-label-code text-label-code text-primary hover:text-primary-fixed transition-colors" href="/certificates">
+        View All Certificates
+        <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" style="font-size: 18px;">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="px-margin-mobile md:px-margin-desktop py-section-gap" id="contact">
+<div class="max-w-3xl mx-auto bg-surface-card border border-border-subtle rounded-2xl p-8 md:p-12 shadow-2xl relative overflow-hidden">
+<!-- Decorative background elements -->
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 blur-[80px] rounded-full"></div>
+<div class="absolute bottom-0 left-0 w-64 h-64 bg-tertiary-fixed/5 blur-[80px] rounded-full"></div>
+<div class="relative z-10 text-center mb-10">
+<h2 class="font-display-lg-mobile md:font-headline-md text-headline-md text-text-primary mb-4">Let’s build something thoughtful.</h2>
+<p class="font-body-md text-body-md text-text-muted max-w-lg mx-auto">
+                        Although I'm not currently looking for any new opportunities, my inbox is always open. Whether you have a question or just want to say hi, I'll try my best to get back to you!
+                    </p>
+</div>
+<form class="space-y-6 relative z-10 max-w-xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="font-label-code text-label-caps text-on-surface-variant block" for="name">Name</label>
+<input class="w-full bg-background border-b border-border-subtle border-t-0 border-l-0 border-r-0 px-0 py-3 text-on-surface focus:ring-0 focus:border-primary transition-colors font-body-md" id="name" placeholder="John Doe" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-code text-label-caps text-on-surface-variant block" for="email">Email</label>
+<input class="w-full bg-background border-b border-border-subtle border-t-0 border-l-0 border-r-0 px-0 py-3 text-on-surface focus:ring-0 focus:border-primary transition-colors font-body-md" id="email" placeholder="john@example.com" type="email"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-code text-label-caps text-on-surface-variant block" for="message">Message</label>
+<textarea class="w-full bg-background border-b border-border-subtle border-t-0 border-l-0 border-r-0 px-0 py-3 text-on-surface focus:ring-0 focus:border-primary transition-colors font-body-md resize-none" id="message" placeholder="Hello..." rows="4"></textarea>
+</div>
+<div class="pt-4 flex flex-col md:flex-row items-center justify-between gap-6">
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full border border-border-subtle flex items-center justify-center text-text-muted hover:text-primary hover:border-primary transition-all" href="#">
+<span class="font-label-code">GH</span>
+</a>
+<a class="w-10 h-10 rounded-full border border-border-subtle flex items-center justify-center text-text-muted hover:text-primary hover:border-primary transition-all" href="#">
+<span class="font-label-code">IN</span>
+</a>
+</div>
+<button class="w-full md:w-auto bg-primary-container text-on-primary-container px-8 py-3 rounded font-label-code text-label-code hover:bg-primary transition-colors active:scale-95 shadow-[0_0_15px_rgba(245,166,35,0.1)] hover:shadow-[0_0_25px_rgba(245,166,35,0.25)] hover:brightness-110" type="button">
+                            Send Message
+                        </button>
+</div>
+</form>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-section-gap border-t border-border-subtle bg-surface-dim flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-margin-desktop gap-gutter z-10 relative">
+<div class="font-headline-sm text-headline-sm text-on-surface hover:opacity-80 transition-opacity">
+            Joseph.dev
+        </div>
+<div class="font-label-caps text-label-caps text-text-muted text-center">
+            © 2024 Developer Portfolio. Built with Focus.
+        </div>
+<div class="flex gap-6 font-label-caps text-label-caps">
+<a class="text-text-muted hover:text-primary transition-colors hover:opacity-80" href="#">GitHub</a>
+<a class="text-text-muted hover:text-primary transition-colors hover:opacity-80" href="#">LinkedIn</a>
+<a class="text-text-muted hover:text-primary transition-colors hover:opacity-80" href="#">Twitter</a>
+<a class="text-text-muted hover:text-primary transition-colors hover:opacity-80" href="#">Email</a>
+</div>
+</footer>
+<script>
+        // Simple scroll spy logic for active nav states
+        const sections = document.querySelectorAll('section[id], div[id="certificates"]');
+        const navLinks = document.querySelectorAll('nav .hidden.md\\:flex a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('text-primary', 'font-semibold', 'border-b-2', 'border-primary', 'pb-1');
+                link.classList.add('text-on-surface-variant');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('text-primary', 'font-semibold', 'border-b-2', 'border-primary', 'pb-1');
+                    link.classList.remove('text-on-surface-variant');
+                }
+            });
+        });
+    </script>
+</body></html>

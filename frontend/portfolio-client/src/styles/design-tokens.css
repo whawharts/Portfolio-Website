@@ -1,0 +1,104 @@
+@theme {
+  --color-nocturne-bg: #0d0c0b;
+  --color-nocturne-surface: #141312;
+  --color-nocturne-card: #1a1614;
+  --color-nocturne-panel: #211f1e;
+  --color-nocturne-border: #2e2824;
+  --color-nocturne-cream: #f9f6f1;
+  --color-nocturne-muted: #a89f94;
+  --color-nocturne-amber: #ffc880;
+  --color-nocturne-amber-strong: #f5a623;
+  --color-nocturne-nav: rgba(13, 12, 11, 0.86);
+  --color-nocturne-card-muted: rgba(26, 22, 20, 0.76);
+  --color-nocturne-amber-soft: rgba(255, 200, 128, 0.08);
+  --color-nocturne-amber-border: rgba(255, 200, 128, 0.38);
+  --font-nocturne: "Hanken Grotesk", system-ui, sans-serif;
+  --font-label: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+  --shadow-nocturne-glow: 0 0 28px rgba(245, 166, 35, 0.15);
+  --shadow-nocturne-card: 0 0 32px rgba(245, 166, 35, 0.15);
+  --shadow-nocturne-focus: 0 0 0 3px rgba(245, 166, 35, 0.15);
+}
+
+:root {
+  --color-background-main: #0d0c0b;
+  --color-surface: #141312;
+  --color-surface-card: #1a1614;
+  --color-surface-panel: #211f1e;
+  --color-border-subtle: #2e2824;
+  --color-text-primary: #f9f6f1;
+  --color-text-muted: #a89f94;
+  --color-primary: #ffc880;
+  --color-primary-strong: #f5a623;
+  --color-glow-amber: rgba(245, 166, 35, 0.15);
+  --color-nav-glass: rgba(13, 12, 11, 0.86);
+  --color-card-glass: rgba(26, 22, 20, 0.88);
+  --color-card-muted: rgba(26, 22, 20, 0.76);
+  --color-amber-soft: rgba(255, 200, 128, 0.08);
+  --color-amber-border: rgba(255, 200, 128, 0.38);
+  --color-error: #e06f5f;
+  --font-display: "Hanken Grotesk", system-ui, sans-serif;
+  --font-body: "Hanken Grotesk", system-ui, sans-serif;
+  --font-label: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+  --content-max-width: 1440px;
+}
+
+@layer components {
+  .nocturne-app {
+    background:
+      radial-gradient(circle at 16% 0%, var(--color-glow-amber), transparent 26rem),
+      linear-gradient(180deg, var(--color-background-main) 0%, var(--color-surface) 52%, var(--color-background-main) 100%);
+  }
+
+  .nocturne-surface {
+    background-color: var(--color-card-glass);
+    border-color: var(--color-border-subtle);
+  }
+
+  .float-soft {
+    animation: nocturne-float 5.6s ease-in-out infinite;
+  }
+
+  .float-soft-delay {
+    animation: nocturne-float 6.4s ease-in-out 0.8s infinite;
+  }
+
+  .float-soft-slow {
+    animation: nocturne-float 7s ease-in-out 1.4s infinite;
+  }
+
+  .page-enter {
+    animation: nocturne-page-enter 520ms ease-out both;
+  }
+}
+
+@keyframes nocturne-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes nocturne-page-enter {
+  0% {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-enter,
+  .float-soft,
+  .float-soft-delay,
+  .float-soft-slow {
+    animation: none;
+  }
+}

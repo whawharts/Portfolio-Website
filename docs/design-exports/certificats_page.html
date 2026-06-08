@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Certificates - Joseph.dev</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary": "#d4c4af",
+                        "inverse-on-surface": "#32302f",
+                        "background-main": "#0D0C0B",
+                        "on-error": "#690005",
+                        "on-secondary": "#392f20",
+                        "on-surface": "#e6e1df",
+                        "secondary-fixed": "#f1e0ca",
+                        "on-error-container": "#ffdad6",
+                        "text-muted": "#A89F94",
+                        "surface-container": "#211f1e",
+                        "surface-container-high": "#2b2a28",
+                        "surface-card": "#1A1614",
+                        "surface": "#141312",
+                        "on-tertiary-fixed": "#231a15",
+                        "outline": "#9f8e7a",
+                        "on-background": "#e6e1df",
+                        "primary-fixed-dim": "#ffb955",
+                        "on-secondary-fixed": "#221a0d",
+                        "error-container": "#93000a",
+                        "primary-container": "#f5a623",
+                        "background": "#141312",
+                        "inverse-primary": "#835500",
+                        "outline-variant": "#524534",
+                        "on-primary-fixed-variant": "#633f00",
+                        "on-tertiary-container": "#51453f",
+                        "tertiary-fixed": "#f1dfd7",
+                        "secondary-container": "#504535",
+                        "on-surface-variant": "#d7c3ae",
+                        "on-tertiary-fixed-variant": "#50443f",
+                        "surface-container-low": "#1d1b1a",
+                        "text-primary": "#F9F6F1",
+                        "surface-bright": "#3b3937",
+                        "primary-fixed": "#ffddb4",
+                        "on-primary": "#452b00",
+                        "border-subtle": "#2E2824",
+                        "inverse-surface": "#e6e1df",
+                        "secondary-fixed-dim": "#d4c4af",
+                        "tertiary-container": "#c4b3ac",
+                        "on-secondary-fixed-variant": "#504535",
+                        "glow-amber": "rgba(245, 166, 35, 0.15)",
+                        "tertiary-fixed-dim": "#d4c3bb",
+                        "primary": "#ffc880",
+                        "error": "#ffb4ab",
+                        "surface-variant": "#363433",
+                        "on-primary-fixed": "#291800",
+                        "surface-container-lowest": "#0f0e0d",
+                        "on-tertiary": "#392e29",
+                        "surface-dim": "#141312",
+                        "on-secondary-container": "#c2b39f",
+                        "on-primary-container": "#644000",
+                        "tertiary": "#e0cec7",
+                        "surface-tint": "#ffb955",
+                        "surface-container-highest": "#363433"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "margin-desktop": "80px",
+                        "section-gap": "120px",
+                        "unit": "4px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["JetBrains Mono"],
+                        "body-md": ["Hanken Grotesk"],
+                        "headline-sm": ["Hanken Grotesk"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "label-code": ["JetBrains Mono"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "display-lg-mobile": ["Hanken Grotesk"],
+                        "display-lg": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-sm": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-code": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                        "headline-md": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "display-lg": ["64px", { "lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="antialiased min-h-screen flex flex-col bg-background-main text-text-primary">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-background-main/80 backdrop-blur-xl border-b border-border-subtle shadow-[0_10px_30px_-15px_rgba(0,0,0,0.5)] transition-all duration-300 ease-in-out">
+<div class="flex justify-between items-center px-margin-desktop py-4 max-w-full mx-auto">
+<div class="font-headline-sm text-headline-sm font-bold text-text-primary">
+                Joseph.dev
+            </div>
+<div class="hidden md:flex space-x-8">
+<a class="font-body-md text-body-md text-text-muted hover:text-text-primary transition-colors duration-300" href="#">Home</a>
+<a class="font-body-md text-body-md text-text-muted hover:text-text-primary transition-colors duration-300" href="#">Projects</a>
+<a class="font-body-md text-body-md text-text-muted hover:text-text-primary transition-colors duration-300" href="#">Tech Stack</a>
+<a class="font-body-md text-body-md text-primary font-bold border-b-2 border-primary pb-1" href="#">Certificates</a>
+<a class="font-body-md text-body-md text-text-muted hover:text-text-primary transition-colors duration-300" href="#">About</a>
+<a class="font-body-md text-body-md text-text-muted hover:text-text-primary transition-colors duration-300" href="#">Contact</a>
+</div>
+<div class="hidden md:block">
+<button class="bg-primary text-on-primary-fixed px-6 py-2 rounded font-label-code text-label-code font-bold hover:bg-glow-amber/10 hover:shadow-[0_0_20px_rgba(245,166,35,0.2)] transition-all duration-300">Resume</button>
+</div>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="flex-grow pt-32 pb-section-gap px-margin-desktop">
+<div class="max-w-[1120px] mx-auto">
+<!-- Hero Section -->
+<section class="mb-section-gap">
+<div class="inline-block bg-surface-card border border-border-subtle px-4 py-2 rounded-full mb-6">
+<span class="font-label-code text-label-code text-primary">Learning records and certifications</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-text-primary mb-6">Certificates</h1>
+<p class="font-body-lg text-body-lg text-text-muted max-w-2xl">
+                    A collection of certificates, courses, and learning milestones from my journey in web development, frontend practice, backend fundamentals, and digital tools.
+                </p>
+</section>
+<!-- Filter Tabs -->
+<section class="mb-12">
+<div class="flex flex-wrap gap-4 border-b border-border-subtle pb-4">
+<button class="font-label-code text-label-code px-4 py-2 text-primary border-b-2 border-primary">All</button>
+<button class="font-label-code text-label-code px-4 py-2 text-text-muted hover:text-text-primary transition-colors">Frontend</button>
+<button class="font-label-code text-label-code px-4 py-2 text-text-muted hover:text-text-primary transition-colors">Backend</button>
+<button class="font-label-code text-label-code px-4 py-2 text-text-muted hover:text-text-primary transition-colors">Database</button>
+<button class="font-label-code text-label-code px-4 py-2 text-text-muted hover:text-text-primary transition-colors">Tools</button>
+<button class="font-label-code text-label-code px-4 py-2 text-text-muted hover:text-text-primary transition-colors">Design</button>
+</div>
+</section>
+<!-- Certificate Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter mb-section-gap">
+<!-- Card 1 -->
+<div class="bg-surface-card border border-border-subtle p-6 rounded-lg hover:border-primary hover:shadow-[0_0_20px_rgba(245,166,35,0.15)] transition-all duration-300 group flex flex-col h-full">
+<div class="flex-grow">
+<div class="font-label-caps text-label-caps text-text-muted mb-2">Web Development • 2026</div>
+<h3 class="font-headline-sm text-headline-sm text-text-primary mb-2">Full-Stack Web Development</h3>
+<p class="font-body-md text-body-md text-text-muted mb-6">Sample Provider</p>
+</div>
+<button class="font-label-code text-label-code text-primary group-hover:text-primary-container transition-colors flex items-center gap-2 mt-auto w-fit">
+                        View Certificate <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-card border border-border-subtle p-6 rounded-lg hover:border-primary hover:shadow-[0_0_20px_rgba(245,166,35,0.15)] transition-all duration-300 group flex flex-col h-full">
+<div class="flex-grow">
+<div class="font-label-caps text-label-caps text-text-muted mb-2">Frontend • 2026</div>
+<h3 class="font-headline-sm text-headline-sm text-text-primary mb-2">JavaScript Fundamentals</h3>
+<p class="font-body-md text-body-md text-text-muted mb-6">Sample Provider</p>
+</div>
+<button class="font-label-code text-label-code text-primary group-hover:text-primary-container transition-colors flex items-center gap-2 mt-auto w-fit">
+                        View Certificate <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-card border border-border-subtle p-6 rounded-lg hover:border-primary hover:shadow-[0_0_20px_rgba(245,166,35,0.15)] transition-all duration-300 group flex flex-col h-full">
+<div class="flex-grow">
+<div class="font-label-caps text-label-caps text-text-muted mb-2">Frontend • 2026</div>
+<h3 class="font-headline-sm text-headline-sm text-text-primary mb-2">React Basics</h3>
+<p class="font-body-md text-body-md text-text-muted mb-6">Sample Provider</p>
+</div>
+<button class="font-label-code text-label-code text-primary group-hover:text-primary-container transition-colors flex items-center gap-2 mt-auto w-fit">
+                        View Certificate <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface-card border border-border-subtle p-6 rounded-lg hover:border-primary hover:shadow-[0_0_20px_rgba(245,166,35,0.15)] transition-all duration-300 group flex flex-col h-full">
+<div class="flex-grow">
+<div class="font-label-caps text-label-caps text-text-muted mb-2">Frontend • 2026</div>
+<h3 class="font-headline-sm text-headline-sm text-text-primary mb-2">Responsive Web Design</h3>
+<p class="font-body-md text-body-md text-text-muted mb-6">Sample Provider</p>
+</div>
+<button class="font-label-code text-label-code text-primary group-hover:text-primary-container transition-colors flex items-center gap-2 mt-auto w-fit">
+                        View Certificate <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+<!-- Card 5 -->
+<div class="bg-surface-card border border-border-subtle p-6 rounded-lg hover:border-primary hover:shadow-[0_0_20px_rgba(245,166,35,0.15)] transition-all duration-300 group flex flex-col h-full">
+<div class="flex-grow">
+<div class="font-label-caps text-label-caps text-text-muted mb-2">Tools • 2026</div>
+<h3 class="font-headline-sm text-headline-sm text-text-primary mb-2">Git and GitHub Essentials</h3>
+<p class="font-body-md text-body-md text-text-muted mb-6">Sample Provider</p>
+</div>
+<button class="font-label-code text-label-code text-primary group-hover:text-primary-container transition-colors flex items-center gap-2 mt-auto w-fit">
+                        View Certificate <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+<!-- Card 6 -->
+<div class="bg-surface-card border border-border-subtle p-6 rounded-lg hover:border-primary hover:shadow-[0_0_20px_rgba(245,166,35,0.15)] transition-all duration-300 group flex flex-col h-full">
+<div class="flex-grow">
+<div class="font-label-caps text-label-caps text-text-muted mb-2">Database • 2026</div>
+<h3 class="font-headline-sm text-headline-sm text-text-primary mb-2">SQL Fundamentals</h3>
+<p class="font-body-md text-body-md text-text-muted mb-6">Sample Provider</p>
+</div>
+<button class="font-label-code text-label-code text-primary group-hover:text-primary-container transition-colors flex items-center gap-2 mt-auto w-fit">
+                        View Certificate <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</section>
+<!-- Learning Progress -->
+<section class="mb-section-gap">
+<h2 class="font-headline-md text-headline-md text-text-primary mb-8 border-l-4 border-primary pl-4">Learning in Progress</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="bg-surface-card border border-border-subtle p-6 rounded-lg">
+<h3 class="font-headline-sm text-headline-sm text-text-primary mb-3">Frontend Practice</h3>
+<p class="font-body-md text-body-md text-text-muted">Continuously refining skills in modern JavaScript frameworks and exploring new rendering patterns to build faster, more interactive user interfaces.</p>
+</div>
+<div class="bg-surface-card border border-border-subtle p-6 rounded-lg">
+<h3 class="font-headline-sm text-headline-sm text-text-primary mb-3">Backend Fundamentals</h3>
+<p class="font-body-md text-body-md text-text-muted">Deepening understanding of server-side architecture, RESTful API design, and asynchronous processing to support robust full-stack applications.</p>
+</div>
+<div class="bg-surface-card border border-border-subtle p-6 rounded-lg">
+<h3 class="font-headline-sm text-headline-sm text-text-primary mb-3">Database Basics</h3>
+<p class="font-body-md text-body-md text-text-muted">Expanding knowledge of database modeling, query optimization, and the trade-offs between relational and NoSQL data structures.</p>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="text-center py-16 bg-surface-card border border-border-subtle rounded-xl relative overflow-hidden">
+<div class="absolute inset-0 bg-glow-amber opacity-10 pointer-events-none"></div>
+<h2 class="font-headline-md text-headline-md text-text-primary mb-6 relative z-10">Learning by building.</h2>
+<button class="relative z-10 bg-primary text-on-primary-fixed px-8 py-3 rounded font-label-code text-label-code font-bold hover:bg-glow-amber/10 hover:shadow-[0_0_20px_rgba(245,166,35,0.4)] transition-all duration-300">
+                    View Projects
+                </button>
+</section>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 bg-surface-container-lowest border-t border-border-subtle">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop gap-gutter max-w-full mx-auto">
+<div class="font-headline-sm text-headline-sm text-text-primary">
+                Joseph.dev
+            </div>
+<div class="font-label-code text-label-code text-text-muted">
+                © 2024 Joseph.dev. Built with focus.
+            </div>
+<div class="flex gap-6">
+<a class="font-label-code text-label-code text-text-muted hover:text-primary transition-colors duration-200 opacity-80 hover:opacity-100" href="#">GitHub</a>
+<a class="font-label-code text-label-code text-text-muted hover:text-primary transition-colors duration-200 opacity-80 hover:opacity-100" href="#">LinkedIn</a>
+<a class="font-label-code text-label-code text-text-muted hover:text-primary transition-colors duration-200 opacity-80 hover:opacity-100" href="#">Twitter</a>
+</div>
+</div>
+</footer>
+</body></html>

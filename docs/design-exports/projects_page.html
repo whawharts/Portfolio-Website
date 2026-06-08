@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Projects - Joseph.dev</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        body {
+            background-color: #0D0C0B;
+            background-image: 
+                radial-gradient(circle at 15% 50px, rgba(245, 166, 35, 0.08), transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(245, 166, 35, 0.05), transparent 25%);
+            background-attachment: fixed;
+        }
+
+        .project-card:hover .project-image-overlay {
+            opacity: 0;
+        }
+        
+        .project-card:hover .project-image {
+            transform: scale(1.05);
+        }
+        
+        .project-card-glow {
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover .project-card-glow {
+            box-shadow: 0 0 30px rgba(245, 166, 35, 0.1);
+            border-color: rgba(245, 166, 35, 0.3);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-secondary": "#392f20",
+                      "surface-bright": "#3b3937",
+                      "primary-fixed-dim": "#ffb955",
+                      "surface-tint": "#ffb955",
+                      "surface-container-low": "#1d1b1a",
+                      "inverse-surface": "#e6e1df",
+                      "background": "#141312",
+                      "secondary-container": "#504535",
+                      "tertiary": "#e0cec7",
+                      "border-subtle": "#2E2824",
+                      "on-tertiary-container": "#51453f",
+                      "inverse-primary": "#835500",
+                      "inverse-on-surface": "#32302f",
+                      "error": "#ffb4ab",
+                      "text-primary": "#F9F6F1",
+                      "on-tertiary": "#392e29",
+                      "on-background": "#e6e1df",
+                      "surface-container": "#211f1e",
+                      "on-error": "#690005",
+                      "secondary": "#d4c4af",
+                      "on-tertiary-fixed": "#231a15",
+                      "on-secondary-container": "#c2b39f",
+                      "tertiary-fixed-dim": "#d4c3bb",
+                      "error-container": "#93000a",
+                      "tertiary-fixed": "#f1dfd7",
+                      "tertiary-container": "#c4b3ac",
+                      "surface-variant": "#363433",
+                      "background-main": "#0D0C0B",
+                      "outline-variant": "#524534",
+                      "secondary-fixed-dim": "#d4c4af",
+                      "on-error-container": "#ffdad6",
+                      "surface": "#141312",
+                      "on-secondary-fixed": "#221a0d",
+                      "on-primary": "#452b00",
+                      "surface-container-highest": "#363433",
+                      "primary-fixed": "#ffddb4",
+                      "on-surface": "#e6e1df",
+                      "text-muted": "#A89F94",
+                      "surface-container-lowest": "#0f0e0d",
+                      "secondary-fixed": "#f1e0ca",
+                      "surface-dim": "#141312",
+                      "primary": "#ffc880",
+                      "on-secondary-fixed-variant": "#504535",
+                      "on-primary-container": "#644000",
+                      "on-primary-fixed-variant": "#633f00",
+                      "on-primary-fixed": "#291800",
+                      "surface-container-high": "#2b2a28",
+                      "surface-card": "#1A1614",
+                      "on-surface-variant": "#d7c3ae",
+                      "primary-container": "#f5a623",
+                      "glow-amber": "rgba(245, 166, 35, 0.15)",
+                      "on-tertiary-fixed-variant": "#50443f",
+                      "outline": "#9f8e7a"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "section-gap": "120px",
+                      "margin-desktop": "80px",
+                      "margin-mobile": "20px",
+                      "gutter": "24px",
+                      "unit": "4px"
+              },
+              "fontFamily": {
+                      "headline-md": ["Hanken Grotesk"],
+                      "body-lg": ["Hanken Grotesk"],
+                      "display-lg-mobile": ["Hanken Grotesk"],
+                      "label-code": ["JetBrains Mono"],
+                      "headline-sm": ["Hanken Grotesk"],
+                      "display-lg": ["Hanken Grotesk"],
+                      "body-md": ["Hanken Grotesk"],
+                      "label-caps": ["JetBrains Mono"]
+              },
+              "fontSize": {
+                      "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "display-lg-mobile": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "label-code": ["14px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                      "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700"}]
+              }
+            }
+          }
+        }
+    </script>
+</head>
+<body class="text-text-primary font-body-md bg-background-main selection:bg-primary-container/30 selection:text-primary">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-[20px] border-b border-outline-variant/20 shadow-glow-amber transition-all duration-300">
+<div class="flex justify-between items-center h-20 px-margin-desktop max-w-[1440px] mx-auto hidden md:flex">
+<div class="font-headline-sm text-headline-sm font-bold text-primary tracking-tight">Joseph.dev</div>
+<div class="flex items-center gap-8 font-label-caps text-label-caps">
+<a class="text-on-surface-variant hover:text-primary transition-colors hover:shadow-[0_0_20px_rgba(255,200,128,0.3)] duration-300" href="#">Home</a>
+<a class="text-primary border-b-2 border-primary pb-1 hover:shadow-[0_0_20px_rgba(255,200,128,0.3)] transition-all duration-300 scale-95 transition-transform" href="#">Projects</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors hover:shadow-[0_0_20px_rgba(255,200,128,0.3)] duration-300" href="#">Tech Stack</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors hover:shadow-[0_0_20px_rgba(255,200,128,0.3)] duration-300" href="#">Certificates</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors hover:shadow-[0_0_20px_rgba(255,200,128,0.3)] duration-300" href="#">About</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors hover:shadow-[0_0_20px_rgba(255,200,128,0.3)] duration-300" href="#">Contact</a>
+</div>
+<button class="bg-primary-container text-on-primary-container font-label-caps text-label-caps px-6 py-2.5 rounded hover:shadow-[0_0_20px_rgba(255,166,35,0.4)] transition-all duration-300 font-bold">Resume</button>
+</div>
+</nav>
+<main class="pt-32 pb-section-gap px-margin-desktop max-w-[1440px] mx-auto min-h-screen">
+<!-- Hero Section -->
+<header class="mb-16 max-w-3xl">
+<h1 class="font-display-lg text-display-lg text-primary mb-6">Projects</h1>
+<p class="font-body-lg text-body-lg text-text-muted">A collection of technical explorations, client work, and personal tools. Building in the dark, shining a light on the code that powers these experiences.</p>
+</header>
+<!-- Filters -->
+<div class="flex flex-wrap gap-4 mb-12">
+<button class="px-4 py-2 bg-surface-card border border-primary/50 text-primary rounded font-label-code text-label-code shadow-[0_0_15px_rgba(245,166,35,0.1)] transition-all">All</button>
+<button class="px-4 py-2 bg-surface-card border border-border-subtle text-text-muted hover:text-text-primary hover:border-outline-variant rounded font-label-code text-label-code transition-all">Websites</button>
+<button class="px-4 py-2 bg-surface-card border border-border-subtle text-text-muted hover:text-text-primary hover:border-outline-variant rounded font-label-code text-label-code transition-all">Apps</button>
+<button class="px-4 py-2 bg-surface-card border border-border-subtle text-text-muted hover:text-text-primary hover:border-outline-variant rounded font-label-code text-label-code transition-all">Frontend</button>
+<button class="px-4 py-2 bg-surface-card border border-border-subtle text-text-muted hover:text-text-primary hover:border-outline-variant rounded font-label-code text-label-code transition-all">Full-stack</button>
+<button class="px-4 py-2 bg-surface-card border border-border-subtle text-text-muted hover:text-text-primary hover:border-outline-variant rounded font-label-code text-label-code transition-all">Practice</button>
+<button class="px-4 py-2 bg-surface-card border border-border-subtle text-text-muted hover:text-text-primary hover:border-outline-variant rounded font-label-code text-label-code transition-all">Client Work</button>
+</div>
+<!-- Project Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mb-section-gap">
+<!-- Project Card 1 -->
+<article class="project-card group cursor-pointer h-full flex flex-col">
+<div class="project-card-glow bg-surface-card border border-border-subtle rounded-xl overflow-hidden h-full flex flex-col">
+<div class="relative h-64 overflow-hidden bg-surface-container-lowest">
+<img alt="Code editor interface on a dark screen" class="w-full h-full object-cover project-image transition-transform duration-700 ease-out" data-alt="A cinematic, low-light shot of a modern code editor interface displayed on a sleek monitor. The environment embodies the 'Night Park' aesthetic, featuring deep espresso blacks and subtle, warm amber syntax highlighting. The background is mostly obscured by smooth bokeh, simulating distant streetlights in a quiet, focused workspace. The mood is highly technical and atmospheric." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAekK7M2__-IRIEA2CalUla43InmRku6nXbWRl65hym-BbkzrMgvZKHpE6PUFmm8WAHFfgrFT5tlYPsG28xz6baQzxSG1-OKnEK-wucJpD4NKZ47EaxPFJLicp1ONvtX6QBJlS_2CoipYV2d2Wgs1Ph4S42z3okZ-a8Iy1TyeFWp8R4cHKg9DVtg-PQ9ci2viTDIb-1S7G4xxICdO8z-RtglI8THIGkX6HSRJEEbMiRmjpYAKujWRtGSvtYAzqiKPaynbsRAMEWpVk"/>
+<div class="project-image-overlay absolute inset-0 bg-background-main/40 transition-opacity duration-300"></div>
+</div>
+<div class="p-8 flex flex-col flex-grow">
+<h3 class="font-headline-md text-headline-md text-text-primary mb-3 group-hover:text-primary transition-colors">Developer Dashboard</h3>
+<p class="font-body-md text-body-md text-text-muted mb-6 flex-grow">A comprehensive analytics dashboard for tracking API usage, deployment metrics, and server health. Built with a focus on real-time data visualization and a unified dark theme.</p>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="bg-surface-container py-1 px-3 rounded text-secondary-fixed-dim font-label-code text-label-code">React</span>
+<span class="bg-surface-container py-1 px-3 rounded text-secondary-fixed-dim font-label-code text-label-code">TypeScript</span>
+<span class="bg-surface-container py-1 px-3 rounded text-secondary-fixed-dim font-label-code text-label-code">Tailwind CSS</span>
+<span class="bg-surface-container py-1 px-3 rounded text-secondary-fixed-dim font-label-code text-label-code">Chart.js</span>
+</div>
+<div class="flex items-center gap-4 mt-auto">
+<a class="bg-primary-container text-on-primary-container font-label-caps text-label-caps px-5 py-2.5 rounded hover:shadow-[0_0_20px_rgba(245,166,35,0.4)] transition-all duration-300 font-bold" href="#">Live Demo</a>
+<a class="border border-secondary/30 text-secondary hover:border-primary hover:text-primary font-label-caps text-label-caps px-5 py-2.5 rounded transition-colors duration-300" href="#">GitHub</a>
+<a class="ml-auto text-primary font-label-code text-label-code flex items-center gap-1 hover:text-primary-fixed transition-colors" href="#">
+                                Case Study <span class="material-symbols-outlined" style="font-size: 16px;">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</article>
+<!-- Project Card 2 -->
+<article class="project-card group cursor-pointer h-full flex flex-col">
+<div class="project-card-glow bg-surface-card border border-border-subtle rounded-xl overflow-hidden h-full flex flex-col">
+<div class="relative h-64 overflow-hidden bg-surface-container-lowest">
+<img alt="E-commerce mobile app mockups on dark background" class="w-full h-full object-cover project-image transition-transform duration-700 ease-out" data-alt="Sleek mobile application mockups presented against a very dark, espresso-toned background. The scene features multiple floating smartphone frames displaying modern UI designs, illuminated by subtle, warm amber side-lighting. The 'Night Park' visual style is prominent, with deep shadows and high-contrast glowing elements. The overall composition is clean, cinematic, and professional." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAekK7M2__-IRIEA2CalUla43InmRku6nXbWRl65hym-BbkzrMgvZKHpE6PUFmm8WAHFfgrFT5tlYPsG28xz6baQzxSG1-OKnEK-wucJpD4NKZ47EaxPFJLicp1ONvtX6QBJlS_2CoipYV2d2Wgs1Ph4S42z3okZ-a8Iy1TyeFWp8R4cHKg9DVtg-PQ9ci2viTDIb-1S7G4xxICdO8z-RtglI8THIGkX6HSRJEEbMiRmjpYAKujWRtGSvtYAzqiKPaynbsRAMEWpVk"/>
+<div class="project-image-overlay absolute inset-0 bg-background-main/40 transition-opacity duration-300"></div>
+</div>
+<div class="p-8 flex flex-col flex-grow">
+<h3 class="font-headline-md text-headline-md text-text-primary mb-3 group-hover:text-primary transition-colors">Night Market App</h3>
+<p class="font-body-md text-body-md text-text-muted mb-6 flex-grow">A concept e-commerce platform specifically designed for late-night shopping. Features fluid animations, a highly optimized checkout flow, and custom glassmorphic UI components.</p>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="bg-surface-container py-1 px-3 rounded text-secondary-fixed-dim font-label-code text-label-code">Next.js</span>
+<span class="bg-surface-container py-1 px-3 rounded text-secondary-fixed-dim font-label-code text-label-code">Framer Motion</span>
+<span class="bg-surface-container py-1 px-3 rounded text-secondary-fixed-dim font-label-code text-label-code">Stripe API</span>
+</div>
+<div class="flex items-center gap-4 mt-auto">
+<a class="bg-primary-container text-on-primary-container font-label-caps text-label-caps px-5 py-2.5 rounded hover:shadow-[0_0_20px_rgba(245,166,35,0.4)] transition-all duration-300 font-bold" href="#">Live Demo</a>
+<a class="border border-secondary/30 text-secondary hover:border-primary hover:text-primary font-label-caps text-label-caps px-5 py-2.5 rounded transition-colors duration-300" href="#">GitHub</a>
+</div>
+</div>
+</div>
+</article>
+</div>
+<!-- Bottom CTA -->
+<section class="bg-surface-card border border-border-subtle rounded-2xl p-12 text-center max-w-4xl mx-auto relative overflow-hidden">
+<div class="absolute -top-24 -right-24 w-64 h-64 bg-primary-container/5 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute -bottom-24 -left-24 w-64 h-64 bg-primary-container/5 rounded-full blur-3xl pointer-events-none"></div>
+<div class="relative z-10 flex flex-col items-center">
+<span class="material-symbols-outlined text-primary mb-6" style="font-size: 48px; font-variation-settings: 'FILL' 0;">terminal</span>
+<h2 class="font-headline-md text-headline-md text-text-primary mb-4">Have a project idea?</h2>
+<p class="font-body-lg text-body-lg text-text-muted mb-8 max-w-xl mx-auto">Currently open for freelance opportunities and collaborative builds. Let's discuss how we can engineer something solid.</p>
+<a class="bg-primary-container text-on-primary-container font-label-caps text-label-caps px-8 py-4 rounded hover:shadow-[0_0_30px_rgba(245,166,35,0.3)] transition-all duration-300 font-bold text-sm tracking-wider" href="#">CONTACT ME</a>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-background-main w-full py-section-gap border-t border-outline-variant/10">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop gap-gutter max-w-[1440px] mx-auto font-body-md text-body-md">
+<div class="text-primary font-bold">© 2024 Joseph.dev. Built for the Night Park.</div>
+<div class="flex gap-6 font-label-code text-label-code">
+<a class="text-text-muted hover:text-primary transition-colors hover:underline underline-offset-4" href="#">GitHub</a>
+<a class="text-text-muted hover:text-primary transition-colors hover:underline underline-offset-4" href="#">LinkedIn</a>
+<a class="text-text-muted hover:text-primary transition-colors hover:underline underline-offset-4" href="#">Twitter</a>
+<a class="text-text-muted hover:text-primary transition-colors hover:underline underline-offset-4" href="#">Email</a>
+</div>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tech Stack - Joseph.dev</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom scrollbar to match aesthetic */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0D0C0B;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2E2824;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #504535;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "text-primary": "#F9F6F1",
+                        "text-muted": "#A89F94",
+                        "glow-amber": "rgba(245, 166, 35, 0.15)",
+                        "tertiary": "#e0cec7",
+                        "on-background": "#e6e1df",
+                        "primary-fixed": "#ffddb4",
+                        "on-primary-container": "#644000",
+                        "secondary-container": "#504535",
+                        "on-surface-variant": "#d7c3ae",
+                        "inverse-surface": "#e6e1df",
+                        "surface-container-highest": "#363433",
+                        "on-secondary-fixed": "#221a0d",
+                        "inverse-primary": "#835500",
+                        "on-error": "#690005",
+                        "surface-container-high": "#2b2a28",
+                        "surface-container": "#211f1e",
+                        "tertiary-container": "#c4b3ac",
+                        "surface-container-lowest": "#0f0e0d",
+                        "outline-variant": "#524534",
+                        "background-main": "#0D0C0B",
+                        "secondary-fixed-dim": "#d4c4af",
+                        "secondary-fixed": "#f1e0ca",
+                        "on-tertiary-fixed": "#231a15",
+                        "on-primary-fixed-variant": "#633f00",
+                        "error": "#ffb4ab",
+                        "on-surface": "#e6e1df",
+                        "on-secondary-container": "#c2b39f",
+                        "outline": "#9f8e7a",
+                        "on-tertiary": "#392e29",
+                        "on-error-container": "#ffdad6",
+                        "on-secondary": "#392f20",
+                        "secondary": "#d4c4af",
+                        "error-container": "#93000a",
+                        "on-primary-fixed": "#291800",
+                        "background": "#141312",
+                        "tertiary-fixed-dim": "#d4c3bb",
+                        "surface-dim": "#141312",
+                        "surface-tint": "#ffb955",
+                        "primary": "#ffc880",
+                        "inverse-on-surface": "#32302f",
+                        "on-tertiary-container": "#51453f",
+                        "on-secondary-fixed-variant": "#504535",
+                        "surface-bright": "#3b3937",
+                        "on-primary": "#452b00",
+                        "primary-container": "#f5a623",
+                        "surface-card": "#1A1614",
+                        "tertiary-fixed": "#f1dfd7",
+                        "surface-container-low": "#1d1b1a",
+                        "surface": "#141312",
+                        "primary-fixed-dim": "#ffb955",
+                        "surface-variant": "#363433",
+                        "border-subtle": "#2E2824",
+                        "on-tertiary-fixed-variant": "#50443f"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "section-gap": "120px",
+                        "gutter": "24px",
+                        "margin-mobile": "20px",
+                        "unit": "4px",
+                        "margin-desktop": "80px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Hanken Grotesk"],
+                        "display-lg-mobile": ["Hanken Grotesk"],
+                        "body-md": ["Hanken Grotesk"],
+                        "label-code": ["JetBrains Mono"],
+                        "headline-sm": ["Hanken Grotesk"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "label-caps": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["64px", { "lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-code": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                        "headline-sm": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-md": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background-main text-text-primary antialiased min-h-screen flex flex-col relative overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+<!-- Atmospheric Background Layers -->
+<div aria-hidden="true" class="fixed inset-0 pointer-events-none z-0">
+<!-- Subtle gradient overlay -->
+<div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-surface-container-high/20 via-background-main to-background-main opacity-80"></div>
+<!-- Light leak effect top left -->
+<div class="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] rounded-full bg-primary-container/5 blur-[120px]"></div>
+<!-- Light leak effect bottom right -->
+<div class="absolute top-[60%] -right-[10%] w-[40%] h-[60%] rounded-full bg-primary-container/5 blur-[150px]"></div>
+</div>
+<!-- TopNavBar component translated from JSON -->
+<nav class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-border-subtle shadow-[0_10px_30px_-15px_rgba(0,0,0,0.5)] transition-all duration-300 ease-in-out hidden md:block">
+<div class="flex justify-between items-center px-margin-desktop py-4 max-w-full">
+<div class="font-headline-sm text-headline-sm font-bold text-text-primary">
+                Joseph.dev
+            </div>
+<ul class="flex space-x-8">
+<li><a class="text-text-muted hover:text-text-primary transition-colors duration-300 font-body-md text-body-md" href="#">Home</a></li>
+<li><a class="text-text-muted hover:text-text-primary transition-colors duration-300 font-body-md text-body-md" href="#">Projects</a></li>
+<li><a class="text-primary font-bold border-b-2 border-primary pb-1 font-body-md text-body-md" href="#">Tech Stack</a></li>
+<li><a class="text-text-muted hover:text-text-primary transition-colors duration-300 font-body-md text-body-md" href="#">Certificates</a></li>
+<li><a class="text-text-muted hover:text-text-primary transition-colors duration-300 font-body-md text-body-md" href="#">About</a></li>
+<li><a class="text-text-muted hover:text-text-primary transition-colors duration-300 font-body-md text-body-md" href="#">Contact</a></li>
+</ul>
+<button class="bg-primary-container text-on-primary-container px-6 py-2 rounded font-label-code text-label-code hover:bg-glow-amber/10 hover:shadow-[0_0_20px_rgba(245,166,35,0.2)] transition-all duration-300">
+                Resume
+            </button>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-grow z-10 pt-[120px] pb-section-gap px-margin-desktop w-full max-w-[1440px] mx-auto hidden md:block">
+<!-- Hero Section -->
+<section class="mb-section-gap">
+<div class="max-w-3xl">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container border border-border-subtle mb-6">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+<span class="font-label-code text-label-code text-text-muted">Current tools and learning path</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-text-primary mb-6 leading-tight">
+                    Tech Stack
+                </h1>
+<p class="font-body-lg text-body-lg text-text-muted max-w-2xl">
+                    The tools and technologies I’m learning, practicing, and using to build modern web applications. A focus on fundamentals and incremental mastery.
+                </p>
+</div>
+</section>
+<!-- Main Stack Grid (Bento Style) -->
+<section class="mb-section-gap">
+<h2 class="font-headline-md text-headline-md text-text-primary mb-8 border-b border-border-subtle pb-4 inline-block">Core Toolkit</h2>
+<div class="grid grid-cols-12 gap-gutter">
+<!-- Frontend Card -->
+<div class="col-span-12 lg:col-span-7 bg-surface-card border border-border-subtle rounded-xl p-8 hover:border-primary-container/30 hover:shadow-[0_0_30px_rgba(245,166,35,0.05)] transition-all duration-500 group relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary-container/5 rounded-bl-full blur-2xl group-hover:bg-primary-container/10 transition-colors duration-500"></div>
+<div class="flex items-center gap-3 mb-8">
+<span class="material-symbols-outlined text-primary-container text-3xl" data-icon="web">web</span>
+<h3 class="font-headline-sm text-headline-sm text-text-primary">Frontend</h3>
+</div>
+<div class="flex flex-wrap gap-4">
+<div class="flex flex-col gap-1">
+<span class="font-label-code text-label-code text-text-primary bg-surface-container px-3 py-2 rounded">HTML</span>
+<span class="font-label-caps text-label-caps text-text-muted text-[10px] pl-1">Used in projects</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-code text-label-code text-text-primary bg-surface-container px-3 py-2 rounded">CSS</span>
+<span class="font-label-caps text-label-caps text-text-muted text-[10px] pl-1">Used in projects</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-code text-label-code text-text-primary bg-surface-container px-3 py-2 rounded">JavaScript</span>
+<span class="font-label-caps text-label-caps text-text-muted text-[10px] pl-1">Practicing</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-code text-label-code text-text-primary bg-surface-container px-3 py-2 rounded border border-primary-container/20">React</span>
+<span class="font-label-caps text-label-caps text-primary text-[10px] pl-1">Learning</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-code text-label-code text-text-primary bg-surface-container px-3 py-2 rounded border border-primary-container/20">Tailwind CSS</span>
+<span class="font-label-caps text-label-caps text-primary text-[10px] pl-1">Learning</span>
+</div>
+</div>
+</div>
+<!-- Backend Card -->
+<div class="col-span-12 lg:col-span-5 bg-surface-card border border-border-subtle rounded-xl p-8 hover:border-primary-container/30 hover:shadow-[0_0_30px_rgba(245,166,35,0.05)] transition-all duration-500 group relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary-container/5 rounded-bl-full blur-2xl group-hover:bg-primary-container/10 transition-colors duration-500"></div>
+<div class="flex items-center gap-3 mb-8">
+<span class="material-symbols-outlined text-text-muted group-hover:text-primary-container transition-colors duration-300 text-3xl" data-icon="dns">dns</span>
+<h3 class="font-headline-sm text-headline-sm text-text-primary">Backend</h3>
+</div>
+<div class="flex flex-wrap gap-4">
+<div class="flex flex-col gap-1">
+<span class="font-label-code text-label-code text-text-primary bg-surface-container px-3 py-2 rounded border border-primary-container/20">Node.js</span>
+<span class="font-label-caps text-label-caps text-primary text-[10px] pl-1">Learning</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-code text-label-code text-text-primary bg-surface-container px-3 py-2 rounded border border-primary-container/20">Express</span>
+<span class="font-label-caps text-label-caps text-primary text-[10px] pl-1">Learning</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-code text-label-code text-text-primary bg-surface-container px-3 py-2 rounded border border-primary-container/20">REST APIs</span>
+<span class="font-label-caps text-label-caps text-primary text-[10px] pl-1">Learning</span>
+</div>
+</div>
+</div>
+<!-- Database Card -->
+<div class="col-span-12 lg:col-span-5 bg-surface-card border border-border-subtle rounded-xl p-8 hover:border-primary-container/30 hover:shadow-[0_0_30px_rgba(245,166,35,0.05)] transition-all duration-500 group relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary-container/5 rounded-bl-full blur-2xl group-hover:bg-primary-container/10 transition-colors duration-500"></div>
+<div class="flex items-center gap-3 mb-8">
+<span class="material-symbols-outlined text-text-muted group-hover:text-primary-container transition-colors duration-300 text-3xl" data-icon="database">database</span>
+<h3 class="font-headline-sm text-headline-sm text-text-primary">Database</h3>
+</div>
+<div class="flex flex-wrap gap-4">
+<div class="flex flex-col gap-1">
+<span class="font-label-code text-label-code text-text-primary bg-surface-container px-3 py-2 rounded border border-primary-container/20">SQL</span>
+<span class="font-label-caps text-label-caps text-primary text-[10px] pl-1">Learning</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-code text-label-code text-text-primary bg-surface-container px-3 py-2 rounded border border-primary-container/20">PostgreSQL</span>
+<span class="font-label-caps text-label-caps text-primary text-[10px] pl-1">Learning</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-code text-label-code text-text-primary bg-surface-container px-3 py-2 rounded border border-primary-container/20">MongoDB</span>
+<span class="font-label-caps text-label-caps text-primary text-[10px] pl-1">Learning</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-code text-label-code text-text-primary bg-surface-container px-3 py-2 rounded">SQLite</span>
+<span class="font-label-caps text-label-caps text-text-muted text-[10px] pl-1">Practicing</span>
+</div>
+</div>
+</div>
+<!-- Tools Card -->
+<div class="col-span-12 lg:col-span-7 bg-surface-card border border-border-subtle rounded-xl p-8 hover:border-primary-container/30 hover:shadow-[0_0_30px_rgba(245,166,35,0.05)] transition-all duration-500 group relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary-container/5 rounded-bl-full blur-2xl group-hover:bg-primary-container/10 transition-colors duration-500"></div>
+<div class="flex items-center gap-3 mb-8">
+<span class="material-symbols-outlined text-text-muted group-hover:text-primary-container transition-colors duration-300 text-3xl" data-icon="handyman">handyman</span>
+<h3 class="font-headline-sm text-headline-sm text-text-primary">Tools</h3>
+</div>
+<div class="flex flex-wrap gap-4">
+<div class="flex flex-col gap-1">
+<span class="font-label-code text-label-code text-text-primary bg-surface-container px-3 py-2 rounded">Git</span>
+<span class="font-label-caps text-label-caps text-text-muted text-[10px] pl-1">Practicing</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-code text-label-code text-text-primary bg-surface-container px-3 py-2 rounded">GitHub</span>
+<span class="font-label-caps text-label-caps text-text-muted text-[10px] pl-1">Practicing</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-code text-label-code text-text-primary bg-surface-container px-3 py-2 rounded">VS Code</span>
+<span class="font-label-caps text-label-caps text-text-muted text-[10px] pl-1">Daily Driver</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-code text-label-code text-text-primary bg-surface-container px-3 py-2 rounded">Figma</span>
+<span class="font-label-caps text-label-caps text-text-muted text-[10px] pl-1">Used in projects</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-code text-label-code text-text-primary bg-surface-container px-3 py-2 rounded border border-primary-container/20">Stitch AI</span>
+<span class="font-label-caps text-label-caps text-primary text-[10px] pl-1">Exploring</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Currently Learning Section -->
+<section class="mb-section-gap">
+<h2 class="font-headline-md text-headline-md text-text-primary mb-8 border-b border-border-subtle pb-4 inline-block">Active Learning Focus</h2>
+<div class="grid grid-cols-4 gap-6">
+<!-- Learning Card 1 -->
+<div class="col-span-1 bg-surface border border-border-subtle rounded-lg p-6 hover:-translate-y-1 hover:border-primary-container/50 hover:shadow-[0_10px_30px_rgba(245,166,35,0.1)] transition-all duration-300">
+<span class="material-symbols-outlined text-primary-container mb-4 block" data-icon="school">school</span>
+<h4 class="font-body-md font-bold text-text-primary mb-2">React fundamentals</h4>
+<p class="font-body-md text-body-md text-text-muted text-sm">Getting comfortable with components, state management (hooks), and basic routing. Trying to avoid overcomplicating things early on.</p>
+</div>
+<!-- Learning Card 2 -->
+<div class="col-span-1 bg-surface border border-border-subtle rounded-lg p-6 hover:-translate-y-1 hover:border-primary-container/50 hover:shadow-[0_10px_30px_rgba(245,166,35,0.1)] transition-all duration-300">
+<span class="material-symbols-outlined text-primary-container mb-4 block" data-icon="school">school</span>
+<h4 class="font-body-md font-bold text-text-primary mb-2">Backend API structure</h4>
+<p class="font-body-md text-body-md text-text-muted text-sm">Learning how to build clean, RESTful endpoints using Express. Focusing on proper request/response handling and basic middleware.</p>
+</div>
+<!-- Learning Card 3 -->
+<div class="col-span-1 bg-surface border border-border-subtle rounded-lg p-6 hover:-translate-y-1 hover:border-primary-container/50 hover:shadow-[0_10px_30px_rgba(245,166,35,0.1)] transition-all duration-300">
+<span class="material-symbols-outlined text-primary-container mb-4 block" data-icon="school">school</span>
+<h4 class="font-body-md font-bold text-text-primary mb-2">PostgreSQL basics</h4>
+<p class="font-body-md text-body-md text-text-muted text-sm">Moving beyond basic queries to understand relational design, foreign keys, and how to connect databases to Node applications securely.</p>
+</div>
+<!-- Learning Card 4 -->
+<div class="col-span-1 bg-surface border border-border-subtle rounded-lg p-6 hover:-translate-y-1 hover:border-primary-container/50 hover:shadow-[0_10px_30px_rgba(245,166,35,0.1)] transition-all duration-300">
+<span class="material-symbols-outlined text-primary-container mb-4 block" data-icon="school">school</span>
+<h4 class="font-body-md font-bold text-text-primary mb-2">Full-stack project flow</h4>
+<p class="font-body-md text-body-md text-text-muted text-sm">Connecting the dots. Practicing the mental model of how data flows from the database, through the API, and into the React frontend.</p>
+</div>
+</div>
+</section>
+<!-- Workflow Section -->
+<section class="mb-section-gap">
+<h2 class="font-headline-md text-headline-md text-text-primary mb-8 border-b border-border-subtle pb-4 inline-block">How I Use These Tools</h2>
+<div class="bg-surface-card border border-border-subtle rounded-xl p-10 relative">
+<!-- Connecting line for desktop -->
+<div class="absolute top-1/2 left-12 right-12 h-px bg-border-subtle -translate-y-1/2 hidden lg:block z-0"></div>
+<div class="flex justify-between relative z-10">
+<!-- Step 1 -->
+<div class="flex flex-col items-center group w-1/5">
+<div class="w-12 h-12 rounded-full bg-surface-container border-2 border-border-subtle flex items-center justify-center mb-4 group-hover:border-primary-container group-hover:shadow-[0_0_15px_rgba(245,166,35,0.3)] transition-all duration-300 bg-surface-card">
+<span class="font-label-code text-text-muted group-hover:text-primary-container transition-colors">01</span>
+</div>
+<h4 class="font-label-code text-label-code text-text-primary mb-2 text-center">Plan</h4>
+<p class="font-body-md text-text-muted text-xs text-center px-2">Figma &amp; Notes. Mapping out UI structure and basic data needs before coding.</p>
+</div>
+<!-- Step 2 -->
+<div class="flex flex-col items-center group w-1/5">
+<div class="w-12 h-12 rounded-full bg-surface-container border-2 border-border-subtle flex items-center justify-center mb-4 group-hover:border-primary-container group-hover:shadow-[0_0_15px_rgba(245,166,35,0.3)] transition-all duration-300 bg-surface-card">
+<span class="font-label-code text-text-muted group-hover:text-primary-container transition-colors">02</span>
+</div>
+<h4 class="font-label-code text-label-code text-text-primary mb-2 text-center">Build Frontend</h4>
+<p class="font-body-md text-text-muted text-xs text-center px-2">HTML/CSS/React. Creating the static interface and styling with Tailwind.</p>
+</div>
+<!-- Step 3 -->
+<div class="flex flex-col items-center group w-1/5">
+<div class="w-12 h-12 rounded-full bg-surface-container border-2 border-border-subtle flex items-center justify-center mb-4 group-hover:border-primary-container group-hover:shadow-[0_0_15px_rgba(245,166,35,0.3)] transition-all duration-300 bg-surface-card">
+<span class="font-label-code text-text-muted group-hover:text-primary-container transition-colors">03</span>
+</div>
+<h4 class="font-label-code text-label-code text-text-primary mb-2 text-center">Manage Data</h4>
+<p class="font-body-md text-text-muted text-xs text-center px-2">PostgreSQL/SQL. Setting up tables and relationships for the application data.</p>
+</div>
+<!-- Step 4 -->
+<div class="flex flex-col items-center group w-1/5">
+<div class="w-12 h-12 rounded-full bg-surface-container border-2 border-border-subtle flex items-center justify-center mb-4 group-hover:border-primary-container group-hover:shadow-[0_0_15px_rgba(245,166,35,0.3)] transition-all duration-300 bg-surface-card">
+<span class="font-label-code text-text-muted group-hover:text-primary-container transition-colors">04</span>
+</div>
+<h4 class="font-label-code text-label-code text-text-primary mb-2 text-center">Connect APIs</h4>
+<p class="font-body-md text-text-muted text-xs text-center px-2">Node/Express. Writing endpoints to bridge the database and the frontend UI.</p>
+</div>
+<!-- Step 5 -->
+<div class="flex flex-col items-center group w-1/5">
+<div class="w-12 h-12 rounded-full bg-surface-container border-2 border-border-subtle flex items-center justify-center mb-4 group-hover:border-primary-container group-hover:shadow-[0_0_15px_rgba(245,166,35,0.3)] transition-all duration-300 bg-surface-card">
+<span class="font-label-code text-text-muted group-hover:text-primary-container transition-colors">05</span>
+</div>
+<h4 class="font-label-code text-label-code text-text-primary mb-2 text-center">Test</h4>
+<p class="font-body-md text-text-muted text-xs text-center px-2">Browser &amp; VS Code. Iteratively checking functionality and refining the UI.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Related Projects Section -->
+<section class="mb-section-gap">
+<h2 class="font-headline-md text-headline-md text-text-primary mb-8 border-b border-border-subtle pb-4 inline-block">Applied In Practice</h2>
+<div class="flex gap-6">
+<!-- Project Mini Card 1 -->
+<a class="flex-1 bg-surface border border-border-subtle rounded-lg p-5 flex items-center justify-between group hover:border-primary-container/50 hover:bg-surface-card transition-all duration-300" href="#">
+<div>
+<h4 class="font-label-code text-label-code text-text-primary group-hover:text-primary transition-colors">Padayon App</h4>
+<p class="font-body-md text-text-muted text-xs mt-1">Full-stack learning project</p>
+</div>
+<span class="material-symbols-outlined text-border-subtle group-hover:text-primary-container transition-colors" data-icon="arrow_forward">arrow_forward</span>
+</a>
+<!-- Project Mini Card 2 -->
+<a class="flex-1 bg-surface border border-border-subtle rounded-lg p-5 flex items-center justify-between group hover:border-primary-container/50 hover:bg-surface-card transition-all duration-300" href="#">
+<div>
+<h4 class="font-label-code text-label-code text-text-primary group-hover:text-primary transition-colors">Personal Portfolio</h4>
+<p class="font-body-md text-text-muted text-xs mt-1">Frontend focused execution</p>
+</div>
+<span class="material-symbols-outlined text-border-subtle group-hover:text-primary-container transition-colors" data-icon="arrow_forward">arrow_forward</span>
+</a>
+<!-- Project Mini Card 3 -->
+<a class="flex-1 bg-surface border border-border-subtle rounded-lg p-5 flex items-center justify-between group hover:border-primary-container/50 hover:bg-surface-card transition-all duration-300" href="#">
+<div>
+<h4 class="font-label-code text-label-code text-text-primary group-hover:text-primary transition-colors">Business Landing Page</h4>
+<p class="font-body-md text-text-muted text-xs mt-1">HTML/CSS structural practice</p>
+</div>
+<span class="material-symbols-outlined text-border-subtle group-hover:text-primary-container transition-colors" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="text-center py-16 border-t border-border-subtle mt-12">
+<h3 class="font-headline-sm text-headline-sm text-text-primary mb-6">Want to see these tools in action?</h3>
+<a class="inline-flex items-center gap-2 bg-primary-container text-on-primary-container px-8 py-4 rounded-lg font-label-code text-label-code hover:bg-glow-amber/20 hover:shadow-[0_0_25px_rgba(245,166,35,0.3)] transition-all duration-300" href="#">
+                View Projects
+                <span class="material-symbols-outlined text-sm" data-icon="arrow_right_alt">arrow_right_alt</span>
+</a>
+</section>
+</main>
+<!-- Footer component translated from JSON -->
+<footer class="w-full py-12 bg-surface-container-lowest border-t border-border-subtle hidden md:block mt-auto z-10 relative">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop gap-gutter max-w-[1440px] mx-auto">
+<div class="font-headline-sm text-headline-sm text-text-primary">
+                Joseph.dev
+            </div>
+<div class="text-text-muted font-label-code text-label-code">
+                © 2024 Joseph.dev. Built with focus.
+            </div>
+<ul class="flex space-x-6">
+<li><a class="text-text-muted hover:text-primary transition-colors duration-200 opacity-80 hover:opacity-100 font-label-code text-label-code" href="#">GitHub</a></li>
+<li><a class="text-text-muted hover:text-primary transition-colors duration-200 opacity-80 hover:opacity-100 font-label-code text-label-code" href="#">LinkedIn</a></li>
+<li><a class="text-text-muted hover:text-primary transition-colors duration-200 opacity-80 hover:opacity-100 font-label-code text-label-code" href="#">Twitter</a></li>
+</ul>
+</div>
+</footer>
+</body></html>

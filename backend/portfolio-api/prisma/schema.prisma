@@ -1,0 +1,170 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Profile {
+  id           String       @id @default(cuid())
+  name         String
+  slug         String       @unique
+  title        String
+  headline     String
+  shortBio     String
+  longBio      String?
+  location     String?
+  availability String?
+  email        String?
+  avatarUrl    String?
+  resumeUrl    String?
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+  socialLinks  SocialLink[]
+
+  @@map("profiles")
+}
+
+model SocialLink {
+  id        String   @id @default(cuid())
+  profileId String
+  platform  String
+  label     String
+  url       String
+  sortOrder Int      @default(0)
+  isVisible Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  profile   Profile  @relation(fields: [profileId], references: [id], onDelete: Cascade)
+
+  @@unique([profileId, platform])
+  @@index([profileId])
+  @@index([isVisible])
+  @@map("social_links")
+}
+
+model Project {
+  id           String             @id @default(cuid())
+  title        String
+  slug         String             @unique
+  summary      String
+  description  String?
+  category     String
+  status       String             @default("in_progress")
+  isFeatured   Boolean            @default(false)
+  thumbnailUrl String?
+  liveUrl      String?
+  githubUrl    String?
+  caseStudyUrl String?
+  startedAt    DateTime?
+  completedAt  DateTime?
+  sortOrder    Int                @default(0)
+  isPublished  Boolean            @default(false)
+  createdAt    DateTime           @default(now())
+  updatedAt    DateTime           @updatedAt
+  images       ProjectImage[]
+  techStack    ProjectTechStack[]
+
+  @@index([category])
+  @@index([isFeatured])
+  @@index([isPublished])
+  @@index([sortOrder])
+  @@map("projects")
+}
+
+model ProjectImage {
+  id        String   @id @default(cuid())
+  projectId String
+  url       String
+  alt       String
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  project   Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@index([projectId])
+  @@map("project_images")
+}
+
+model TechStackItem {
+  id        String             @id @default(cuid())
+  name      String             @unique
+  category  String
+  level     String
+  summary   String?
+  sortOrder Int                @default(0)
+  isVisible Boolean            @default(true)
+  createdAt DateTime           @default(now())
+  updatedAt DateTime           @updatedAt
+  projects  ProjectTechStack[]
+
+  @@index([category])
+  @@index([isVisible])
+  @@index([sortOrder])
+  @@map("tech_stack_items")
+}
+
+model ProjectTechStack {
+  projectId       String
+  techStackItemId String
+  sortOrder       Int           @default(0)
+  createdAt       DateTime      @default(now())
+  project         Project       @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  techStackItem   TechStackItem @relation(fields: [techStackItemId], references: [id], onDelete: Cascade)
+
+  @@id([projectId, techStackItemId])
+  @@index([techStackItemId])
+  @@map("project_tech_stack")
+}
+
+model Certificate {
+  id            String    @id @default(cuid())
+  title         String
+  provider      String
+  category      String
+  issuedAt      DateTime?
+  credentialUrl String?
+  imageUrl      String?
+  summary       String?
+  sortOrder     Int       @default(0)
+  isVisible     Boolean   @default(true)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  @@unique([title, provider])
+  @@index([category])
+  @@index([isVisible])
+  @@index([issuedAt])
+  @@map("certificates")
+}
+
+model ResumeFile {
+  id          String   @id @default(cuid())
+  label       String
+  fileName    String
+  downloadUrl String
+  version     String?
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@unique([fileName, version])
+  @@index([isActive])
+  @@map("resume_files")
+}
+
+model ContactMessage {
+  id          String   @id @default(cuid())
+  name        String
+  email       String
+  projectType String
+  message     String
+  status      String   @default("new")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([status])
+  @@index([createdAt])
+  @@map("contact_messages")
+}

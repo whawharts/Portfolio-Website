@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Joseph.dev | Contact</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .symbol-filled {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<!-- Tailwind Config & Script -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary": "#e0cec7",
+                      "secondary-fixed-dim": "#d4c4af",
+                      "on-tertiary-fixed-variant": "#50443f",
+                      "surface-dim": "#141312",
+                      "surface-container-highest": "#363433",
+                      "primary": "#ffc880",
+                      "surface-container-lowest": "#0f0e0d",
+                      "error-container": "#93000a",
+                      "on-primary-fixed-variant": "#633f00",
+                      "tertiary-fixed-dim": "#d4c3bb",
+                      "surface-card": "#1A1614",
+                      "on-tertiary": "#392e29",
+                      "surface-variant": "#363433",
+                      "on-primary": "#452b00",
+                      "inverse-surface": "#e6e1df",
+                      "on-tertiary-fixed": "#231a15",
+                      "surface-container": "#211f1e",
+                      "secondary": "#d4c4af",
+                      "surface-bright": "#3b3937",
+                      "secondary-fixed": "#f1e0ca",
+                      "outline": "#9f8e7a",
+                      "on-tertiary-container": "#51453f",
+                      "primary-fixed": "#ffddb4",
+                      "background-main": "#0D0C0B",
+                      "text-primary": "#F9F6F1",
+                      "tertiary-container": "#c4b3ac",
+                      "surface": "#141312",
+                      "primary-container": "#f5a623",
+                      "on-secondary-fixed-variant": "#504535",
+                      "on-secondary": "#392f20",
+                      "on-error-container": "#ffdad6",
+                      "on-primary-container": "#644000",
+                      "background": "#141312",
+                      "surface-container-low": "#1d1b1a",
+                      "on-background": "#e6e1df",
+                      "inverse-primary": "#835500",
+                      "inverse-on-surface": "#32302f",
+                      "tertiary-fixed": "#f1dfd7",
+                      "surface-tint": "#ffb955",
+                      "secondary-container": "#504535",
+                      "on-error": "#690005",
+                      "on-secondary-fixed": "#221a0d",
+                      "surface-container-high": "#2b2a28",
+                      "glow-amber": "rgba(245, 166, 35, 0.15)",
+                      "error": "#ffb4ab",
+                      "on-primary-fixed": "#291800",
+                      "on-secondary-container": "#c2b39f",
+                      "outline-variant": "#524534",
+                      "primary-fixed-dim": "#ffb955",
+                      "on-surface-variant": "#d7c3ae",
+                      "on-surface": "#e6e1df",
+                      "text-muted": "#A89F94",
+                      "border-subtle": "#2E2824"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "unit": "4px",
+                      "section-gap": "120px",
+                      "gutter": "24px",
+                      "margin-desktop": "80px",
+                      "margin-mobile": "20px"
+              },
+              "fontFamily": {
+                      "body-lg": ["Hanken Grotesk"],
+                      "body-md": ["Hanken Grotesk"],
+                      "display-lg": ["Hanken Grotesk"],
+                      "headline-sm": ["Hanken Grotesk"],
+                      "headline-md": ["Hanken Grotesk"],
+                      "display-lg-mobile": ["Hanken Grotesk"],
+                      "label-caps": ["JetBrains Mono"],
+                      "label-code": ["JetBrains Mono"]
+              },
+              "fontSize": {
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                      "display-lg-mobile": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                      "label-code": ["14px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "500"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        /* Custom scrollbar for deep espresso theme */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0D0C0B; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2E2824; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #f5a623; 
+        }
+        
+        /* Night Park glow effects */
+        .ambient-glow {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(245, 166, 35, 0.05) 0%, rgba(13, 12, 11, 0) 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        /* Focus styles for inputs */
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-bottom-color: #f5a623 !important;
+            box-shadow: 0 4px 15px -3px rgba(245, 166, 35, 0.15) !important;
+        }
+        
+        /* Glassmorphism nav base */
+        .nav-glass {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-background-main text-text-primary antialiased min-h-screen flex flex-col relative overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+<!-- Ambient background glow (Night Park cinematic effect) -->
+<div class="ambient-glow top-0 right-0 translate-x-1/3 -translate-y-1/3"></div>
+<div class="ambient-glow bottom-0 left-0 -translate-x-1/3 translate-y-1/3"></div>
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-border-subtle shadow-glow-amber">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 max-w-[1440px] mx-auto">
+<a class="font-headline-sm text-headline-sm font-bold text-text-primary flex items-center gap-2 group" href="/">
+<span class="material-symbols-outlined text-primary group-hover:rotate-12 transition-transform">terminal</span>
+                Joseph.dev
+            </a>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-text-muted hover:text-secondary transition-colors font-body-md text-body-md hover:text-primary transition-all duration-300" href="/">Home</a>
+<a class="text-text-muted hover:text-secondary transition-colors font-body-md text-body-md hover:text-primary transition-all duration-300" href="/projects">Projects</a>
+<a class="text-text-muted hover:text-secondary transition-colors font-body-md text-body-md hover:text-primary transition-all duration-300" href="/tech-stack">Tech Stack</a>
+<a class="text-text-muted hover:text-secondary transition-colors font-body-md text-body-md hover:text-primary transition-all duration-300" href="/certificates">Certificates</a>
+<a class="text-text-muted hover:text-secondary transition-colors font-body-md text-body-md hover:text-primary transition-all duration-300" href="/about">About</a>
+<a aria-current="page" class="text-primary font-bold border-b-2 border-primary pb-1 font-body-md text-body-md hover:text-primary transition-all duration-300 Active: scale-95 transition-transform" href="/contact">Contact</a>
+</nav>
+<a class="hidden md:flex items-center gap-2 bg-primary-container text-on-primary-container px-6 py-2.5 rounded-lg font-label-code text-label-code hover:shadow-[0_0_20px_rgba(245,166,35,0.3)] transition-all duration-300" href="/resume.pdf" target="_blank">
+<span class="material-symbols-outlined text-[18px]">download</span>
+                Resume
+            </a>
+<!-- Mobile Menu Button (simplified for aesthetic structural adherence) -->
+<button class="md:hidden text-text-primary hover:text-primary transition-colors">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-[120px] pb-section-gap px-margin-mobile md:px-margin-desktop max-w-[1440px] mx-auto w-full relative z-10 flex flex-col gap-section-gap">
+<!-- Hero Section -->
+<section class="flex flex-col gap-6 max-w-3xl">
+<div class="inline-flex items-center gap-2 bg-surface-card border border-border-subtle px-3 py-1.5 rounded-full w-max">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-caps text-label-caps text-text-muted uppercase">Contact</span>
+</div>
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-text-primary">
+                Let’s build something <span class="text-primary italic">thoughtful.</span>
+</h1>
+<p class="font-body-lg text-body-lg text-text-muted max-w-2xl">
+                Have a website idea, portfolio project, landing page, or collaboration in mind? Send a message and I’ll get back to you.
+            </p>
+</section>
+<!-- Two-column Layout: Form & Info -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-gutter lg:gap-16">
+<!-- Left: Contact Form -->
+<div class="lg:col-span-7 bg-surface-card border border-border-subtle rounded-xl p-6 md:p-8 relative group transition-all duration-500 hover:border-outline-variant hover:shadow-[0_0_30px_rgba(245,166,35,0.05)]">
+<form class="flex flex-col gap-8">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="flex flex-col gap-2 relative">
+<label class="font-label-code text-label-code text-tertiary transition-colors peer-focus:text-primary" for="name">Name</label>
+<input class="peer bg-transparent border-0 border-b border-border-subtle p-0 py-2 text-text-primary font-body-md text-body-md focus:ring-0 focus:border-primary transition-all bg-surface-dim/30 rounded-t-md px-3" id="name" name="name" required="" type="text"/>
+</div>
+<div class="flex flex-col gap-2 relative">
+<label class="font-label-code text-label-code text-tertiary transition-colors peer-focus:text-primary" for="email">Email</label>
+<input class="peer bg-transparent border-0 border-b border-border-subtle p-0 py-2 text-text-primary font-body-md text-body-md focus:ring-0 focus:border-primary transition-all bg-surface-dim/30 rounded-t-md px-3" id="email" name="email" required="" type="email"/>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-code text-label-code text-tertiary transition-colors peer-focus:text-primary" for="project-type">Project Type</label>
+<select class="peer bg-surface-dim/30 border-0 border-b border-border-subtle p-0 py-2 text-text-primary font-body-md text-body-md focus:ring-0 focus:border-primary transition-all rounded-t-md px-3 appearance-none" id="project-type" name="project-type">
+<option class="bg-surface-card text-text-primary" value="portfolio">Portfolio Website</option>
+<option class="bg-surface-card text-text-primary" value="landing">Business Landing Page</option>
+<option class="bg-surface-card text-text-primary" value="webapp">Web App</option>
+<option class="bg-surface-card text-text-primary" value="redesign">Website Redesign</option>
+<option class="bg-surface-card text-text-primary" value="collab">Collaboration</option>
+<option class="bg-surface-card text-text-primary" value="other">Other</option>
+</select>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-code text-label-code text-tertiary transition-colors peer-focus:text-primary" for="message">Message</label>
+<textarea class="peer bg-surface-dim/30 border-0 border-b border-border-subtle p-0 py-2 text-text-primary font-body-md text-body-md focus:ring-0 focus:border-primary transition-all rounded-t-md px-3 resize-none" id="message" name="message" required="" rows="5"></textarea>
+</div>
+<div class="pt-4">
+<button class="w-full md:w-auto inline-flex items-center justify-center gap-2 bg-primary-container text-on-primary-container px-8 py-3 rounded-lg font-label-code text-label-code hover:shadow-[0_0_20px_rgba(245,166,35,0.3)] transition-all duration-300" type="submit">
+                            Send Message
+                            <span class="material-symbols-outlined text-[18px]">send</span>
+</button>
+</div>
+</form>
+</div>
+<!-- Right: Info Stack -->
+<div class="lg:col-span-5 flex flex-col gap-8">
+<div class="bg-surface-card border border-border-subtle rounded-xl p-6 flex flex-col gap-4 hover:border-border-subtle transition-colors">
+<div class="w-10 h-10 rounded-full bg-surface-dim flex items-center justify-center border border-border-subtle">
+<span class="material-symbols-outlined text-text-muted">mail</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-text-primary mb-1">joseph@example.com</h3>
+<a class="font-label-code text-label-code text-primary hover:text-primary-fixed transition-colors inline-flex items-center gap-1" href="mailto:joseph@example.com">
+                            Send Email <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<div class="flex flex-col gap-4 px-2">
+<h4 class="font-label-caps text-label-caps text-text-muted uppercase tracking-widest">Availability</h4>
+<p class="font-body-md text-body-md text-text-primary border-l-2 border-primary/30 pl-4 py-1">
+                        Open for portfolio websites, landing pages, and practice-based web projects.
+                    </p>
+</div>
+<div class="flex flex-col gap-4 px-2">
+<h4 class="font-label-caps text-label-caps text-text-muted uppercase tracking-widest">Social</h4>
+<div class="flex gap-4">
+<a class="w-12 h-12 rounded-lg bg-surface-card border border-border-subtle flex items-center justify-center text-text-muted hover:text-primary hover:border-primary/50 hover:shadow-[0_0_15px_rgba(245,166,35,0.1)] transition-all duration-300" href="#">
+<span class="font-label-code text-label-code">GH</span>
+</a>
+<a class="w-12 h-12 rounded-lg bg-surface-card border border-border-subtle flex items-center justify-center text-text-muted hover:text-primary hover:border-primary/50 hover:shadow-[0_0_15px_rgba(245,166,35,0.1)] transition-all duration-300" href="#">
+<span class="font-label-code text-label-code">IN</span>
+</a>
+<a class="w-12 h-12 rounded-lg bg-surface-card border border-border-subtle flex items-center justify-center text-text-muted hover:text-primary hover:border-primary/50 hover:shadow-[0_0_15px_rgba(245,166,35,0.1)] transition-all duration-300" href="#">
+<span class="font-label-code text-label-code">FB</span>
+</a>
+</div>
+</div>
+<div class="mt-auto px-2 pt-8">
+<p class="font-body-md text-body-md text-text-muted italic opacity-80">
+<span class="material-symbols-outlined text-[16px] inline-block align-text-bottom mr-1">info</span>
+                        I usually reply when available and prefer clear project details.
+                    </p>
+</div>
+</div>
+</section>
+<!-- What I Can Help With -->
+<section class="flex flex-col gap-12 pt-12 border-t border-border-subtle/50 relative">
+<h2 class="font-headline-md text-headline-md text-text-primary">What I Can Help With</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Card 1 -->
+<div class="bg-surface-card border border-border-subtle rounded-xl p-6 flex flex-col gap-4 group hover:-translate-y-1 transition-all duration-300 hover:shadow-[0_0_25px_rgba(245,166,35,0.08)] hover:border-outline-variant">
+<div class="w-10 h-10 rounded-lg bg-surface-dim border border-border-subtle flex items-center justify-center group-hover:border-primary/30 group-hover:text-primary transition-colors">
+<span class="font-label-code text-label-code text-text-muted group-hover:text-primary transition-colors">&lt;/&gt;</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-text-primary mb-2 text-[20px]">Portfolio websites</h3>
+<p class="font-body-md text-body-md text-text-muted">Personal sites to showcase your work, skills, and resume clearly.</p>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-card border border-border-subtle rounded-xl p-6 flex flex-col gap-4 group hover:-translate-y-1 transition-all duration-300 hover:shadow-[0_0_25px_rgba(245,166,35,0.08)] hover:border-outline-variant">
+<div class="w-10 h-10 rounded-lg bg-surface-dim border border-border-subtle flex items-center justify-center group-hover:border-primary/30 group-hover:text-primary transition-colors">
+<span class="font-label-code text-label-code text-text-muted group-hover:text-primary transition-colors">[]</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-text-primary mb-2 text-[20px]">Business landing pages</h3>
+<p class="font-body-md text-body-md text-text-muted">Clean, focused single pages to capture leads or explain a service.</p>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-card border border-border-subtle rounded-xl p-6 flex flex-col gap-4 group hover:-translate-y-1 transition-all duration-300 hover:shadow-[0_0_25px_rgba(245,166,35,0.08)] hover:border-outline-variant">
+<div class="w-10 h-10 rounded-lg bg-surface-dim border border-border-subtle flex items-center justify-center group-hover:border-primary/30 group-hover:text-primary transition-colors">
+<span class="font-label-code text-label-code text-text-muted group-hover:text-primary transition-colors">{}</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-text-primary mb-2 text-[20px]">Simple web apps</h3>
+<p class="font-body-md text-body-md text-text-muted">Interactive frontend tools or dashboards for specific utilities.</p>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface-card border border-border-subtle rounded-xl p-6 flex flex-col gap-4 group hover:-translate-y-1 transition-all duration-300 hover:shadow-[0_0_25px_rgba(245,166,35,0.08)] hover:border-outline-variant">
+<div class="w-10 h-10 rounded-lg bg-surface-dim border border-border-subtle flex items-center justify-center group-hover:border-primary/30 group-hover:text-primary transition-colors">
+<span class="font-label-code text-label-code text-text-muted group-hover:text-primary transition-colors">~~</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-text-primary mb-2 text-[20px]">Website redesigns</h3>
+<p class="font-body-md text-body-md text-text-muted">Taking an older design and giving it a modern, clean update.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Bottom CTA -->
+<section class="bg-surface-card border border-border-subtle rounded-2xl p-8 md:p-16 flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden">
+<!-- decorative background glow for CTA -->
+<div class="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent pointer-events-none"></div>
+<div class="flex flex-col gap-4 max-w-xl relative z-10">
+<h2 class="font-headline-md text-headline-md text-text-primary">Not sure where to start?</h2>
+<p class="font-body-lg text-body-lg text-text-muted">Tell me what you want to build, and we can start with a simple plan.</p>
+</div>
+<div class="relative z-10 shrink-0">
+<a class="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-lg border border-tertiary text-tertiary font-label-code text-label-code hover:border-primary hover:text-primary hover:bg-primary/5 transition-all duration-300" href="/projects">
+                    View Projects
+                    <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 bg-background-main border-t border-border-subtle flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-margin-desktop gap-gutter max-w-[1440px] mx-auto z-10 relative">
+<div class="text-primary font-bold font-label-code text-label-code transition-opacity hover:opacity-80">
+            © 2024 Joseph.dev. Built for the night.
+        </div>
+<div class="flex gap-6">
+<a class="font-label-code text-label-code text-text-muted hover:text-secondary transition-colors transition-opacity hover:opacity-80" href="#">GitHub</a>
+<a class="font-label-code text-label-code text-text-muted hover:text-secondary transition-colors transition-opacity hover:opacity-80" href="#">LinkedIn</a>
+<a class="font-label-code text-label-code text-text-muted hover:text-secondary transition-colors transition-opacity hover:opacity-80" href="#">Twitter</a>
+</div>
+</footer>
+</body></html>

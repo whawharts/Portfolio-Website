@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>About - Joseph.dev</title>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "on-primary-fixed-variant": "#633f00",
+                "surface": "#141312",
+                "secondary": "#d4c4af",
+                "on-primary": "#452b00",
+                "surface-container-high": "#2b2a28",
+                "on-error-container": "#ffdad6",
+                "inverse-on-surface": "#32302f",
+                "outline": "#9f8e7a",
+                "on-primary-container": "#644000",
+                "on-secondary-fixed": "#221a0d",
+                "tertiary-fixed-dim": "#d4c3bb",
+                "inverse-surface": "#e6e1df",
+                "on-tertiary-fixed": "#231a15",
+                "on-tertiary-fixed-variant": "#50443f",
+                "primary-fixed-dim": "#ffb955",
+                "on-surface-variant": "#d7c3ae",
+                "primary": "#ffc880",
+                "secondary-fixed": "#f1e0ca",
+                "primary-container": "#f5a623",
+                "tertiary": "#e0cec7",
+                "error-container": "#93000a",
+                "tertiary-container": "#c4b3ac",
+                "surface-container-lowest": "#0f0e0d",
+                "on-tertiary-container": "#51453f",
+                "on-secondary-fixed-variant": "#504535",
+                "on-secondary": "#392f20",
+                "surface-card": "#1A1614",
+                "secondary-container": "#504535",
+                "on-error": "#690005",
+                "on-tertiary": "#392e29",
+                "on-secondary-container": "#c2b39f",
+                "on-surface": "#e6e1df",
+                "surface-container-highest": "#363433",
+                "on-background": "#e6e1df",
+                "glow-amber": "rgba(245, 166, 35, 0.15)",
+                "primary-fixed": "#ffddb4",
+                "surface-tint": "#ffb955",
+                "outline-variant": "#524534",
+                "tertiary-fixed": "#f1dfd7",
+                "surface-dim": "#141312",
+                "surface-bright": "#3b3937",
+                "inverse-primary": "#835500",
+                "surface-variant": "#363433",
+                "text-primary": "#F9F6F1",
+                "text-muted": "#A89F94",
+                "secondary-fixed-dim": "#d4c4af",
+                "background-main": "#0D0C0B",
+                "border-subtle": "#2E2824",
+                "surface-container-low": "#1d1b1a",
+                "on-primary-fixed": "#291800",
+                "error": "#ffb4ab",
+                "background": "#141312",
+                "surface-container": "#211f1e"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+        },
+        "spacing": {
+                "section-gap": "120px",
+                "margin-mobile": "20px",
+                "margin-desktop": "80px",
+                "unit": "4px",
+                "gutter": "24px"
+        },
+        "fontFamily": {
+                "body-lg": [
+                        "Hanken Grotesk"
+                ],
+                "label-code": [
+                        "JetBrains Mono"
+                ],
+                "display-lg": [
+                        "Hanken Grotesk"
+                ],
+                "label-caps": [
+                        "JetBrains Mono"
+                ],
+                "headline-md": [
+                        "Hanken Grotesk"
+                ],
+                "display-lg-mobile": [
+                        "Hanken Grotesk"
+                ],
+                "headline-sm": [
+                        "Hanken Grotesk"
+                ],
+                "body-md": [
+                        "Hanken Grotesk"
+                ]
+        },
+        "fontSize": {
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "28px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "label-code": [
+                        "14px",
+                        {
+                                "lineHeight": "20px",
+                                "letterSpacing": "0.02em",
+                                "fontWeight": "500"
+                        }
+                ],
+                "display-lg": [
+                        "64px",
+                        {
+                                "lineHeight": "72px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "label-caps": [
+                        "12px",
+                        {
+                                "lineHeight": "16px",
+                                "letterSpacing": "0.1em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "headline-md": [
+                        "32px",
+                        {
+                                "lineHeight": "40px",
+                                "fontWeight": "600"
+                        }
+                ],
+                "display-lg-mobile": [
+                        "40px",
+                        {
+                                "lineHeight": "48px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "headline-sm": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "fontWeight": "600"
+                        }
+                ],
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "24px",
+                                "fontWeight": "400"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+        body {
+            background-image: radial-gradient(circle at 15% 50%, rgba(245, 166, 35, 0.03), transparent 25%),
+                              radial-gradient(circle at 85% 30%, rgba(245, 166, 35, 0.02), transparent 25%);
+            background-attachment: fixed;
+        }
+        .streetlight-glow {
+            box-shadow: 0 0 30px theme('colors.glow-amber');
+        }
+        .streetlight-glow-hover:hover {
+            box-shadow: 0 0 40px theme('colors.glow-amber');
+        }
+    </style>
+</head>
+<body class="bg-background-main text-text-primary font-body-md antialiased min-h-screen flex flex-col selection:bg-primary-container selection:text-on-primary-container relative">
+<!-- Ambient Bokeh Elements -->
+<div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+<div class="absolute top-[20%] left-[10%] w-[400px] h-[400px] bg-primary/5 rounded-full blur-[100px]"></div>
+<div class="absolute bottom-[30%] right-[15%] w-[300px] h-[300px] bg-primary/5 rounded-full blur-[80px]"></div>
+</div>
+<!-- TopNavBar (Shared Component) -->
+<nav class="bg-surface-card/90 backdrop-blur-xl font-body-md text-body-md fixed top-0 w-full border-b border-border-subtle shadow-glow-amber z-50 transition-all duration-300">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 max-w-[1440px] mx-auto">
+<a class="font-headline-sm text-headline-sm font-bold text-text-primary hover:text-primary transition-all duration-300" href="#">Joseph.dev</a>
+<!-- Desktop Navigation -->
+<ul class="hidden md:flex gap-8 items-center">
+<li><a class="text-text-muted hover:text-primary transition-colors duration-300" href="#">Home</a></li>
+<li><a class="text-text-muted hover:text-primary transition-colors duration-300" href="#">Projects</a></li>
+<li><a class="text-text-muted hover:text-primary transition-colors duration-300" href="#">Tech Stack</a></li>
+<li><a class="text-text-muted hover:text-primary transition-colors duration-300" href="#">Certificates</a></li>
+<li><a class="text-primary font-bold border-b-2 border-primary pb-1 active:scale-95 hover:text-primary transition-all duration-300" href="#">About</a></li>
+<li><a class="text-text-muted hover:text-primary transition-colors duration-300" href="#">Contact</a></li>
+</ul>
+<button class="hidden md:block bg-primary-container text-on-primary-container font-label-code text-label-code px-6 py-2 rounded-full hover:bg-primary transition-colors streetlight-glow-hover active:scale-95 duration-300">
+                Resume
+            </button>
+<!-- Mobile Menu Toggle (Visual only for this demo) -->
+<button class="md:hidden text-text-primary p-2">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</nav>
+<!-- Main Canvas -->
+<main class="flex-grow pt-[100px] relative z-10 w-full max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop flex flex-col gap-section-gap pb-section-gap">
+<!-- 1. Hero Section -->
+<section class="mt-20 flex flex-col items-start gap-6 max-w-4xl">
+<span class="font-label-caps text-label-caps text-primary tracking-widest uppercase flex items-center gap-2">
+<span class="w-8 h-[1px] bg-primary block"></span> About the developer
+            </span>
+<h1 class="font-display-lg-mobile md:font-display-lg text-text-primary">
+                Building one project at a time.
+            </h1>
+<p class="font-body-lg text-body-lg text-text-muted max-w-2xl leading-relaxed">
+                I’m a growing web developer learning through real projects, improving my frontend skills, understanding backend systems, and building websites that feel clean, useful, and intentional.
+            </p>
+</section>
+<!-- 2. Main Story (Two columns) -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-gutter items-center">
+<div class="flex flex-col gap-6">
+<div class="w-12 h-1 bg-surface-tint/20 rounded-full mb-4"></div>
+<p class="font-body-lg text-body-lg text-text-muted leading-relaxed">
+                    I started learning web development by practicing HTML, CSS, JavaScript, and React. I’m focused on building real projects because I learn best when I can see how design, code, backend logic, and data connect together.
+                </p>
+</div>
+<div class="bg-surface-card border border-border-subtle rounded-xl p-4 md:p-8 flex justify-center items-center relative overflow-hidden group streetlight-glow-hover transition-all duration-500">
+<div class="absolute inset-0 bg-gradient-to-tr from-surface/80 to-transparent z-10"></div>
+<img alt="Chibi developer typing on a laptop with stickers in a cinematic workspace setting" class="w-full max-w-md h-auto object-cover rounded-lg z-0 opacity-90 group-hover:opacity-100 transition-opacity duration-500 transform group-hover:scale-[1.02]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmKmIUMT4vNpgjGkTe6s3zzF0MQjaZ3kT8qMok_We0rJ7hoxjOZuKNLaNSCoHHGMvudEujPD7Dy_N2d2vfa8gLVIKuaru3VII35x_MzPEXcqdmstprf1PD4yYXEllQCkRNCF7HmM5rfmwoh5mavcI5-mBRX1AL0ePZ5FlKKP-1WtkrPbi4c01lp1oZZh3BSODiqdW5IIfGorcwN-sfRxdqfjb4hG62xrVWkDStHi79fP7gkmT3w11Vz__0uB6PLmP0n7ft9UJgDfo"/>
+</div>
+</section>
+<!-- 3. Current Focus -->
+<section class="flex flex-col gap-12">
+<h2 class="font-headline-md text-headline-md text-text-primary flex items-center gap-4">
+                Current Focus
+                <span class="h-[1px] flex-grow bg-gradient-to-r from-border-subtle to-transparent"></span>
+</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Focus Card 1 -->
+<div class="bg-surface-card border border-border-subtle p-8 rounded-xl flex flex-col gap-4 hover:border-surface-tint/50 transition-colors duration-300 group streetlight-glow-hover">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">code_blocks</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-text-primary">Frontend Foundations</h3>
+<p class="font-body-md text-text-muted">Mastering layout mechanics, component architecture, and responsive design to build intuitive interfaces.</p>
+</div>
+<!-- Focus Card 2 -->
+<div class="bg-surface-card border border-border-subtle p-8 rounded-xl flex flex-col gap-4 hover:border-surface-tint/50 transition-colors duration-300 group streetlight-glow-hover">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dns</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-text-primary">Backend Logic</h3>
+<p class="font-body-md text-text-muted">Learning how APIs connect systems, manage requests, and handle business logic securely.</p>
+</div>
+<!-- Focus Card 3 -->
+<div class="bg-surface-card border border-border-subtle p-8 rounded-xl flex flex-col gap-4 hover:border-surface-tint/50 transition-colors duration-300 group streetlight-glow-hover">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">database</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-text-primary">Database Thinking</h3>
+<p class="font-body-md text-text-muted">Structuring data relationships and understanding how information is stored and retrieved efficiently.</p>
+</div>
+</div>
+</section>
+<!-- 4. How I Work (Bento Grid Style) -->
+<section class="flex flex-col gap-12">
+<h2 class="font-headline-md text-headline-md text-text-primary flex items-center gap-4">
+                How I Work
+                <span class="h-[1px] flex-grow bg-gradient-to-r from-border-subtle to-transparent"></span>
+</h2>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="bg-surface-card border border-border-subtle p-6 rounded-xl flex flex-col gap-4 relative overflow-hidden group hover:border-primary/30 transition-colors">
+<span class="font-label-code text-primary opacity-50 text-2xl absolute -top-2 -right-2">01</span>
+<h4 class="font-headline-sm text-headline-sm text-text-primary z-10 relative">Plan the structure</h4>
+</div>
+<div class="bg-surface-card border border-border-subtle p-6 rounded-xl flex flex-col gap-4 relative overflow-hidden group hover:border-primary/30 transition-colors">
+<span class="font-label-code text-primary opacity-50 text-2xl absolute -top-2 -right-2">02</span>
+<h4 class="font-headline-sm text-headline-sm text-text-primary z-10 relative">Design the interface</h4>
+</div>
+<div class="bg-surface-card border border-border-subtle p-6 rounded-xl flex flex-col gap-4 relative overflow-hidden group hover:border-primary/30 transition-colors">
+<span class="font-label-code text-primary opacity-50 text-2xl absolute -top-2 -right-2">03</span>
+<h4 class="font-headline-sm text-headline-sm text-text-primary z-10 relative">Build the frontend</h4>
+</div>
+<div class="bg-surface-card border border-border-subtle p-6 rounded-xl flex flex-col gap-4 relative overflow-hidden group hover:border-primary/30 transition-colors">
+<span class="font-label-code text-primary opacity-50 text-2xl absolute -top-2 -right-2">04</span>
+<h4 class="font-headline-sm text-headline-sm text-text-primary z-10 relative">Connect data &amp; improve</h4>
+</div>
+</div>
+</section>
+<!-- 5. Values -->
+<section class="flex flex-col gap-12 relative">
+<h2 class="font-headline-md text-headline-md text-text-primary text-center">Values</h2>
+<div class="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
+<div class="bg-surface-container border border-border-subtle px-6 py-4 rounded-full font-body-md text-text-primary flex items-center gap-2 hover:bg-surface-card transition-colors">
+<span class="w-2 h-2 rounded-full bg-primary block"></span> Clean and readable code
+                </div>
+<div class="bg-surface-container border border-border-subtle px-6 py-4 rounded-full font-body-md text-text-primary flex items-center gap-2 hover:bg-surface-card transition-colors">
+<span class="w-2 h-2 rounded-full bg-primary block"></span> Simple user experience
+                </div>
+<div class="bg-surface-container border border-border-subtle px-6 py-4 rounded-full font-body-md text-text-primary flex items-center gap-2 hover:bg-surface-card transition-colors">
+<span class="w-2 h-2 rounded-full bg-primary block"></span> Consistent design systems
+                </div>
+<div class="bg-surface-container border border-border-subtle px-6 py-4 rounded-full font-body-md text-text-primary flex items-center gap-2 hover:bg-surface-card transition-colors">
+<span class="w-2 h-2 rounded-full bg-primary block"></span> Learning with patience
+                </div>
+<div class="bg-surface-container border border-border-subtle px-6 py-4 rounded-full font-body-md text-text-primary flex items-center gap-2 hover:bg-surface-card transition-colors">
+<span class="w-2 h-2 rounded-full bg-primary block"></span> Building useful things
+                </div>
+</div>
+</section>
+<!-- 6. Currently Learning -->
+<section class="flex flex-col gap-8 bg-surface-card border border-border-subtle p-8 md:p-12 rounded-2xl">
+<h2 class="font-headline-sm text-headline-sm text-text-primary">Currently Learning</h2>
+<div class="flex flex-wrap gap-3">
+<span class="font-label-code text-label-code bg-surface-container text-text-muted px-4 py-2 rounded-md border border-border-subtle">React fundamentals</span>
+<span class="font-label-code text-label-code bg-surface-container text-text-muted px-4 py-2 rounded-md border border-border-subtle">JavaScript problem solving</span>
+<span class="font-label-code text-label-code bg-surface-container text-text-muted px-4 py-2 rounded-md border border-border-subtle">Backend APIs</span>
+<span class="font-label-code text-label-code bg-surface-container text-text-muted px-4 py-2 rounded-md border border-border-subtle">PostgreSQL basics</span>
+<span class="font-label-code text-label-code bg-surface-container text-text-muted px-4 py-2 rounded-md border border-border-subtle">Full-stack project structure</span>
+</div>
+</section>
+<!-- 7. Bottom CTA -->
+<section class="flex flex-col items-center text-center gap-6 py-12 bg-surface-card border border-border-subtle rounded-2xl p-8 md:p-12">
+<h2 class="font-display-lg-mobile md:font-headline-md text-text-primary">Want to see what I’m building?</h2>
+<p class="font-body-lg text-text-muted max-w-xl">Explore the projects where I practice these skills and turn ideas into real interfaces.</p>
+<button class="mt-4 bg-primary-container text-on-primary-container font-label-code text-label-code px-8 py-4 rounded-full hover:bg-primary transition-colors streetlight-glow-hover active:scale-95 duration-300">
+                View Projects
+            </button>
+</section>
+</main>
+<!-- Footer (Shared Component) -->
+<footer class="bg-background-main font-label-code text-label-code w-full py-12 border-t border-border-subtle flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-margin-desktop gap-gutter z-10 relative">
+<p class="text-text-muted">© 2024 Joseph.dev. Built for the night.</p>
+<div class="flex gap-6">
+<a class="text-text-muted hover:text-primary transition-colors transition-opacity hover:opacity-80" href="#">GitHub</a>
+<a class="text-text-muted hover:text-primary transition-colors transition-opacity hover:opacity-80" href="#">LinkedIn</a>
+<a class="text-text-muted hover:text-primary transition-colors transition-opacity hover:opacity-80" href="#">Twitter</a>
+</div>
+</footer>
+</body></html>
