@@ -1,36 +1,8 @@
-import { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import { navigationItems, profile } from '../../data/mockPortfolioData'
-import { resumeApi } from '../../services/resumeApi'
+import { navigationItems, profile, resume } from '../../data/mockPortfolioData'
 import Button from '../ui/Button'
 
 export default function Navbar() {
-  const [resume, setResume] = useState({
-    label: 'Resume',
-    downloadUrl: profile.resumeUrl,
-  })
-
-  useEffect(() => {
-    let isMounted = true
-
-    resumeApi
-      .getResume()
-      .then((resumeData) => {
-        if (isMounted) {
-          setResume(resumeData)
-        }
-      })
-      .catch(() => {
-        if (isMounted) {
-          setResume({ label: 'Resume', downloadUrl: profile.resumeUrl })
-        }
-      })
-
-    return () => {
-      isMounted = false
-    }
-  }, [])
-
   return (
     <header className="sticky top-0 z-50 border-b border-nocturne-border bg-nocturne-nav backdrop-blur-[20px]">
       <nav

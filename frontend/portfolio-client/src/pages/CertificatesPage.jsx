@@ -1,7 +1,8 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import {
   certificateFilters,
+  certificates,
   certificatesPage,
   learningProgress,
 } from '../data/mockPortfolioData'
@@ -10,9 +11,7 @@ import Button from '../components/ui/Button'
 import Card from '../components/ui/Card'
 import HeroEyebrow from '../components/ui/HeroEyebrow'
 import RevealOnScroll from '../components/RevealOnScroll'
-import { EmptyState, ErrorState, LoadingState } from '../components/ui/PageState'
-import { useApiResource } from '../hooks/useApiResource'
-import { certificatesApi } from '../services/certificatesApi'
+import { EmptyState } from '../components/ui/PageState'
 
 function PageHero() {
   const { hero } = certificatesPage
@@ -199,28 +198,19 @@ function BottomCta() {
 
 export default function CertificatesPage() {
   const [activeFilter, setActiveFilter] = useState('all')
-  const loadCertificates = useCallback(
-    () =>
-      certificatesApi.getCertificates(
-        activeFilter === 'all' ? undefined : { category: activeFilter },
-      ),
-    [activeFilter],
+  const filteredCertificates = certificates.filter(
+    (certificate) => activeFilter === 'all' || certificate.category === activeFilter,
   )
-  const { data: certificates, error, isLoading } = useApiResource(loadCertificates, [
-    loadCertificates,
-  ])
 
   return (
     <>
       <PageHero />
       <FilterTabs activeFilter={activeFilter} onFilterChange={setActiveFilter} />
-      {isLoading ? <LoadingState message="Loading certificates from the API..." /> : null}
-      {error ? <ErrorState message={error.message} /> : null}
-      {!isLoading && !error && certificates?.length === 0 ? (
+      {filteredCertificates.length === 0 ? (
         <EmptyState message="No certificates match this filter yet." />
       ) : null}
-      {!isLoading && !error && certificates?.length ? (
-        <CertificateGrid items={certificates} />
+      {filteredCertificates.length ? (
+        <CertificateGrid items={filteredCertificates} />
       ) : null}
       <LearningProgressSection />
       <RevealOnScroll>

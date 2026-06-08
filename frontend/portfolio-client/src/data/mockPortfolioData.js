@@ -5,11 +5,27 @@ export const profile = {
   shortBio:
     'I build thoughtful, responsive web experiences with a calm interface style and practical frontend structure.',
   longBio:
-    'I enjoy turning ideas into focused web interfaces that feel clear, useful, and maintainable. This portfolio is being built in phases with React, Tailwind CSS, backend APIs, and a PostgreSQL data model.',
+    'I enjoy turning ideas into focused web interfaces that feel clear, useful, and maintainable. This portfolio is deployed as a static React site with local data, reusable components, and a calm Nocturne interface system.',
   location: 'Philippines',
   availability: 'Available for selected web projects',
-  email: 'hello@example.com',
+  email: 'Josephsotomil2000@gmail.com',
+  avatarUrl: '/images/profile/chibi_joseph.png',
   resumeUrl: '/resume/Joseph-Sotomil-Resume.pdf',
+  socialLinks: [
+    { label: 'GH', platform: 'github', url: 'https://github.com/whawharts' },
+    {
+      label: 'IN',
+      platform: 'linkedin',
+      url: 'https://www.linkedin.com/in/joseph-sotomil-7b63173b5/',
+    },
+    { label: 'FB', platform: 'facebook', url: 'https://www.facebook.com/whawharts/' },
+  ],
+}
+
+export const resume = {
+  label: 'Resume',
+  fileName: 'Joseph-Sotomil-Resume.pdf',
+  downloadUrl: '/resume/Joseph-Sotomil-Resume.pdf',
 }
 
 export const navigationItems = [
@@ -505,7 +521,7 @@ export const contactPage = {
       { label: 'Other', value: 'other' },
     ],
     successMessage:
-      'Local preview only: your message was not sent anywhere yet. Backend submission comes in Phase 2.',
+      'Message preview received locally. Please use the email link if you want to send it directly.',
   },
   info: {
     availability:

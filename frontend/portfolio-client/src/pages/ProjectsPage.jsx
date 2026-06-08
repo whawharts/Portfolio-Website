@@ -1,15 +1,13 @@
-import { useCallback, useState } from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { projectFilters, projectsPage } from '../data/mockPortfolioData'
+import { featuredProjects, projectFilters, projectsPage } from '../data/mockPortfolioData'
 import ArrowLink from '../components/ui/ArrowLink'
 import Badge from '../components/ui/Badge'
 import Button from '../components/ui/Button'
 import Card from '../components/ui/Card'
 import HeroEyebrow from '../components/ui/HeroEyebrow'
 import RevealOnScroll from '../components/RevealOnScroll'
-import { EmptyState, ErrorState, LoadingState } from '../components/ui/PageState'
-import { useApiResource } from '../hooks/useApiResource'
-import { projectsApi } from '../services/projectsApi'
+import { EmptyState } from '../components/ui/PageState'
 
 const thumbnailStyles = {
   amber: 'from-nocturne-panel via-nocturne-card to-nocturne-bg',
@@ -169,22 +167,18 @@ function ProjectsCta() {
 
 export default function ProjectsPage() {
   const [activeFilter, setActiveFilter] = useState('all')
-  const loadProjects = useCallback(
-    () => projectsApi.getProjects(activeFilter === 'all' ? undefined : { category: activeFilter }),
-    [activeFilter],
+  const projects = featuredProjects.filter(
+    (project) => activeFilter === 'all' || project.category === activeFilter,
   )
-  const { data: projects, error, isLoading } = useApiResource(loadProjects, [loadProjects])
 
   return (
     <>
       <ProjectsHero />
       <ProjectFilters activeFilter={activeFilter} onFilterChange={setActiveFilter} />
-      {isLoading ? <LoadingState message="Loading projects from the API..." /> : null}
-      {error ? <ErrorState message={error.message} /> : null}
-      {!isLoading && !error && projects?.length === 0 ? (
+      {projects.length === 0 ? (
         <EmptyState message="No projects match this filter yet." />
       ) : null}
-      {!isLoading && !error && projects?.length ? (
+      {projects.length ? (
         <section className="mb-[120px] grid gap-8 md:grid-cols-2">
           {projects.map((project, index) => (
             <RevealOnScroll key={project.slug} delay={(index % 2) * 75} className="h-full">

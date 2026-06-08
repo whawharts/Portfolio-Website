@@ -31,6 +31,47 @@ Scope check:
 
 ## Entries
 
+## 2026-06-08 - Phase 4 Frontend-Only Vercel Conversion
+
+Changed:
+- frontend/portfolio-client/src/data/mockPortfolioData.js
+- frontend/portfolio-client/src/pages/HomePage.jsx
+- frontend/portfolio-client/src/pages/ProjectsPage.jsx
+- frontend/portfolio-client/src/pages/TechStackPage.jsx
+- frontend/portfolio-client/src/pages/CertificatesPage.jsx
+- frontend/portfolio-client/src/pages/AboutPage.jsx
+- frontend/portfolio-client/src/pages/ContactPage.jsx
+- frontend/portfolio-client/src/components/layout/Navbar.jsx
+- frontend/portfolio-client/src/services/
+- frontend/portfolio-client/src/hooks/useApiResource.js
+- frontend/portfolio-client/.env.example
+- frontend/portfolio-client/README.md
+- docs/DEV_LOG.md
+
+What changed:
+- Converted the React portfolio to frontend-only static data for Vercel deployment.
+- Removed runtime frontend fetch usage, API client services, and the API resource hook.
+- Updated API-driven pages, Navbar resume loading, and contact submission to use local static data only.
+- Added static profile avatar, social links, and resume metadata to `mockPortfolioData.js`.
+- Replaced the default Vite README with frontend-only Vercel deployment notes.
+
+Verification:
+- npm run lint: passed
+- npm run build: passed
+- npm run dev: passed at `http://127.0.0.1:5174`
+- frontend route checks without backend: passed for `/`, `/projects`, `/tech-stack`, `/certificates`, `/about`, and `/contact`
+- public asset checks: passed for the local resume PDF and all three profile images
+- localhost:3000/API request check: passed; no application API, `VITE_API_BASE_URL`, localhost backend, or Render backend references remain in frontend source or the production bundle
+- contact form check: passed by source verification; submission uses local validation and local success state only
+
+Notes:
+- Real `.env` files were not opened or modified.
+- The in-app browser connection was unavailable because of a Windows sandbox refresh error, so route/assets were verified over HTTP and runtime dependency checks used source and production-bundle scans.
+- No backend replacement, Supabase client, database schema change, backend deletion, frontend redesign, or deployment secret change was made.
+
+Scope check:
+- Stayed within requested scope: yes
+
 ## 2026-06-08 - Phase 4 Environment Cleanup and Documentation Alignment
 
 Changed:

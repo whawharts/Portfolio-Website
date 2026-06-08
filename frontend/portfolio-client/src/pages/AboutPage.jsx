@@ -12,9 +12,6 @@ import Button from '../components/ui/Button'
 import Card from '../components/ui/Card'
 import HeroEyebrow from '../components/ui/HeroEyebrow'
 import RevealOnScroll from '../components/RevealOnScroll'
-import { ErrorState, LoadingState } from '../components/ui/PageState'
-import { useApiResource } from '../hooks/useApiResource'
-import { profileApi } from '../services/profileApi'
 
 function SectionTitle({ title, centered = false }) {
   return (
@@ -184,14 +181,10 @@ function BottomCta() {
 }
 
 export default function AboutPage() {
-  const { data: profileData, error, isLoading } = useApiResource(() => profileApi.getProfile())
-
   return (
     <div className="flex flex-col gap-[120px]">
       <PageHero />
-      {isLoading ? <LoadingState message="Loading profile data from the API..." /> : null}
-      {error ? <ErrorState message={error.message} /> : null}
-      <StorySection profileData={profileData || profile} />
+      <StorySection profileData={profile} />
       <FocusSection />
       <WorkSection />
       <ValuesSection />

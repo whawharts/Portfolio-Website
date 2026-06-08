@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import {
   activeLearningFocus,
   coreToolkit,
+  featuredProjects,
   techStackPage,
   workflowSteps,
 } from '../data/mockPortfolioData'
@@ -9,10 +10,7 @@ import Button from '../components/ui/Button'
 import Card from '../components/ui/Card'
 import HeroEyebrow from '../components/ui/HeroEyebrow'
 import RevealOnScroll from '../components/RevealOnScroll'
-import { EmptyState, ErrorState, LoadingState } from '../components/ui/PageState'
-import { useApiResource } from '../hooks/useApiResource'
-import { projectsApi } from '../services/projectsApi'
-import { techStackApi } from '../services/techStackApi'
+import { EmptyState } from '../components/ui/PageState'
 
 function SectionTitle({ title }) {
   return (
@@ -198,34 +196,20 @@ function BottomCta() {
 }
 
 export default function TechStackPage() {
-  const { data, error, isLoading } = useApiResource(() =>
-    Promise.all([techStackApi.getTechStack(), projectsApi.getFeaturedProjects()]).then(
-      ([techStack, projects]) => ({
-        toolkitGroups: normalizeToolkitGroups(techStack),
-        projects: projects.slice(0, 3),
-      }),
-    ),
-  )
-
-  if (isLoading) {
-    return <LoadingState message="Loading tech stack from the API..." />
-  }
-
-  if (error) {
-    return <ErrorState message={error.message} />
-  }
+  const toolkitGroups = normalizeToolkitGroups(coreToolkit)
+  const appliedProjects = featuredProjects.filter((project) => project.isFeatured).slice(0, 3)
 
   return (
     <>
       <PageHero />
-      {data?.toolkitGroups?.length ? (
-        <CoreToolkitSection groups={data.toolkitGroups} />
+      {toolkitGroups.length ? (
+        <CoreToolkitSection groups={toolkitGroups} />
       ) : (
         <EmptyState message="No tech stack items are available yet." />
       )}
       <LearningFocusSection />
       <WorkflowSection />
-      <AppliedProjectsSection projects={data?.projects || []} />
+      <AppliedProjectsSection projects={appliedProjects} />
       <RevealOnScroll>
         <BottomCta />
       </RevealOnScroll>

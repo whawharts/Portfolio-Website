@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import {
+  certificatePreview,
   featuredProjects,
   homePage,
   profile,
@@ -12,22 +13,9 @@ import Button from '../components/ui/Button'
 import Card from '../components/ui/Card'
 import HeroEyebrow from '../components/ui/HeroEyebrow'
 import RevealOnScroll from '../components/RevealOnScroll'
-import { ErrorState, LoadingState } from '../components/ui/PageState'
-import { useApiResource } from '../hooks/useApiResource'
-import { certificatesApi } from '../services/certificatesApi'
-import { profileApi } from '../services/profileApi'
-import { projectsApi } from '../services/projectsApi'
-import { techStackApi } from '../services/techStackApi'
 
 function isPlaceholderUrl(url) {
   return !url || url === '#'
-}
-
-function formatCategory(category) {
-  return category
-    .split('-')
-    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
-    .join(' ')
 }
 
 function formatIssuedAt(issuedAt) {
@@ -224,20 +212,6 @@ function FeaturedProjectsSection({ projects }) {
   )
 }
 
-function normalizeTechGroups(groups) {
-  return groups.map((group) => {
-    const fallback = techStackGroups.find(
-      (item) => item.category.toLowerCase() === group.category.toLowerCase(),
-    )
-
-    return {
-      category: formatCategory(group.category),
-      summary: fallback?.summary || 'Current tools used across portfolio projects.',
-      items: group.items.map((item) => item.name),
-    }
-  })
-}
-
 function TechStackSection({ groups }) {
   return (
     <section className="py-[120px]">
@@ -339,36 +313,17 @@ function ContactCtaSection() {
 }
 
 export default function HomePage() {
-  const { data, error, isLoading } = useApiResource(() =>
-    Promise.all([
-      profileApi.getProfile(),
-      projectsApi.getFeaturedProjects(),
-      techStackApi.getTechStack(),
-      certificatesApi.getCertificates(),
-    ]).then(([profileData, projects, techStack, certificates]) => ({
-      profileData,
-      projects,
-      techGroups: normalizeTechGroups(techStack),
-      certificates: certificates.slice(0, 3),
-    })),
-  )
-
-  if (isLoading) {
-    return <LoadingState message="Loading portfolio data from the API..." />
-  }
-
-  if (error) {
-    return <ErrorState message={error.message} />
-  }
+  const localFeaturedProjects = featuredProjects.filter((project) => project.isFeatured)
+  const localCertificates = certificatePreview.slice(0, 3)
 
   return (
     <>
-      <HeroSection profileData={data?.profileData || profile} />
-      <FeaturedProjectsSection projects={data?.projects || featuredProjects} />
-      <TechStackSection groups={data?.techGroups || techStackGroups} />
+      <HeroSection profileData={profile} />
+      <FeaturedProjectsSection projects={localFeaturedProjects} />
+      <TechStackSection groups={techStackGroups} />
       <AboutCertificatesSection
-        profileData={data?.profileData || profile}
-        certificateItems={data?.certificates || []}
+        profileData={profile}
+        certificateItems={localCertificates}
       />
       <ContactCtaSection />
     </>

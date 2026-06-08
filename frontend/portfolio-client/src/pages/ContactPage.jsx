@@ -7,12 +7,8 @@ import Button from '../components/ui/Button'
 import Card from '../components/ui/Card'
 import HeroEyebrow from '../components/ui/HeroEyebrow'
 import Input from '../components/ui/Input'
-import { ErrorState, LoadingState } from '../components/ui/PageState'
 import Select from '../components/ui/Select'
 import Textarea from '../components/ui/Textarea'
-import { useApiResource } from '../hooks/useApiResource'
-import { contactApi } from '../services/contactApi'
-import { profileApi } from '../services/profileApi'
 
 function isPlaceholderUrl(url) {
   return !url || url === '#'
@@ -48,32 +44,46 @@ function Field({ label, children }) {
 function ContactForm() {
   const [statusMessage, setStatusMessage] = useState('')
   const [fieldErrors, setFieldErrors] = useState([])
-  const [isSubmitting, setIsSubmitting] = useState(false)
 
-  async function handleSubmit(event) {
+  function handleSubmit(event) {
     event.preventDefault()
     setStatusMessage('')
     setFieldErrors([])
-    setIsSubmitting(true)
 
     const formData = new FormData(event.currentTarget)
     const payload = {
-      name: formData.get('name'),
-      email: formData.get('email'),
-      projectType: formData.get('projectType'),
-      message: formData.get('message'),
+      name: String(formData.get('name') || '').trim(),
+      email: String(formData.get('email') || '').trim(),
+      projectType: String(formData.get('projectType') || '').trim(),
+      message: String(formData.get('message') || '').trim(),
     }
 
-    try {
-      await contactApi.sendMessage(payload)
-      event.currentTarget.reset()
-      setStatusMessage('Message received. This is stored in backend memory for now.')
-    } catch (error) {
-      setStatusMessage(error.message)
-      setFieldErrors(error.errors || [])
-    } finally {
-      setIsSubmitting(false)
+    const errors = []
+
+    if (payload.name.length < 2) {
+      errors.push({ field: 'name', message: 'Please enter your name.' })
     }
+
+    if (!payload.email.includes('@')) {
+      errors.push({ field: 'email', message: 'Please enter a valid email address.' })
+    }
+
+    if (!payload.projectType) {
+      errors.push({ field: 'projectType', message: 'Please choose a project type.' })
+    }
+
+    if (payload.message.length < 10) {
+      errors.push({ field: 'message', message: 'Please share a few more details.' })
+    }
+
+    if (errors.length) {
+      setFieldErrors(errors)
+      setStatusMessage('Please check the highlighted fields.')
+      return
+    }
+
+    event.currentTarget.reset()
+    setStatusMessage(contactPage.form.successMessage)
   }
 
   return (
@@ -100,8 +110,8 @@ function ContactForm() {
           <Textarea name="message" rows={5} required className="resize-none" />
         </Field>
         <div className="flex flex-col gap-4 pt-2 md:flex-row md:items-center">
-          <Button type="submit" className="w-full px-8 py-3 md:w-auto" disabled={isSubmitting}>
-            {isSubmitting ? 'Sending...' : 'Send Message'}
+          <Button type="submit" className="w-full px-8 py-3 md:w-auto">
+            Send Message
           </Button>
           {statusMessage ? (
             <p className="text-sm leading-6 text-nocturne-muted" role="status">
@@ -230,19 +240,15 @@ function BottomCta() {
 }
 
 export default function ContactPage() {
-  const { data: profileData, error, isLoading } = useApiResource(() => profileApi.getProfile())
-
   return (
     <div className="flex flex-col gap-[120px]">
       <PageHero />
-      {isLoading ? <LoadingState message="Loading contact details from the API..." /> : null}
-      {error ? <ErrorState message={error.message} /> : null}
       <section className="grid gap-8 lg:grid-cols-12 lg:gap-16">
         <RevealOnScroll className="lg:col-span-7">
           <ContactForm />
         </RevealOnScroll>
         <RevealOnScroll delay={75} className="lg:col-span-5">
-          <ContactInfo profileData={profileData || profile} />
+          <ContactInfo profileData={profile} />
         </RevealOnScroll>
       </section>
       <ServicesSection />
