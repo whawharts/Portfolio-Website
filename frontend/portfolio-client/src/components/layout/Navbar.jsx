@@ -85,7 +85,7 @@ export default function Navbar() {
           ))}
         </div>
 
-        <Button as="a" href={resume.downloadUrl} download className="hidden lg:inline-flex">
+        <Button as="a" href={resume.downloadUrl} download className="hidden !text-black lg:inline-flex">
           {resume.label}
         </Button>
 
@@ -116,7 +116,7 @@ export default function Navbar() {
               as="a"
               href={resume.downloadUrl}
               download
-              className="mt-3 w-full justify-center"
+              className="mt-3 w-full justify-center !text-black"
               onClick={closeMenu}
             >
               {resume.label}

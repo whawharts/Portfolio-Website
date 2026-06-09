@@ -12,8 +12,10 @@ import { EmptyState } from '../components/ui/PageState'
 
 function SectionTitle({ title }) {
   return (
-    <div className="mb-8 inline-block border-b border-nocturne-border pb-4">
-      <h2 className="text-[32px] font-semibold leading-10 text-nocturne-cream">{title}</h2>
+    <div className="mb-8">
+      <h2 className="section-label-line text-[32px] font-semibold leading-10 text-nocturne-cream">
+        {title}
+      </h2>
     </div>
   )
 }

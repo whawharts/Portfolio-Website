@@ -31,8 +31,9 @@ function SectionTitle({ title, action }) {
   return (
     <div className="mb-12 flex flex-col gap-5 md:mb-16 md:flex-row md:items-end md:justify-between">
       <div>
-        <h2 className="text-[32px] font-semibold leading-10 text-nocturne-cream">{title}</h2>
-        <div className="mt-4 h-1 w-16 rounded bg-nocturne-amber" />
+        <h2 className="section-label-line text-[32px] font-semibold leading-10 text-nocturne-cream">
+          {title}
+        </h2>
       </div>
       {action ? (
         <ArrowLink to={action.path}>{action.label}</ArrowLink>
@@ -47,7 +48,7 @@ function HeroVisual({ profileData }) {
   const avatarStates = [
     {
       assistant: 'Claude and Claude Code',
-      src: profileData?.avatarUrl || '/images/profile/chibi_joseph.png',
+      src: profileData?.avatarUrl || '/images/profile/1.png',
       tools: [
         {
           name: 'Claude',
@@ -69,7 +70,7 @@ function HeroVisual({ profileData }) {
     },
     {
       assistant: 'ChatGPT and Codex',
-      src: '/images/profile/chibi_joseph_2.png',
+      src: '/images/profile/2.png',
       tools: [
         {
           name: 'ChatGPT',
@@ -91,7 +92,7 @@ function HeroVisual({ profileData }) {
     },
     {
       assistant: 'Gemini and Stitch AI',
-      src: '/images/profile/chibi_joseph_3.png',
+      src: '/images/profile/3.png',
       tools: [
         {
           name: 'Gemini',
@@ -152,6 +153,10 @@ function HeroVisual({ profileData }) {
               ].join(' ')}
             />
           ))}
+          <div
+            className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-[22%] bg-gradient-to-b from-transparent via-nocturne-bg/20 to-nocturne-bg/90"
+            aria-hidden="true"
+          />
         </div>
       ) : null}
 
@@ -227,7 +232,7 @@ function HeroSection({ profileData }) {
         </p>
 
         <div className="mt-10 flex flex-wrap gap-4">
-          <Button as={Link} to="/contact" className="px-8 py-4">
+          <Button as={Link} to="/contact" className="px-8 py-4 !text-black">
             Contact Me
           </Button>
           <Button
@@ -263,16 +268,19 @@ function HeroSection({ profileData }) {
 function ProjectCard({ project }) {
   const hasLiveUrl = !isPlaceholderUrl(project.liveUrl)
   const hasGithubUrl = !isPlaceholderUrl(project.githubUrl)
+  const hasThumbnail = !isPlaceholderUrl(project.thumbnailUrl)
 
   return (
     <Card className="group flex h-full flex-col overflow-hidden p-0">
       <div className="relative h-56 overflow-hidden border-b border-nocturne-border bg-nocturne-panel">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,var(--color-amber-soft),transparent_35%),linear-gradient(135deg,var(--color-surface-panel),var(--color-surface-card))]" />
-        <div className="absolute inset-x-6 bottom-6 rounded-lg border border-nocturne-border bg-nocturne-bg/60 p-4 backdrop-blur-[20px] transition group-hover:border-nocturne-amber-border">
-          <div className="mb-4 h-2 w-2/3 rounded bg-nocturne-border" />
-          <div className="mb-3 h-2 rounded bg-nocturne-amber/30" />
-          <div className="h-2 w-4/5 rounded bg-nocturne-border" />
-        </div>
+        {!hasThumbnail ? (
+          <div className="absolute inset-0 z-10 flex items-center justify-center">
+            <span className="rounded-full border border-nocturne-amber-border bg-nocturne-bg/80 px-4 py-2 font-label text-xs uppercase tracking-[0.14em] text-nocturne-amber shadow-nocturne-glow backdrop-blur-[20px]">
+              Coming Soon
+            </span>
+          </div>
+        ) : null}
       </div>
       <div className="flex flex-1 flex-col p-6 md:p-8">
         <h3 className="text-2xl font-semibold text-nocturne-cream">{project.title}</h3>

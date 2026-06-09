@@ -9,7 +9,7 @@ export const profile = {
   location: 'Philippines',
   availability: 'Available for selected web projects',
   email: 'Josephsotomil2000@gmail.com',
-  avatarUrl: '/images/profile/chibi_joseph.png',
+  avatarUrl: '/images/profile/1.png',
   resumeUrl: '/resume/Joseph-Sotomil-Resume.pdf',
   socialLinks: [
     { label: 'GH', platform: 'github', url: 'https://github.com/whawharts' },

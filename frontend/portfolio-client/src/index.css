@@ -61,6 +61,21 @@ textarea {
   background: color-mix(in srgb, var(--skill-color) 24%, transparent);
 }
 
+.section-label-line::after {
+  display: block;
+  width: 4rem;
+  height: 0.25rem;
+  margin-top: 1rem;
+  border-radius: 9999px;
+  background: var(--color-primary-strong);
+  content: "";
+}
+
+.section-label-line-centered::after {
+  margin-right: auto;
+  margin-left: auto;
+}
+
 #root {
   min-height: 100vh;
   background: var(--color-background-main);

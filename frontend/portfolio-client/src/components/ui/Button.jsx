@@ -1,6 +1,6 @@
 const variants = {
   primary:
-    'border-transparent bg-nocturne-amber-strong text-[#291800] shadow-[0_0_28px_rgba(245,166,35,0.25)] hover:bg-[#ffb23a] hover:shadow-[0_0_34px_rgba(245,166,35,0.35)]',
+    'border-transparent bg-nocturne-amber-strong text-black shadow-[0_0_28px_rgba(245,166,35,0.25)] hover:bg-[#ffb23a] hover:text-black hover:shadow-[0_0_34px_rgba(245,166,35,0.35)]',
   secondary:
     'border-nocturne-border bg-nocturne-card-muted text-nocturne-amber hover:border-nocturne-amber hover:bg-nocturne-amber-soft',
 }

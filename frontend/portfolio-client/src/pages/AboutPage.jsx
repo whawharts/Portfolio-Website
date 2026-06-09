@@ -1,23 +1,33 @@
 import { Link } from 'react-router-dom'
+import { FaLinkedin } from 'react-icons/fa6'
+import { SiFacebook, SiGithub } from 'react-icons/si'
 import {
   aboutPage,
-  currentFocus,
   developerValues,
   profile,
-  workProcess,
 } from '../data/mockPortfolioData'
 import Button from '../components/ui/Button'
 import Card from '../components/ui/Card'
 import HeroEyebrow from '../components/ui/HeroEyebrow'
 import RevealOnScroll from '../components/RevealOnScroll'
 
+const socialIcons = {
+  facebook: SiFacebook,
+  github: SiGithub,
+  linkedin: FaLinkedin,
+}
+
 function SectionTitle({ title, centered = false }) {
   return (
-    <div className={['mb-12 flex items-center gap-4', centered ? 'justify-center' : ''].join(' ')}>
-      <h2 className="text-[32px] font-semibold leading-10 text-nocturne-cream">{title}</h2>
-      {!centered ? (
-        <span className="h-px flex-1 bg-gradient-to-r from-nocturne-border to-transparent" />
-      ) : null}
+    <div className={['mb-12', centered ? 'text-center' : ''].join(' ')}>
+      <h2
+        className={[
+          'section-label-line text-[32px] font-semibold leading-10 text-nocturne-cream',
+          centered ? 'section-label-line-centered' : '',
+        ].join(' ')}
+      >
+        {title}
+      </h2>
     </div>
   )
 }
@@ -43,16 +53,23 @@ function isPlaceholderUrl(url) {
 }
 
 function AvatarFrame({ profileData }) {
-  const hasAvatar = !isPlaceholderUrl(profileData?.avatarUrl)
+  const aboutAvatarUrl = '/images/profile/2.png'
+  const hasAvatar = !isPlaceholderUrl(aboutAvatarUrl)
 
   return (
-    <div className="flex min-h-[360px] items-center justify-center">
+    <div className="relative flex min-h-[360px] items-center justify-center">
       {hasAvatar ? (
-        <img
-          src={profileData.avatarUrl}
-          alt={`${profileData.name || 'Profile'} avatar`}
-          className="w-full max-w-sm object-contain"
-        />
+        <>
+          <div
+            className="pointer-events-none absolute left-1/2 top-1/2 h-[75%] w-[75%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(245,166,35,0.18)_0%,rgba(245,166,35,0.07)_38%,transparent_72%)] blur-2xl"
+            aria-hidden="true"
+          />
+          <img
+            src={aboutAvatarUrl}
+            alt={`${profileData.name || 'Profile'} portrait`}
+            className="relative z-10 w-full max-w-sm object-contain"
+          />
+        </>
       ) : null}
     </div>
   )
@@ -65,6 +82,9 @@ function StorySection({ profileData }) {
     <section className="grid items-center gap-10 md:grid-cols-2">
       <div className="flex flex-col gap-6">
         <div className="mb-2 h-1 w-12 rounded-full bg-nocturne-amber/20" />
+        <p className="text-2xl font-semibold leading-9 text-nocturne-cream">
+          My name is John Joseph Sotomil.
+        </p>
         {storyParagraphs.map((paragraph) => (
           <p key={paragraph} className="text-lg leading-8 text-nocturne-muted">
             {paragraph}
@@ -80,6 +100,32 @@ function StorySection({ profileData }) {
             <dd className="mt-2 text-nocturne-muted">{profileData.availability}</dd>
           </div>
         </dl>
+        <div className="flex flex-wrap gap-3 pt-2">
+          {profileData.socialLinks.map((social) => {
+            const SocialIcon = socialIcons[social.platform]
+
+            return (
+              <a
+                key={social.platform}
+                href={social.url}
+                target="_blank"
+                rel="noreferrer"
+                className="group inline-flex h-11 w-11 items-center justify-center rounded-lg border border-nocturne-border bg-nocturne-card-muted text-nocturne-muted transition duration-300 hover:-translate-y-1 hover:border-nocturne-amber-border hover:text-nocturne-amber hover:shadow-nocturne-glow"
+                aria-label={`Visit my ${social.platform} profile`}
+                title={social.platform}
+              >
+                {SocialIcon ? (
+                  <SocialIcon
+                    className="text-lg transition duration-300 group-hover:scale-110"
+                    aria-hidden="true"
+                  />
+                ) : (
+                  social.label
+                )}
+              </a>
+            )
+          })}
+        </div>
       </div>
       <AvatarFrame profileData={profileData} />
     </section>
@@ -89,42 +135,16 @@ function StorySection({ profileData }) {
 function FocusSection() {
   return (
     <section>
-      <SectionTitle title={aboutPage.focusTitle} />
-      <div className="grid gap-6 md:grid-cols-3">
-        {currentFocus.map((item, index) => (
-          <RevealOnScroll key={item.title} delay={index * 75} className="h-full">
-            <Card className="group flex h-full flex-col gap-4 p-8">
-              <div className="flex h-12 w-12 items-center justify-center rounded-full border border-nocturne-border bg-nocturne-panel font-label text-sm text-nocturne-amber transition group-hover:bg-nocturne-amber-soft">
-                {item.title.slice(0, 2)}
-              </div>
-              <h3 className="text-2xl font-semibold text-nocturne-cream">{item.title}</h3>
-              <p className="leading-7 text-nocturne-muted">{item.summary}</p>
-            </Card>
-          </RevealOnScroll>
-        ))}
-      </div>
-    </section>
-  )
-}
-
-function WorkSection() {
-  return (
-    <section>
-      <SectionTitle title={aboutPage.workTitle} />
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        {workProcess.map((item, index) => (
-          <RevealOnScroll key={item.step} delay={index * 75} className="h-full">
-            <Card className="group relative flex min-h-40 flex-col justify-end overflow-hidden p-6 pr-20">
-              <span className="absolute right-5 top-5 rounded border border-nocturne-amber-border bg-nocturne-amber-soft px-2.5 py-1 font-label text-sm text-nocturne-amber">
-                {item.step}
-              </span>
-              <h3 className="relative z-10 text-2xl font-semibold leading-8 text-nocturne-cream">
-                {item.title}
-              </h3>
-            </Card>
-          </RevealOnScroll>
-        ))}
-      </div>
+      <SectionTitle title="My Goal" />
+      <RevealOnScroll>
+        <Card className="relative overflow-hidden p-8 md:p-12">
+          <div className="pointer-events-none absolute -right-20 -top-24 h-56 w-56 rounded-full bg-nocturne-amber/10 blur-[80px]" />
+          <p className="relative z-10 max-w-4xl text-xl leading-9 text-nocturne-muted md:text-2xl md:leading-10">
+            To be able to create apps and systems that were once only ideas, while continuing
+            to improve my skills and thinking ability.
+          </p>
+        </Card>
+      </RevealOnScroll>
     </section>
   )
 }
@@ -169,7 +189,6 @@ export default function AboutPage() {
       <PageHero />
       <StorySection profileData={profile} />
       <FocusSection />
-      <WorkSection />
       <ValuesSection />
       <BottomCta />
     </div>

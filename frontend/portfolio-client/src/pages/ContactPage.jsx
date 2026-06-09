@@ -217,7 +217,7 @@ function ContactInfo({ profileData }) {
 function ServicesSection() {
   return (
     <section className="border-t border-nocturne-border/50 pt-12">
-      <h2 className="mb-12 text-[32px] font-semibold leading-10 text-nocturne-cream">
+      <h2 className="section-label-line mb-12 text-[32px] font-semibold leading-10 text-nocturne-cream">
         {contactPage.servicesTitle}
       </h2>
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">

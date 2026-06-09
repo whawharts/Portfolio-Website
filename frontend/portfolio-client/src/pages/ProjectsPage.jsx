@@ -63,23 +63,18 @@ function ProjectFilters({ activeFilter, onFilterChange }) {
 
 function ProjectImagePlaceholder({ project }) {
   const gradient = thumbnailStyles[project.thumbnailTone] ?? thumbnailStyles.panel
+  const hasThumbnail = !isPlaceholderUrl(project.thumbnailUrl)
 
   return (
     <div className={`relative h-64 overflow-hidden bg-gradient-to-br ${gradient}`}>
       <div className="absolute inset-0 bg-nocturne-bg/40 transition duration-300 group-hover:bg-nocturne-bg/10" />
-      <div className="absolute inset-x-6 top-8 rounded-lg border border-nocturne-border bg-nocturne-bg/70 p-4 backdrop-blur-[20px] transition duration-500 group-hover:scale-[1.03] group-hover:border-nocturne-amber-border">
-        <div className="mb-4 flex gap-2">
-          <span className="h-2.5 w-2.5 rounded-full bg-[var(--color-error)]" />
-          <span className="h-2.5 w-2.5 rounded-full bg-nocturne-amber" />
-          <span className="h-2.5 w-2.5 rounded-full bg-nocturne-muted" />
+      {!hasThumbnail ? (
+        <div className="absolute inset-0 z-10 flex items-center justify-center">
+          <span className="rounded-full border border-nocturne-amber-border bg-nocturne-bg/80 px-4 py-2 font-label text-xs uppercase tracking-[0.14em] text-nocturne-amber shadow-nocturne-glow backdrop-blur-[20px]">
+            Coming Soon
+          </span>
         </div>
-        <div className="mb-3 h-2 w-3/4 rounded bg-nocturne-border" />
-        <div className="mb-3 h-2 rounded bg-nocturne-amber/30" />
-        <div className="h-2 w-2/3 rounded bg-nocturne-border" />
-      </div>
-      <div className="absolute bottom-6 left-6 rounded border border-nocturne-border bg-nocturne-card-muted px-3 py-1 font-label text-xs uppercase tracking-normal text-nocturne-muted">
-        {project.category}
-      </div>
+      ) : null}
     </div>
   )
 }

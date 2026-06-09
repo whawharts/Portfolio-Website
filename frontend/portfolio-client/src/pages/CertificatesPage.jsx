@@ -163,7 +163,7 @@ function CertificateGrid({ items }) {
 function LearningProgressSection() {
   return (
     <section className="mx-auto mb-[120px] max-w-[1120px]">
-      <h2 className="mb-8 border-l-4 border-nocturne-amber pl-4 text-[32px] font-semibold leading-10 text-nocturne-cream">
+      <h2 className="section-label-line mb-8 text-[32px] font-semibold leading-10 text-nocturne-cream">
         {certificatesPage.progressTitle}
       </h2>
       <div className="grid gap-6 md:grid-cols-3">
