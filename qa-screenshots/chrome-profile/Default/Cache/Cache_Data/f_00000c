@@ -1,0 +1,745 @@
+export const profile = {
+	name: "Joseph Sotomil",
+	title: "Frontend Developer",
+	headline: "Building clean websites and useful web apps.",
+	shortBio: "I build thoughtful, responsive web experiences with a calm interface style and practical frontend structure.",
+	longBio: "I enjoy turning ideas into focused web interfaces that feel clear, useful, and maintainable. This portfolio is deployed as a static React site with local data, reusable components, and a calm Nocturne interface system.",
+	location: "Philippines",
+	availability: "Available for selected web projects",
+	email: "Josephsotomil2000@gmail.com",
+	avatarUrl: "/images/profile/chibi_joseph.png",
+	resumeUrl: "/resume/Joseph-Sotomil-Resume.pdf",
+	socialLinks: [
+		{
+			label: "GH",
+			platform: "github",
+			url: "https://github.com/whawharts"
+		},
+		{
+			label: "IN",
+			platform: "linkedin",
+			url: "https://www.linkedin.com/in/joseph-sotomil-7b63173b5/"
+		},
+		{
+			label: "FB",
+			platform: "facebook",
+			url: "https://www.facebook.com/whawharts/"
+		}
+	]
+};
+export const resume = {
+	label: "Resume",
+	fileName: "Joseph-Sotomil-Resume.pdf",
+	downloadUrl: "/resume/Joseph-Sotomil-Resume.pdf"
+};
+export const navigationItems = [
+	{
+		label: "Home",
+		path: "/"
+	},
+	{
+		label: "Projects",
+		path: "/projects"
+	},
+	{
+		label: "Tech Stack",
+		path: "/tech-stack"
+	},
+	{
+		label: "Certificates",
+		path: "/certificates"
+	},
+	{
+		label: "About",
+		path: "/about"
+	},
+	{
+		label: "Contact",
+		path: "/contact"
+	}
+];
+export const homePage = {
+	hero: {
+		availability: "Available for web projects",
+		headline: "Building clean websites and useful web apps.",
+		highlightedWords: "useful web apps.",
+		intro: "I am a frontend-focused developer practicing full-stack structure through clean interfaces, reusable components, and calm user experiences.",
+		primaryAction: {
+			label: "View Projects",
+			path: "/projects"
+		},
+		secondaryAction: {
+			label: "Contact Me",
+			path: "/contact"
+		},
+		stats: [
+			{
+				value: "12+",
+				label: "Projects Built"
+			},
+			{
+				value: "8+",
+				label: "Tech Practiced"
+			},
+			{
+				value: "UI/UX",
+				label: "Current Focus"
+			}
+		]
+	},
+	featuredProjectsTitle: "Featured Projects",
+	techStackTitle: "Tech Stack",
+	aboutTitle: "About Me",
+	certificatesTitle: "Certificates",
+	contactCta: {
+		title: "Let's build something thoughtful.",
+		message: "Have a portfolio idea, small business site, or web app concept? Send a note and we can shape it into something focused.",
+		action: {
+			label: "Start a Conversation",
+			path: "/contact"
+		}
+	}
+};
+export const featuredProjects = [
+	{
+		title: "Padayon App",
+		slug: "padayon-app",
+		summary: "A productivity app concept for planning tasks, tracking progress, and keeping work moving with less friction.",
+		description: "A focused productivity app concept for planning tasks, tracking progress, and keeping work moving with less friction.",
+		category: "app",
+		status: "in_progress",
+		isFeatured: true,
+		thumbnailTone: "amber",
+		liveUrl: null,
+		githubUrl: null,
+		caseStudyUrl: null,
+		techStack: [
+			"React",
+			"Tailwind CSS",
+			"Node.js"
+		]
+	},
+	{
+		title: "Nocturne Portfolio",
+		slug: "nocturne-portfolio",
+		summary: "A dark espresso portfolio system built with reusable React components and a warm minimalist design direction.",
+		description: "A portfolio system built in phases with shared React components, warm design tokens, and a cinematic dark interface.",
+		category: "frontend",
+		status: "in_progress",
+		isFeatured: true,
+		thumbnailTone: "panel",
+		liveUrl: null,
+		githubUrl: null,
+		caseStudyUrl: null,
+		techStack: [
+			"React",
+			"Vite",
+			"Tailwind CSS"
+		]
+	},
+	{
+		title: "Business Landing Page",
+		slug: "business-landing-page",
+		summary: "A compact landing page practice build focused on readable sections, strong calls to action, and responsive layout.",
+		description: "A conversion-focused website layout with clear sections, restrained motion, and responsive content hierarchy.",
+		category: "website",
+		status: "planned",
+		isFeatured: true,
+		thumbnailTone: "streetlight",
+		liveUrl: null,
+		githubUrl: null,
+		techStack: [
+			"HTML",
+			"CSS",
+			"JavaScript"
+		]
+	},
+	{
+		title: "Website Redesign Study",
+		slug: "website-redesign-study",
+		summary: "A UI refresh practice project for improving structure, hierarchy, performance cues, and visual consistency.",
+		description: "A practice redesign study focused on cleaner information architecture, accessibility cues, and reusable interface patterns.",
+		category: "practice",
+		status: "planned",
+		isFeatured: true,
+		thumbnailTone: "code",
+		liveUrl: null,
+		githubUrl: null,
+		techStack: [
+			"React",
+			"Accessibility",
+			"Design Systems"
+		]
+	},
+	{
+		title: "Local Cafe Website",
+		slug: "local-cafe-website",
+		summary: "A small business website concept with menu highlights, contact details, and a simple content-first structure.",
+		description: "A client-style website concept designed for a neighborhood cafe, using clear sections and a warm visual system.",
+		category: "client",
+		status: "planned",
+		isFeatured: false,
+		thumbnailTone: "warm",
+		liveUrl: null,
+		githubUrl: null,
+		techStack: [
+			"React",
+			"CSS",
+			"Responsive UI"
+		]
+	},
+	{
+		title: "Full-stack Notes API",
+		slug: "full-stack-notes-api",
+		summary: "A full-stack practice build for notes, authentication basics, REST endpoints, and persistent storage.",
+		description: "A full-stack learning project that connects a simple React UI to REST endpoints and a future database layer.",
+		category: "fullstack",
+		status: "planned",
+		isFeatured: false,
+		thumbnailTone: "database",
+		liveUrl: null,
+		githubUrl: null,
+		caseStudyUrl: null,
+		techStack: [
+			"React",
+			"Express",
+			"PostgreSQL"
+		]
+	}
+];
+export const projectFilters = [
+	{
+		label: "All",
+		value: "all"
+	},
+	{
+		label: "Websites",
+		value: "website"
+	},
+	{
+		label: "Apps",
+		value: "app"
+	},
+	{
+		label: "Frontend",
+		value: "frontend"
+	},
+	{
+		label: "Full-stack",
+		value: "fullstack"
+	},
+	{
+		label: "Practice",
+		value: "practice"
+	},
+	{
+		label: "Client Work",
+		value: "client"
+	}
+];
+export const projectsPage = {
+	eyebrow: "Selected work",
+	title: "Projects",
+	intro: "A collection of technical explorations, client-style builds, and personal tools. Built in the dark, shaped with structure, and kept warm with the Nocturne system.",
+	cta: {
+		title: "Have a project idea?",
+		message: "I am open to thoughtful freelance opportunities and collaborative builds. Tell me what you are imagining and we can shape the first version together.",
+		action: {
+			label: "Contact Me",
+			path: "/contact"
+		}
+	}
+};
+export const techStackGroups = [
+	{
+		category: "Frontend",
+		summary: "Interfaces, component systems, and responsive browser experiences.",
+		items: [
+			"React",
+			"Tailwind CSS",
+			"JavaScript",
+			"HTML / CSS"
+		]
+	},
+	{
+		category: "Backend",
+		summary: "API structure, validation patterns, and server-side data shaping.",
+		items: [
+			"Node.js",
+			"Express.js",
+			"REST APIs",
+			"Auth Basics"
+		]
+	},
+	{
+		category: "Database",
+		summary: "Relational data modeling and practical persistence workflows.",
+		items: [
+			"PostgreSQL",
+			"Prisma",
+			"SQL Basics",
+			"Data Modeling"
+		]
+	},
+	{
+		category: "Tools",
+		summary: "Daily development, deployment, and design handoff tools.",
+		items: [
+			"Git / GitHub",
+			"VS Code",
+			"Figma",
+			"Vercel"
+		]
+	}
+];
+export const techStackPage = {
+	hero: {
+		eyebrow: "Current tools and learning path",
+		title: "Tech Stack",
+		intro: "The tools and technologies I am learning, practicing, and using to build modern web applications. A focus on fundamentals, clean structure, and incremental mastery."
+	},
+	toolkitTitle: "Core Toolkit",
+	learningTitle: "Active Learning Focus",
+	workflowTitle: "How I Use These Tools",
+	practiceTitle: "Applied in Practice",
+	cta: {
+		title: "Want to see these tools in action?",
+		action: {
+			label: "View Projects",
+			path: "/projects"
+		}
+	}
+};
+export const coreToolkit = [
+	{
+		category: "Frontend",
+		summary: "The visible interface layer: structure, styling, state, and responsive interaction.",
+		span: "lg:col-span-7",
+		items: [
+			{
+				name: "HTML",
+				status: "Used in projects"
+			},
+			{
+				name: "CSS",
+				status: "Used in projects"
+			},
+			{
+				name: "JavaScript",
+				status: "Practicing"
+			},
+			{
+				name: "React",
+				status: "Learning"
+			},
+			{
+				name: "Tailwind CSS",
+				status: "Learning"
+			}
+		]
+	},
+	{
+		category: "Backend",
+		summary: "Server structure, REST endpoints, validation boundaries, and response shaping.",
+		span: "lg:col-span-5",
+		items: [
+			{
+				name: "Node.js",
+				status: "Learning"
+			},
+			{
+				name: "Express",
+				status: "Learning"
+			},
+			{
+				name: "REST APIs",
+				status: "Learning"
+			},
+			{
+				name: "Middleware",
+				status: "Exploring"
+			}
+		]
+	},
+	{
+		category: "Database",
+		summary: "Relational fundamentals, schemas, constraints, and data access patterns.",
+		span: "lg:col-span-5",
+		items: [
+			{
+				name: "SQL",
+				status: "Learning"
+			},
+			{
+				name: "PostgreSQL",
+				status: "Learning"
+			},
+			{
+				name: "Prisma",
+				status: "Exploring"
+			},
+			{
+				name: "Data Modeling",
+				status: "Practicing"
+			}
+		]
+	},
+	{
+		category: "Tools",
+		summary: "Daily development tools for versioning, planning, editing, and deployment.",
+		span: "lg:col-span-7",
+		items: [
+			{
+				name: "Git",
+				status: "Practicing"
+			},
+			{
+				name: "GitHub",
+				status: "Practicing"
+			},
+			{
+				name: "VS Code",
+				status: "Daily Driver"
+			},
+			{
+				name: "Figma",
+				status: "Used in projects"
+			},
+			{
+				name: "Vercel",
+				status: "Exploring"
+			}
+		]
+	}
+];
+export const activeLearningFocus = [
+	{
+		title: "React fundamentals",
+		summary: "Getting comfortable with components, props, state, hooks, and routing without overcomplicating early builds."
+	},
+	{
+		title: "Backend API structure",
+		summary: "Practicing clean Express routes, controllers, services, repositories, and predictable request/response handling."
+	},
+	{
+		title: "PostgreSQL basics",
+		summary: "Learning relational design, keys, constraints, and how database structure supports real application data."
+	},
+	{
+		title: "Full-stack project flow",
+		summary: "Connecting the mental model from frontend screens to APIs, backend data shaping, and future persistence."
+	}
+];
+export const workflowSteps = [
+	{
+		step: "01",
+		title: "Plan",
+		summary: "Map the interface, content model, and basic data needs before writing code."
+	},
+	{
+		step: "02",
+		title: "Build Frontend",
+		summary: "Create the React UI, shared components, routes, and responsive styling."
+	},
+	{
+		step: "03",
+		title: "Manage Data",
+		summary: "Shape schemas and relationships so the backend can own structured data."
+	},
+	{
+		step: "04",
+		title: "Connect APIs",
+		summary: "Use backend endpoints to bridge data and frontend screens cleanly."
+	},
+	{
+		step: "05",
+		title: "Test",
+		summary: "Check routes, interactions, layout, and integration behavior in small passes."
+	}
+];
+export const certificatePreview = [
+	{
+		title: "Responsive Web Design",
+		provider: "freeCodeCamp",
+		issuedAt: "2024",
+		category: "frontend",
+		credentialUrl: null
+	},
+	{
+		title: "JavaScript Algorithms",
+		provider: "Practice Certificate",
+		issuedAt: "2024",
+		category: "frontend",
+		credentialUrl: null
+	},
+	{
+		title: "UI/UX Design Foundations",
+		provider: "Learning Track",
+		issuedAt: "2024",
+		category: "design",
+		credentialUrl: null
+	}
+];
+export const certificatesPage = {
+	hero: {
+		eyebrow: "Learning records and certifications",
+		title: "Certificates",
+		intro: "A collection of certificates, courses, and learning milestones from my journey through frontend practice, backend fundamentals, database basics, digital tools, and design foundations."
+	},
+	progressTitle: "Learning in Progress",
+	cta: {
+		title: "Learning by building.",
+		action: {
+			label: "View Projects",
+			path: "/projects"
+		}
+	}
+};
+export const certificateFilters = [
+	{
+		label: "All",
+		value: "all"
+	},
+	{
+		label: "Frontend",
+		value: "frontend"
+	},
+	{
+		label: "Backend",
+		value: "backend"
+	},
+	{
+		label: "Database",
+		value: "database"
+	},
+	{
+		label: "Tools",
+		value: "tools"
+	},
+	{
+		label: "Design",
+		value: "design"
+	}
+];
+export const certificates = [
+	{
+		title: "Responsive Web Design",
+		provider: "freeCodeCamp",
+		category: "frontend",
+		issuedAt: "2024",
+		credentialUrl: null
+	},
+	{
+		title: "JavaScript Fundamentals",
+		provider: "Practice Certificate",
+		category: "frontend",
+		issuedAt: "2024",
+		credentialUrl: null
+	},
+	{
+		title: "React Basics",
+		provider: "Learning Track",
+		category: "frontend",
+		issuedAt: "2025",
+		credentialUrl: null
+	},
+	{
+		title: "Backend Fundamentals",
+		provider: "Sample Provider",
+		category: "backend",
+		issuedAt: "2025",
+		credentialUrl: null
+	},
+	{
+		title: "SQL Fundamentals",
+		provider: "Sample Provider",
+		category: "database",
+		issuedAt: "2025",
+		credentialUrl: null
+	},
+	{
+		title: "Git and GitHub Essentials",
+		provider: "Sample Provider",
+		category: "tools",
+		issuedAt: "2025",
+		credentialUrl: null
+	},
+	{
+		title: "UI/UX Design Foundations",
+		provider: "Learning Track",
+		category: "design",
+		issuedAt: "2024",
+		credentialUrl: null
+	}
+];
+export const learningProgress = [
+	{
+		title: "Frontend Practice",
+		summary: "Continuously refining modern JavaScript, React component structure, responsive layouts, and accessible interface details."
+	},
+	{
+		title: "Backend Fundamentals",
+		summary: "Deepening server-side architecture, REST API design, validation boundaries, and readable Express project structure."
+	},
+	{
+		title: "Database Basics",
+		summary: "Expanding database modeling, relational thinking, query basics, and the trade-offs behind persistent data design."
+	}
+];
+export const aboutPage = {
+	hero: {
+		eyebrow: "About the developer",
+		title: "Building one project at a time.",
+		intro: "I am a growing web developer learning through real projects, improving my frontend skills, understanding backend systems, and building websites that feel clean, useful, and intentional."
+	},
+	story: ["I started learning web development by practicing HTML, CSS, JavaScript, and React. I learn best when I can see how design, code, backend logic, and data connect together in a real project.", "This portfolio is part of that process: a phased full-stack build where each page, component, and data model is an opportunity to practice structure, consistency, and thoughtful interface design."],
+	focusTitle: "Current Focus",
+	workTitle: "How I Work",
+	valuesTitle: "Values",
+	learningTitle: "Currently Learning",
+	cta: {
+		title: "Want to see what I'm building?",
+		message: "Explore the projects where I practice these skills and turn ideas into real interfaces.",
+		action: {
+			label: "View Projects",
+			path: "/projects"
+		}
+	}
+};
+export const currentFocus = [
+	{
+		title: "Frontend Foundations",
+		summary: "Mastering layout mechanics, component architecture, responsive design, and the small details that make interfaces feel calm."
+	},
+	{
+		title: "Backend Logic",
+		summary: "Learning how APIs connect systems, manage requests, shape responses, and keep business logic out of the frontend."
+	},
+	{
+		title: "Database Thinking",
+		summary: "Practicing how data relationships are structured, stored, retrieved, and protected as projects become more complete."
+	}
+];
+export const workProcess = [
+	{
+		step: "01",
+		title: "Plan the structure"
+	},
+	{
+		step: "02",
+		title: "Design the interface"
+	},
+	{
+		step: "03",
+		title: "Build the frontend"
+	},
+	{
+		step: "04",
+		title: "Connect data & improve"
+	}
+];
+export const developerValues = [
+	"Clean and readable code",
+	"Simple user experience",
+	"Consistent design systems",
+	"Learning with patience",
+	"Building useful things"
+];
+export const currentlyLearning = [
+	"React fundamentals",
+	"JavaScript problem solving",
+	"Backend APIs",
+	"PostgreSQL basics",
+	"Full-stack project structure"
+];
+export const contactPage = {
+	hero: {
+		eyebrow: "Contact",
+		title: "Let's build something thoughtful.",
+		highlightedWord: "thoughtful.",
+		intro: "Have a website idea, portfolio project, landing page, or collaboration in mind? Send a message and I will get back to you."
+	},
+	form: {
+		projectTypes: [
+			{
+				label: "Portfolio Website",
+				value: "portfolio"
+			},
+			{
+				label: "Business Landing Page",
+				value: "landing"
+			},
+			{
+				label: "Simple Web App",
+				value: "webapp"
+			},
+			{
+				label: "Website Redesign",
+				value: "redesign"
+			},
+			{
+				label: "Collaboration",
+				value: "collab"
+			},
+			{
+				label: "Other",
+				value: "other"
+			}
+		],
+		successMessage: "Message preview received locally. Please use the email link if you want to send it directly."
+	},
+	info: {
+		availability: "Open for portfolio websites, landing pages, and practice-based web projects.",
+		note: "I usually reply when available and prefer clear project details, goals, timeline, and examples."
+	},
+	socialLinks: [
+		{
+			label: "GH",
+			platform: "github",
+			url: null
+		},
+		{
+			label: "IN",
+			platform: "linkedin",
+			url: null
+		},
+		{
+			label: "FB",
+			platform: "facebook",
+			url: null
+		}
+	],
+	servicesTitle: "What I Can Help With",
+	services: [
+		{
+			title: "Portfolio websites",
+			summary: "Personal sites to showcase your work, skills, and resume clearly.",
+			mark: "</>"
+		},
+		{
+			title: "Business landing pages",
+			summary: "Clean, focused single pages to capture leads or explain a service.",
+			mark: "[]"
+		},
+		{
+			title: "Simple web apps",
+			summary: "Interactive frontend tools or dashboards for specific utilities.",
+			mark: "{}"
+		},
+		{
+			title: "Website redesigns",
+			summary: "Taking an older design and giving it a modern, clean update.",
+			mark: "~~"
+		}
+	],
+	cta: {
+		title: "Not sure where to start?",
+		message: "Tell me what you want to build, and we can start with a simple plan.",
+		action: {
+			label: "View Projects",
+			path: "/projects"
+		}
+	}
+};
+
+//# sourceMappingURL=data:application/json;base64,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RUFDVCxRQUFRO0dBQUUsT0FBTztHQUFpQixNQUFNO0VBQVk7Q0FDdEQ7QUFDRiIsIm5hbWVzIjpbXSwic291cmNlcyI6WyJtb2NrUG9ydGZvbGlvRGF0YS5qcyJdLCJ2ZXJzaW9uIjozLCJzb3VyY2VzQ29udGVudCI6WyJleHBvcnQgY29uc3QgcHJvZmlsZSA9IHtcbiAgbmFtZTogJ0pvc2VwaCBTb3RvbWlsJyxcbiAgdGl0bGU6ICdGcm9udGVuZCBEZXZlbG9wZXInLFxuICBoZWFkbGluZTogJ0J1aWxkaW5nIGNsZWFuIHdlYnNpdGVzIGFuZCB1c2VmdWwgd2ViIGFwcHMuJyxcbiAgc2hvcnRCaW86XG4gICAgJ0kgYnVpbGQgdGhvdWdodGZ1bCwgcmVzcG9uc2l2ZSB3ZWIgZXhwZXJpZW5jZXMgd2l0aCBhIGNhbG0gaW50ZXJmYWNlIHN0eWxlIGFuZCBwcmFjdGljYWwgZnJvbnRlbmQgc3RydWN0dXJlLicsXG4gIGxvbmdCaW86XG4gICAgJ0kgZW5qb3kgdHVybmluZyBpZGVhcyBpbnRvIGZvY3VzZWQgd2ViIGludGVyZmFjZXMgdGhhdCBmZWVsIGNsZWFyLCB1c2VmdWwsIGFuZCBtYWludGFpbmFibGUuIFRoaXMgcG9ydGZvbGlvIGlzIGRlcGxveWVkIGFzIGEgc3RhdGljIFJlYWN0IHNpdGUgd2l0aCBsb2NhbCBkYXRhLCByZXVzYWJsZSBjb21wb25lbnRzLCBhbmQgYSBjYWxtIE5vY3R1cm5lIGludGVyZmFjZSBzeXN0ZW0uJyxcbiAgbG9jYXRpb246ICdQaGlsaXBwaW5lcycsXG4gIGF2YWlsYWJpbGl0eTogJ0F2YWlsYWJsZSBmb3Igc2VsZWN0ZWQgd2ViIHByb2plY3RzJyxcbiAgZW1haWw6ICdKb3NlcGhzb3RvbWlsMjAwMEBnbWFpbC5jb20nLFxuICBhdmF0YXJVcmw6ICcvaW1hZ2VzL3Byb2ZpbGUvY2hpYmlfam9zZXBoLnBuZycsXG4gIHJlc3VtZVVybDogJy9yZXN1bWUvSm9zZXBoLVNvdG9taWwtUmVzdW1lLnBkZicsXG4gIHNvY2lhbExpbmtzOiBbXG4gICAgeyBsYWJlbDogJ0dIJywgcGxhdGZvcm06ICdnaXRodWInLCB1cmw6ICdodHRwczovL2dpdGh1Yi5jb20vd2hhd2hhcnRzJyB9LFxuICAgIHtcbiAgICAgIGxhYmVsOiAnSU4nLFxuICAgICAgcGxhdGZvcm06ICdsaW5rZWRpbicsXG4gICAgICB1cmw6ICdodHRwczovL3d3dy5saW5rZWRpbi5jb20vaW4vam9zZXBoLXNvdG9taWwtN2I2MzE3M2I1LycsXG4gICAgfSxcbiAgICB7IGxhYmVsOiAnRkInLCBwbGF0Zm9ybTogJ2ZhY2Vib29rJywgdXJsOiAnaHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3doYXdoYXJ0cy8nIH0sXG4gIF0sXG59XG5cbmV4cG9ydCBjb25zdCByZXN1bWUgPSB7XG4gIGxhYmVsOiAnUmVzdW1lJyxcbiAgZmlsZU5hbWU6ICdKb3NlcGgtU290b21pbC1SZXN1bWUucGRmJyxcbiAgZG93bmxvYWRVcmw6ICcvcmVzdW1lL0pvc2VwaC1Tb3RvbWlsLVJlc3VtZS5wZGYnLFxufVxuXG5leHBvcnQgY29uc3QgbmF2aWdhdGlvbkl0ZW1zID0gW1xuICB7IGxhYmVsOiAnSG9tZScsIHBhdGg6ICcvJyB9LFxuICB7IGxhYmVsOiAnUHJvamVjdHMnLCBwYXRoOiAnL3Byb2plY3RzJyB9LFxuICB7IGxhYmVsOiAnVGVjaCBTdGFjaycsIHBhdGg6ICcvdGVjaC1zdGFjaycgfSxcbiAgeyBsYWJlbDogJ0NlcnRpZmljYXRlcycsIHBhdGg6ICcvY2VydGlmaWNhdGVzJyB9LFxuICB7IGxhYmVsOiAnQWJvdXQnLCBwYXRoOiAnL2Fib3V0JyB9LFxuICB7IGxhYmVsOiAnQ29udGFjdCcsIHBhdGg6ICcvY29udGFjdCcgfSxcbl1cblxuZXhwb3J0IGNvbnN0IGhvbWVQYWdlID0ge1xuICBoZXJvOiB7XG4gICAgYXZhaWxhYmlsaXR5OiAnQXZhaWxhYmxlIGZvciB3ZWIgcHJvamVjdHMnLFxuICAgIGhlYWRsaW5lOiAnQnVpbGRpbmcgY2xlYW4gd2Vic2l0ZXMgYW5kIHVzZWZ1bCB3ZWIgYXBwcy4nLFxuICAgIGhpZ2hsaWdodGVkV29yZHM6ICd1c2VmdWwgd2ViIGFwcHMuJyxcbiAgICBpbnRybzpcbiAgICAgICdJIGFtIGEgZnJvbnRlbmQtZm9jdXNlZCBkZXZlbG9wZXIgcHJhY3RpY2luZyBmdWxsLXN0YWNrIHN0cnVjdHVyZSB0aHJvdWdoIGNsZWFuIGludGVyZmFjZXMsIHJldXNhYmxlIGNvbXBvbmVudHMsIGFuZCBjYWxtIHVzZXIgZXhwZXJpZW5jZXMuJyxcbiAgICBwcmltYXJ5QWN0aW9uOiB7IGxhYmVsOiAnVmlldyBQcm9qZWN0cycsIHBhdGg6ICcvcHJvamVjdHMnIH0sXG4gICAgc2Vjb25kYXJ5QWN0aW9uOiB7IGxhYmVsOiAnQ29udGFjdCBNZScsIHBhdGg6ICcvY29udGFjdCcgfSxcbiAgICBzdGF0czogW1xuICAgICAgeyB2YWx1ZTogJzEyKycsIGxhYmVsOiAnUHJvamVjdHMgQnVpbHQnIH0sXG4gICAgICB7IHZhbHVlOiAnOCsnLCBsYWJlbDogJ1RlY2ggUHJhY3RpY2VkJyB9LFxuICAgICAgeyB2YWx1ZTogJ1VJL1VYJywgbGFiZWw6ICdDdXJyZW50IEZvY3VzJyB9LFxuICAgIF0sXG4gIH0sXG4gIGZlYXR1cmVkUHJvamVjdHNUaXRsZTogJ0ZlYXR1cmVkIFByb2plY3RzJyxcbiAgdGVjaFN0YWNrVGl0bGU6ICdUZWNoIFN0YWNrJyxcbiAgYWJvdXRUaXRsZTogJ0Fib3V0IE1lJyxcbiAgY2VydGlmaWNhdGVzVGl0bGU6ICdDZXJ0aWZpY2F0ZXMnLFxuICBjb250YWN0Q3RhOiB7XG4gICAgdGl0bGU6IFwiTGV0J3MgYnVpbGQgc29tZXRoaW5nIHRob3VnaHRmdWwuXCIsXG4gICAgbWVzc2FnZTpcbiAgICAgICdIYXZlIGEgcG9ydGZvbGlvIGlkZWEsIHNtYWxsIGJ1c2luZXNzIHNpdGUsIG9yIHdlYiBhcHAgY29uY2VwdD8gU2VuZCBhIG5vdGUgYW5kIHdlIGNhbiBzaGFwZSBpdCBpbnRvIHNvbWV0aGluZyBmb2N1c2VkLicsXG4gICAgYWN0aW9uOiB7IGxhYmVsOiAnU3RhcnQgYSBDb252ZXJzYXRpb24nLCBwYXRoOiAnL2NvbnRhY3QnIH0sXG4gIH0sXG59XG5cbmV4cG9ydCBjb25zdCBmZWF0dXJlZFByb2plY3RzID0gW1xuICB7XG4gICAgdGl0bGU6ICdQYWRheW9uIEFwcCcsXG4gICAgc2x1ZzogJ3BhZGF5b24tYXBwJyxcbiAgICBzdW1tYXJ5OlxuICAgICAgJ0EgcHJvZHVjdGl2aXR5IGFwcCBjb25jZXB0IGZvciBwbGFubmluZyB0YXNrcywgdHJhY2tpbmcgcHJvZ3Jlc3MsIGFuZCBrZWVwaW5nIHdvcmsgbW92aW5nIHdpdGggbGVzcyBmcmljdGlvbi4nLFxuICAgIGRlc2NyaXB0aW9uOlxuICAgICAgJ0EgZm9jdXNlZCBwcm9kdWN0aXZpdHkgYXBwIGNvbmNlcHQgZm9yIHBsYW5uaW5nIHRhc2tzLCB0cmFja2luZyBwcm9ncmVzcywgYW5kIGtlZXBpbmcgd29yayBtb3Zpbmcgd2l0aCBsZXNzIGZyaWN0aW9uLicsXG4gICAgY2F0ZWdvcnk6ICdhcHAnLFxuICAgIHN0YXR1czogJ2luX3Byb2dyZXNzJyxcbiAgICBpc0ZlYXR1cmVkOiB0cnVlLFxuICAgIHRodW1ibmFpbFRvbmU6ICdhbWJlcicsXG4gICAgbGl2ZVVybDogbnVsbCxcbiAgICBnaXRodWJVcmw6IG51bGwsXG4gICAgY2FzZVN0dWR5VXJsOiBudWxsLFxuICAgIHRlY2hTdGFjazogWydSZWFjdCcsICdUYWlsd2luZCBDU1MnLCAnTm9kZS5qcyddLFxuICB9LFxuICB7XG4gICAgdGl0bGU6ICdOb2N0dXJuZSBQb3J0Zm9saW8nLFxuICAgIHNsdWc6ICdub2N0dXJuZS1wb3J0Zm9saW8nLFxuICAgIHN1bW1hcnk6XG4gICAgICAnQSBkYXJrIGVzcHJlc3NvIHBvcnRmb2xpbyBzeXN0ZW0gYnVpbHQgd2l0aCByZXVzYWJsZSBSZWFjdCBjb21wb25lbnRzIGFuZCBhIHdhcm0gbWluaW1hbGlzdCBkZXNpZ24gZGlyZWN0aW9uLicsXG4gICAgZGVzY3JpcHRpb246XG4gICAgICAnQSBwb3J0Zm9saW8gc3lzdGVtIGJ1aWx0IGluIHBoYXNlcyB3aXRoIHNoYXJlZCBSZWFjdCBjb21wb25lbnRzLCB3YXJtIGRlc2lnbiB0b2tlbnMsIGFuZCBhIGNpbmVtYXRpYyBkYXJrIGludGVyZmFjZS4nLFxuICAgIGNhdGVnb3J5OiAnZnJvbnRlbmQnLFxuICAgIHN0YXR1czogJ2luX3Byb2dyZXNzJyxcbiAgICBpc0ZlYXR1cmVkOiB0cnVlLFxuICAgIHRodW1ibmFpbFRvbmU6ICdwYW5lbCcsXG4gICAgbGl2ZVVybDogbnVsbCxcbiAgICBnaXRodWJVcmw6IG51bGwsXG4gICAgY2FzZVN0dWR5VXJsOiBudWxsLFxuICAgIHRlY2hTdGFjazogWydSZWFjdCcsICdWaXRlJywgJ1RhaWx3aW5kIENTUyddLFxuICB9LFxuICB7XG4gICAgdGl0bGU6ICdCdXNpbmVzcyBMYW5kaW5nIFBhZ2UnLFxuICAgIHNsdWc6ICdidXNpbmVzcy1sYW5kaW5nLXBhZ2UnLFxuICAgIHN1bW1hcnk6XG4gICAgICAnQSBjb21wYWN0IGxhbmRpbmcgcGFnZSBwcmFjdGljZSBidWlsZCBmb2N1c2VkIG9uIHJlYWRhYmxlIHNlY3Rpb25zLCBzdHJvbmcgY2FsbHMgdG8gYWN0aW9uLCBhbmQgcmVzcG9uc2l2ZSBsYXlvdXQuJyxcbiAgICBkZXNjcmlwdGlvbjpcbiAgICAgICdBIGNvbnZlcnNpb24tZm9jdXNlZCB3ZWJzaXRlIGxheW91dCB3aXRoIGNsZWFyIHNlY3Rpb25zLCByZXN0cmFpbmVkIG1vdGlvbiwgYW5kIHJlc3BvbnNpdmUgY29udGVudCBoaWVyYXJjaHkuJyxcbiAgICBjYXRlZ29yeTogJ3dlYnNpdGUnLFxuICAgIHN0YXR1czogJ3BsYW5uZWQnLFxuICAgIGlzRmVhdHVyZWQ6IHRydWUsXG4gICAgdGh1bWJuYWlsVG9uZTogJ3N0cmVldGxpZ2h0JyxcbiAgICBsaXZlVXJsOiBudWxsLFxuICAgIGdpdGh1YlVybDogbnVsbCxcbiAgICB0ZWNoU3RhY2s6IFsnSFRNTCcsICdDU1MnLCAnSmF2YVNjcmlwdCddLFxuICB9LFxuICB7XG4gICAgdGl0bGU6ICdXZWJzaXRlIFJlZGVzaWduIFN0dWR5JyxcbiAgICBzbHVnOiAnd2Vic2l0ZS1yZWRlc2lnbi1zdHVkeScsXG4gICAgc3VtbWFyeTpcbiAgICAgICdBIFVJIHJlZnJlc2ggcHJhY3RpY2UgcHJvamVjdCBmb3IgaW1wcm92aW5nIHN0cnVjdHVyZSwgaGllcmFyY2h5LCBwZXJmb3JtYW5jZSBjdWVzLCBhbmQgdmlzdWFsIGNvbnNpc3RlbmN5LicsXG4gICAgZGVzY3JpcHRpb246XG4gICAgICAnQSBwcmFjdGljZSByZWRlc2lnbiBzdHVkeSBmb2N1c2VkIG9uIGNsZWFuZXIgaW5mb3JtYXRpb24gYXJjaGl0ZWN0dXJlLCBhY2Nlc3NpYmlsaXR5IGN1ZXMsIGFuZCByZXVzYWJsZSBpbnRlcmZhY2UgcGF0dGVybnMuJyxcbiAgICBjYXRlZ29yeTogJ3ByYWN0aWNlJyxcbiAgICBzdGF0dXM6ICdwbGFubmVkJyxcbiAgICBpc0ZlYXR1cmVkOiB0cnVlLFxuICAgIHRodW1ibmFpbFRvbmU6ICdjb2RlJyxcbiAgICBsaXZlVXJsOiBudWxsLFxuICAgIGdpdGh1YlVybDogbnVsbCxcbiAgICB0ZWNoU3RhY2s6IFsnUmVhY3QnLCAnQWNjZXNzaWJpbGl0eScsICdEZXNpZ24gU3lzdGVtcyddLFxuICB9LFxuICB7XG4gICAgdGl0bGU6ICdMb2NhbCBDYWZlIFdlYnNpdGUnLFxuICAgIHNsdWc6ICdsb2NhbC1jYWZlLXdlYnNpdGUnLFxuICAgIHN1bW1hcnk6XG4gICAgICAnQSBzbWFsbCBidXNpbmVzcyB3ZWJzaXRlIGNvbmNlcHQgd2l0aCBtZW51IGhpZ2hsaWdodHMsIGNvbnRhY3QgZGV0YWlscywgYW5kIGEgc2ltcGxlIGNvbnRlbnQtZmlyc3Qgc3RydWN0dXJlLicsXG4gICAgZGVzY3JpcHRpb246XG4gICAgICAnQSBjbGllbnQtc3R5bGUgd2Vic2l0ZSBjb25jZXB0IGRlc2lnbmVkIGZvciBhIG5laWdoYm9yaG9vZCBjYWZlLCB1c2luZyBjbGVhciBzZWN0aW9ucyBhbmQgYSB3YXJtIHZpc3VhbCBzeXN0ZW0uJyxcbiAgICBjYXRlZ29yeTogJ2NsaWVudCcsXG4gICAgc3RhdHVzOiAncGxhbm5lZCcsXG4gICAgaXNGZWF0dXJlZDogZmFsc2UsXG4gICAgdGh1bWJuYWlsVG9uZTogJ3dhcm0nLFxuICAgIGxpdmVVcmw6IG51bGwsXG4gICAgZ2l0aHViVXJsOiBudWxsLFxuICAgIHRlY2hTdGFjazogWydSZWFjdCcsICdDU1MnLCAnUmVzcG9uc2l2ZSBVSSddLFxuICB9LFxuICB7XG4gICAgdGl0bGU6ICdGdWxsLXN0YWNrIE5vdGVzIEFQSScsXG4gICAgc2x1ZzogJ2Z1bGwtc3RhY2stbm90ZXMtYXBpJyxcbiAgICBzdW1tYXJ5OlxuICAgICAgJ0EgZnVsbC1zdGFjayBwcmFjdGljZSBidWlsZCBmb3Igbm90ZXMsIGF1dGhlbnRpY2F0aW9uIGJhc2ljcywgUkVTVCBlbmRwb2ludHMsIGFuZCBwZXJzaXN0ZW50IHN0b3JhZ2UuJyxcbiAgICBkZXNjcmlwdGlvbjpcbiAgICAgICdBIGZ1bGwtc3RhY2sgbGVhcm5pbmcgcHJvamVjdCB0aGF0IGNvbm5lY3RzIGEgc2ltcGxlIFJlYWN0IFVJIHRvIFJFU1QgZW5kcG9pbnRzIGFuZCBhIGZ1dHVyZSBkYXRhYmFzZSBsYXllci4nLFxuICAgIGNhdGVnb3J5OiAnZnVsbHN0YWNrJyxcbiAgICBzdGF0dXM6ICdwbGFubmVkJyxcbiAgICBpc0ZlYXR1cmVkOiBmYWxzZSxcbiAgICB0aHVtYm5haWxUb25lOiAnZGF0YWJhc2UnLFxuICAgIGxpdmVVcmw6IG51bGwsXG4gICAgZ2l0aHViVXJsOiBudWxsLFxuICAgIGNhc2VTdHVkeVVybDogbnVsbCxcbiAgICB0ZWNoU3RhY2s6IFsnUmVhY3QnLCAnRXhwcmVzcycsICdQb3N0Z3JlU1FMJ10sXG4gIH0sXG5dXG5cbmV4cG9ydCBjb25zdCBwcm9qZWN0RmlsdGVycyA9IFtcbiAgeyBsYWJlbDogJ0FsbCcsIHZhbHVlOiAnYWxsJyB9LFxuICB7IGxhYmVsOiAnV2Vic2l0ZXMnLCB2YWx1ZTogJ3dlYnNpdGUnIH0sXG4gIHsgbGFiZWw6ICdBcHBzJywgdmFsdWU6ICdhcHAnIH0sXG4gIHsgbGFiZWw6ICdGcm9udGVuZCcsIHZhbHVlOiAnZnJvbnRlbmQnIH0sXG4gIHsgbGFiZWw6ICdGdWxsLXN0YWNrJywgdmFsdWU6ICdmdWxsc3RhY2snIH0sXG4gIHsgbGFiZWw6ICdQcmFjdGljZScsIHZhbHVlOiAncHJhY3RpY2UnIH0sXG4gIHsgbGFiZWw6ICdDbGllbnQgV29yaycsIHZhbHVlOiAnY2xpZW50JyB9LFxuXVxuXG5leHBvcnQgY29uc3QgcHJvamVjdHNQYWdlID0ge1xuICBleWVicm93OiAnU2VsZWN0ZWQgd29yaycsXG4gIHRpdGxlOiAnUHJvamVjdHMnLFxuICBpbnRybzpcbiAgICAnQSBjb2xsZWN0aW9uIG9mIHRlY2huaWNhbCBleHBsb3JhdGlvbnMsIGNsaWVudC1zdHlsZSBidWlsZHMsIGFuZCBwZXJzb25hbCB0b29scy4gQnVpbHQgaW4gdGhlIGRhcmssIHNoYXBlZCB3aXRoIHN0cnVjdHVyZSwgYW5kIGtlcHQgd2FybSB3aXRoIHRoZSBOb2N0dXJuZSBzeXN0ZW0uJyxcbiAgY3RhOiB7XG4gICAgdGl0bGU6ICdIYXZlIGEgcHJvamVjdCBpZGVhPycsXG4gICAgbWVzc2FnZTpcbiAgICAgICdJIGFtIG9wZW4gdG8gdGhvdWdodGZ1bCBmcmVlbGFuY2Ugb3Bwb3J0dW5pdGllcyBhbmQgY29sbGFib3JhdGl2ZSBidWlsZHMuIFRlbGwgbWUgd2hhdCB5b3UgYXJlIGltYWdpbmluZyBhbmQgd2UgY2FuIHNoYXBlIHRoZSBmaXJzdCB2ZXJzaW9uIHRvZ2V0aGVyLicsXG4gICAgYWN0aW9uOiB7IGxhYmVsOiAnQ29udGFjdCBNZScsIHBhdGg6ICcvY29udGFjdCcgfSxcbiAgfSxcbn1cblxuZXhwb3J0IGNvbnN0IHRlY2hTdGFja0dyb3VwcyA9IFtcbiAge1xuICAgIGNhdGVnb3J5OiAnRnJvbnRlbmQnLFxuICAgIHN1bW1hcnk6ICdJbnRlcmZhY2VzLCBjb21wb25lbnQgc3lzdGVtcywgYW5kIHJlc3BvbnNpdmUgYnJvd3NlciBleHBlcmllbmNlcy4nLFxuICAgIGl0ZW1zOiBbJ1JlYWN0JywgJ1RhaWx3aW5kIENTUycsICdKYXZhU2NyaXB0JywgJ0hUTUwgLyBDU1MnXSxcbiAgfSxcbiAge1xuICAgIGNhdGVnb3J5OiAnQmFja2VuZCcsXG4gICAgc3VtbWFyeTogJ0FQSSBzdHJ1Y3R1cmUsIHZhbGlkYXRpb24gcGF0dGVybnMsIGFuZCBzZXJ2ZXItc2lkZSBkYXRhIHNoYXBpbmcuJyxcbiAgICBpdGVtczogWydOb2RlLmpzJywgJ0V4cHJlc3MuanMnLCAnUkVTVCBBUElzJywgJ0F1dGggQmFzaWNzJ10sXG4gIH0sXG4gIHtcbiAgICBjYXRlZ29yeTogJ0RhdGFiYXNlJyxcbiAgICBzdW1tYXJ5OiAnUmVsYXRpb25hbCBkYXRhIG1vZGVsaW5nIGFuZCBwcmFjdGljYWwgcGVyc2lzdGVuY2Ugd29ya2Zsb3dzLicsXG4gICAgaXRlbXM6IFsnUG9zdGdyZVNRTCcsICdQcmlzbWEnLCAnU1FMIEJhc2ljcycsICdEYXRhIE1vZGVsaW5nJ10sXG4gIH0sXG4gIHtcbiAgICBjYXRlZ29yeTogJ1Rvb2xzJyxcbiAgICBzdW1tYXJ5OiAnRGFpbHkgZGV2ZWxvcG1lbnQsIGRlcGxveW1lbnQsIGFuZCBkZXNpZ24gaGFuZG9mZiB0b29scy4nLFxuICAgIGl0ZW1zOiBbJ0dpdCAvIEdpdEh1YicsICdWUyBDb2RlJywgJ0ZpZ21hJywgJ1ZlcmNlbCddLFxuICB9LFxuXVxuXG5leHBvcnQgY29uc3QgdGVjaFN0YWNrUGFnZSA9IHtcbiAgaGVybzoge1xuICAgIGV5ZWJyb3c6ICdDdXJyZW50IHRvb2xzIGFuZCBsZWFybmluZyBwYXRoJyxcbiAgICB0aXRsZTogJ1RlY2ggU3RhY2snLFxuICAgIGludHJvOlxuICAgICAgJ1RoZSB0b29scyBhbmQgdGVjaG5vbG9naWVzIEkgYW0gbGVhcm5pbmcsIHByYWN0aWNpbmcsIGFuZCB1c2luZyB0byBidWlsZCBtb2Rlcm4gd2ViIGFwcGxpY2F0aW9ucy4gQSBmb2N1cyBvbiBmdW5kYW1lbnRhbHMsIGNsZWFuIHN0cnVjdHVyZSwgYW5kIGluY3JlbWVudGFsIG1hc3RlcnkuJyxcbiAgfSxcbiAgdG9vbGtpdFRpdGxlOiAnQ29yZSBUb29sa2l0JyxcbiAgbGVhcm5pbmdUaXRsZTogJ0FjdGl2ZSBMZWFybmluZyBGb2N1cycsXG4gIHdvcmtmbG93VGl0bGU6ICdIb3cgSSBVc2UgVGhlc2UgVG9vbHMnLFxuICBwcmFjdGljZVRpdGxlOiAnQXBwbGllZCBpbiBQcmFjdGljZScsXG4gIGN0YToge1xuICAgIHRpdGxlOiAnV2FudCB0byBzZWUgdGhlc2UgdG9vbHMgaW4gYWN0aW9uPycsXG4gICAgYWN0aW9uOiB7IGxhYmVsOiAnVmlldyBQcm9qZWN0cycsIHBhdGg6ICcvcHJvamVjdHMnIH0sXG4gIH0sXG59XG5cbmV4cG9ydCBjb25zdCBjb3JlVG9vbGtpdCA9IFtcbiAge1xuICAgIGNhdGVnb3J5OiAnRnJvbnRlbmQnLFxuICAgIHN1bW1hcnk6ICdUaGUgdmlzaWJsZSBpbnRlcmZhY2UgbGF5ZXI6IHN0cnVjdHVyZSwgc3R5bGluZywgc3RhdGUsIGFuZCByZXNwb25zaXZlIGludGVyYWN0aW9uLicsXG4gICAgc3BhbjogJ2xnOmNvbC1zcGFuLTcnLFxuICAgIGl0ZW1zOiBbXG4gICAgICB7IG5hbWU6ICdIVE1MJywgc3RhdHVzOiAnVXNlZCBpbiBwcm9qZWN0cycgfSxcbiAgICAgIHsgbmFtZTogJ0NTUycsIHN0YXR1czogJ1VzZWQgaW4gcHJvamVjdHMnIH0sXG4gICAgICB7IG5hbWU6ICdKYXZhU2NyaXB0Jywgc3RhdHVzOiAnUHJhY3RpY2luZycgfSxcbiAgICAgIHsgbmFtZTogJ1JlYWN0Jywgc3RhdHVzOiAnTGVhcm5pbmcnIH0sXG4gICAgICB7IG5hbWU6ICdUYWlsd2luZCBDU1MnLCBzdGF0dXM6ICdMZWFybmluZycgfSxcbiAgICBdLFxuICB9LFxuICB7XG4gICAgY2F0ZWdvcnk6ICdCYWNrZW5kJyxcbiAgICBzdW1tYXJ5OiAnU2VydmVyIHN0cnVjdHVyZSwgUkVTVCBlbmRwb2ludHMsIHZhbGlkYXRpb24gYm91bmRhcmllcywgYW5kIHJlc3BvbnNlIHNoYXBpbmcuJyxcbiAgICBzcGFuOiAnbGc6Y29sLXNwYW4tNScsXG4gICAgaXRlbXM6IFtcbiAgICAgIHsgbmFtZTogJ05vZGUuanMnLCBzdGF0dXM6ICdMZWFybmluZycgfSxcbiAgICAgIHsgbmFtZTogJ0V4cHJlc3MnLCBzdGF0dXM6ICdMZWFybmluZycgfSxcbiAgICAgIHsgbmFtZTogJ1JFU1QgQVBJcycsIHN0YXR1czogJ0xlYXJuaW5nJyB9LFxuICAgICAgeyBuYW1lOiAnTWlkZGxld2FyZScsIHN0YXR1czogJ0V4cGxvcmluZycgfSxcbiAgICBdLFxuICB9LFxuICB7XG4gICAgY2F0ZWdvcnk6ICdEYXRhYmFzZScsXG4gICAgc3VtbWFyeTogJ1JlbGF0aW9uYWwgZnVuZGFtZW50YWxzLCBzY2hlbWFzLCBjb25zdHJhaW50cywgYW5kIGRhdGEgYWNjZXNzIHBhdHRlcm5zLicsXG4gICAgc3BhbjogJ2xnOmNvbC1zcGFuLTUnLFxuICAgIGl0ZW1zOiBbXG4gICAgICB7IG5hbWU6ICdTUUwnLCBzdGF0dXM6ICdMZWFybmluZycgfSxcbiAgICAgIHsgbmFtZTogJ1Bvc3RncmVTUUwnLCBzdGF0dXM6ICdMZWFybmluZycgfSxcbiAgICAgIHsgbmFtZTogJ1ByaXNtYScsIHN0YXR1czogJ0V4cGxvcmluZycgfSxcbiAgICAgIHsgbmFtZTogJ0RhdGEgTW9kZWxpbmcnLCBzdGF0dXM6ICdQcmFjdGljaW5nJyB9LFxuICAgIF0sXG4gIH0sXG4gIHtcbiAgICBjYXRlZ29yeTogJ1Rvb2xzJyxcbiAgICBzdW1tYXJ5OiAnRGFpbHkgZGV2ZWxvcG1lbnQgdG9vbHMgZm9yIHZlcnNpb25pbmcsIHBsYW5uaW5nLCBlZGl0aW5nLCBhbmQgZGVwbG95bWVudC4nLFxuICAgIHNwYW46ICdsZzpjb2wtc3Bhbi03JyxcbiAgICBpdGVtczogW1xuICAgICAgeyBuYW1lOiAnR2l0Jywgc3RhdHVzOiAnUHJhY3RpY2luZycgfSxcbiAgICAgIHsgbmFtZTogJ0dpdEh1YicsIHN0YXR1czogJ1ByYWN0aWNpbmcnIH0sXG4gICAgICB7IG5hbWU6ICdWUyBDb2RlJywgc3RhdHVzOiAnRGFpbHkgRHJpdmVyJyB9LFxuICAgICAgeyBuYW1lOiAnRmlnbWEnLCBzdGF0dXM6ICdVc2VkIGluIHByb2plY3RzJyB9LFxuICAgICAgeyBuYW1lOiAnVmVyY2VsJywgc3RhdHVzOiAnRXhwbG9yaW5nJyB9LFxuICAgIF0sXG4gIH0sXG5dXG5cbmV4cG9ydCBjb25zdCBhY3RpdmVMZWFybmluZ0ZvY3VzID0gW1xuICB7XG4gICAgdGl0bGU6ICdSZWFjdCBmdW5kYW1lbnRhbHMnLFxuICAgIHN1bW1hcnk6XG4gICAgICAnR2V0dGluZyBjb21mb3J0YWJsZSB3aXRoIGNvbXBvbmVudHMsIHByb3BzLCBzdGF0ZSwgaG9va3MsIGFuZCByb3V0aW5nIHdpdGhvdXQgb3ZlcmNvbXBsaWNhdGluZyBlYXJseSBidWlsZHMuJyxcbiAgfSxcbiAge1xuICAgIHRpdGxlOiAnQmFja2VuZCBBUEkgc3RydWN0dXJlJyxcbiAgICBzdW1tYXJ5OlxuICAgICAgJ1ByYWN0aWNpbmcgY2xlYW4gRXhwcmVzcyByb3V0ZXMsIGNvbnRyb2xsZXJzLCBzZXJ2aWNlcywgcmVwb3NpdG9yaWVzLCBhbmQgcHJlZGljdGFibGUgcmVxdWVzdC9yZXNwb25zZSBoYW5kbGluZy4nLFxuICB9LFxuICB7XG4gICAgdGl0bGU6ICdQb3N0Z3JlU1FMIGJhc2ljcycsXG4gICAgc3VtbWFyeTpcbiAgICAgICdMZWFybmluZyByZWxhdGlvbmFsIGRlc2lnbiwga2V5cywgY29uc3RyYWludHMsIGFuZCBob3cgZGF0YWJhc2Ugc3RydWN0dXJlIHN1cHBvcnRzIHJlYWwgYXBwbGljYXRpb24gZGF0YS4nLFxuICB9LFxuICB7XG4gICAgdGl0bGU6ICdGdWxsLXN0YWNrIHByb2plY3QgZmxvdycsXG4gICAgc3VtbWFyeTpcbiAgICAgICdDb25uZWN0aW5nIHRoZSBtZW50YWwgbW9kZWwgZnJvbSBmcm9udGVuZCBzY3JlZW5zIHRvIEFQSXMsIGJhY2tlbmQgZGF0YSBzaGFwaW5nLCBhbmQgZnV0dXJlIHBlcnNpc3RlbmNlLicsXG4gIH0sXG5dXG5cbmV4cG9ydCBjb25zdCB3b3JrZmxvd1N0ZXBzID0gW1xuICB7XG4gICAgc3RlcDogJzAxJyxcbiAgICB0aXRsZTogJ1BsYW4nLFxuICAgIHN1bW1hcnk6ICdNYXAgdGhlIGludGVyZmFjZSwgY29udGVudCBtb2RlbCwgYW5kIGJhc2ljIGRhdGEgbmVlZHMgYmVmb3JlIHdyaXRpbmcgY29kZS4nLFxuICB9LFxuICB7XG4gICAgc3RlcDogJzAyJyxcbiAgICB0aXRsZTogJ0J1aWxkIEZyb250ZW5kJyxcbiAgICBzdW1tYXJ5OiAnQ3JlYXRlIHRoZSBSZWFjdCBVSSwgc2hhcmVkIGNvbXBvbmVudHMsIHJvdXRlcywgYW5kIHJlc3BvbnNpdmUgc3R5bGluZy4nLFxuICB9LFxuICB7XG4gICAgc3RlcDogJzAzJyxcbiAgICB0aXRsZTogJ01hbmFnZSBEYXRhJyxcbiAgICBzdW1tYXJ5OiAnU2hhcGUgc2NoZW1hcyBhbmQgcmVsYXRpb25zaGlwcyBzbyB0aGUgYmFja2VuZCBjYW4gb3duIHN0cnVjdHVyZWQgZGF0YS4nLFxuICB9LFxuICB7XG4gICAgc3RlcDogJzA0JyxcbiAgICB0aXRsZTogJ0Nvbm5lY3QgQVBJcycsXG4gICAgc3VtbWFyeTogJ1VzZSBiYWNrZW5kIGVuZHBvaW50cyB0byBicmlkZ2UgZGF0YSBhbmQgZnJvbnRlbmQgc2NyZWVucyBjbGVhbmx5LicsXG4gIH0sXG4gIHtcbiAgICBzdGVwOiAnMDUnLFxuICAgIHRpdGxlOiAnVGVzdCcsXG4gICAgc3VtbWFyeTogJ0NoZWNrIHJvdXRlcywgaW50ZXJhY3Rpb25zLCBsYXlvdXQsIGFuZCBpbnRlZ3JhdGlvbiBiZWhhdmlvciBpbiBzbWFsbCBwYXNzZXMuJyxcbiAgfSxcbl1cblxuZXhwb3J0IGNvbnN0IGNlcnRpZmljYXRlUHJldmlldyA9IFtcbiAge1xuICAgIHRpdGxlOiAnUmVzcG9uc2l2ZSBXZWIgRGVzaWduJyxcbiAgICBwcm92aWRlcjogJ2ZyZWVDb2RlQ2FtcCcsXG4gICAgaXNzdWVkQXQ6ICcyMDI0JyxcbiAgICBjYXRlZ29yeTogJ2Zyb250ZW5kJyxcbiAgICBjcmVkZW50aWFsVXJsOiBudWxsLFxuICB9LFxuICB7XG4gICAgdGl0bGU6ICdKYXZhU2NyaXB0IEFsZ29yaXRobXMnLFxuICAgIHByb3ZpZGVyOiAnUHJhY3RpY2UgQ2VydGlmaWNhdGUnLFxuICAgIGlzc3VlZEF0OiAnMjAyNCcsXG4gICAgY2F0ZWdvcnk6ICdmcm9udGVuZCcsXG4gICAgY3JlZGVudGlhbFVybDogbnVsbCxcbiAgfSxcbiAge1xuICAgIHRpdGxlOiAnVUkvVVggRGVzaWduIEZvdW5kYXRpb25zJyxcbiAgICBwcm92aWRlcjogJ0xlYXJuaW5nIFRyYWNrJyxcbiAgICBpc3N1ZWRBdDogJzIwMjQnLFxuICAgIGNhdGVnb3J5OiAnZGVzaWduJyxcbiAgICBjcmVkZW50aWFsVXJsOiBudWxsLFxuICB9LFxuXVxuXG5leHBvcnQgY29uc3QgY2VydGlmaWNhdGVzUGFnZSA9IHtcbiAgaGVybzoge1xuICAgIGV5ZWJyb3c6ICdMZWFybmluZyByZWNvcmRzIGFuZCBjZXJ0aWZpY2F0aW9ucycsXG4gICAgdGl0bGU6ICdDZXJ0aWZpY2F0ZXMnLFxuICAgIGludHJvOlxuICAgICAgJ0EgY29sbGVjdGlvbiBvZiBjZXJ0aWZpY2F0ZXMsIGNvdXJzZXMsIGFuZCBsZWFybmluZyBtaWxlc3RvbmVzIGZyb20gbXkgam91cm5leSB0aHJvdWdoIGZyb250ZW5kIHByYWN0aWNlLCBiYWNrZW5kIGZ1bmRhbWVudGFscywgZGF0YWJhc2UgYmFzaWNzLCBkaWdpdGFsIHRvb2xzLCBhbmQgZGVzaWduIGZvdW5kYXRpb25zLicsXG4gIH0sXG4gIHByb2dyZXNzVGl0bGU6ICdMZWFybmluZyBpbiBQcm9ncmVzcycsXG4gIGN0YToge1xuICAgIHRpdGxlOiAnTGVhcm5pbmcgYnkgYnVpbGRpbmcuJyxcbiAgICBhY3Rpb246IHsgbGFiZWw6ICdWaWV3IFByb2plY3RzJywgcGF0aDogJy9wcm9qZWN0cycgfSxcbiAgfSxcbn1cblxuZXhwb3J0IGNvbnN0IGNlcnRpZmljYXRlRmlsdGVycyA9IFtcbiAgeyBsYWJlbDogJ0FsbCcsIHZhbHVlOiAnYWxsJyB9LFxuICB7IGxhYmVsOiAnRnJvbnRlbmQnLCB2YWx1ZTogJ2Zyb250ZW5kJyB9LFxuICB7IGxhYmVsOiAnQmFja2VuZCcsIHZhbHVlOiAnYmFja2VuZCcgfSxcbiAgeyBsYWJlbDogJ0RhdGFiYXNlJywgdmFsdWU6ICdkYXRhYmFzZScgfSxcbiAgeyBsYWJlbDogJ1Rvb2xzJywgdmFsdWU6ICd0b29scycgfSxcbiAgeyBsYWJlbDogJ0Rlc2lnbicsIHZhbHVlOiAnZGVzaWduJyB9LFxuXVxuXG5leHBvcnQgY29uc3QgY2VydGlmaWNhdGVzID0gW1xuICB7XG4gICAgdGl0bGU6ICdSZXNwb25zaXZlIFdlYiBEZXNpZ24nLFxuICAgIHByb3ZpZGVyOiAnZnJlZUNvZGVDYW1wJyxcbiAgICBjYXRlZ29yeTogJ2Zyb250ZW5kJyxcbiAgICBpc3N1ZWRBdDogJzIwMjQnLFxuICAgIGNyZWRlbnRpYWxVcmw6IG51bGwsXG4gIH0sXG4gIHtcbiAgICB0aXRsZTogJ0phdmFTY3JpcHQgRnVuZGFtZW50YWxzJyxcbiAgICBwcm92aWRlcjogJ1ByYWN0aWNlIENlcnRpZmljYXRlJyxcbiAgICBjYXRlZ29yeTogJ2Zyb250ZW5kJyxcbiAgICBpc3N1ZWRBdDogJzIwMjQnLFxuICAgIGNyZWRlbnRpYWxVcmw6IG51bGwsXG4gIH0sXG4gIHtcbiAgICB0aXRsZTogJ1JlYWN0IEJhc2ljcycsXG4gICAgcHJvdmlkZXI6ICdMZWFybmluZyBUcmFjaycsXG4gICAgY2F0ZWdvcnk6ICdmcm9udGVuZCcsXG4gICAgaXNzdWVkQXQ6ICcyMDI1JyxcbiAgICBjcmVkZW50aWFsVXJsOiBudWxsLFxuICB9LFxuICB7XG4gICAgdGl0bGU6ICdCYWNrZW5kIEZ1bmRhbWVudGFscycsXG4gICAgcHJvdmlkZXI6ICdTYW1wbGUgUHJvdmlkZXInLFxuICAgIGNhdGVnb3J5OiAnYmFja2VuZCcsXG4gICAgaXNzdWVkQXQ6ICcyMDI1JyxcbiAgICBjcmVkZW50aWFsVXJsOiBudWxsLFxuICB9LFxuICB7XG4gICAgdGl0bGU6ICdTUUwgRnVuZGFtZW50YWxzJyxcbiAgICBwcm92aWRlcjogJ1NhbXBsZSBQcm92aWRlcicsXG4gICAgY2F0ZWdvcnk6ICdkYXRhYmFzZScsXG4gICAgaXNzdWVkQXQ6ICcyMDI1JyxcbiAgICBjcmVkZW50aWFsVXJsOiBudWxsLFxuICB9LFxuICB7XG4gICAgdGl0bGU6ICdHaXQgYW5kIEdpdEh1YiBFc3NlbnRpYWxzJyxcbiAgICBwcm92aWRlcjogJ1NhbXBsZSBQcm92aWRlcicsXG4gICAgY2F0ZWdvcnk6ICd0b29scycsXG4gICAgaXNzdWVkQXQ6ICcyMDI1JyxcbiAgICBjcmVkZW50aWFsVXJsOiBudWxsLFxuICB9LFxuICB7XG4gICAgdGl0bGU6ICdVSS9VWCBEZXNpZ24gRm91bmRhdGlvbnMnLFxuICAgIHByb3ZpZGVyOiAnTGVhcm5pbmcgVHJhY2snLFxuICAgIGNhdGVnb3J5OiAnZGVzaWduJyxcbiAgICBpc3N1ZWRBdDogJzIwMjQnLFxuICAgIGNyZWRlbnRpYWxVcmw6IG51bGwsXG4gIH0sXG5dXG5cbmV4cG9ydCBjb25zdCBsZWFybmluZ1Byb2dyZXNzID0gW1xuICB7XG4gICAgdGl0bGU6ICdGcm9udGVuZCBQcmFjdGljZScsXG4gICAgc3VtbWFyeTpcbiAgICAgICdDb250aW51b3VzbHkgcmVmaW5pbmcgbW9kZXJuIEphdmFTY3JpcHQsIFJlYWN0IGNvbXBvbmVudCBzdHJ1Y3R1cmUsIHJlc3BvbnNpdmUgbGF5b3V0cywgYW5kIGFjY2Vzc2libGUgaW50ZXJmYWNlIGRldGFpbHMuJyxcbiAgfSxcbiAge1xuICAgIHRpdGxlOiAnQmFja2VuZCBGdW5kYW1lbnRhbHMnLFxuICAgIHN1bW1hcnk6XG4gICAgICAnRGVlcGVuaW5nIHNlcnZlci1zaWRlIGFyY2hpdGVjdHVyZSwgUkVTVCBBUEkgZGVzaWduLCB2YWxpZGF0aW9uIGJvdW5kYXJpZXMsIGFuZCByZWFkYWJsZSBFeHByZXNzIHByb2plY3Qgc3RydWN0dXJlLicsXG4gIH0sXG4gIHtcbiAgICB0aXRsZTogJ0RhdGFiYXNlIEJhc2ljcycsXG4gICAgc3VtbWFyeTpcbiAgICAgICdFeHBhbmRpbmcgZGF0YWJhc2UgbW9kZWxpbmcsIHJlbGF0aW9uYWwgdGhpbmtpbmcsIHF1ZXJ5IGJhc2ljcywgYW5kIHRoZSB0cmFkZS1vZmZzIGJlaGluZCBwZXJzaXN0ZW50IGRhdGEgZGVzaWduLicsXG4gIH0sXG5dXG5cbmV4cG9ydCBjb25zdCBhYm91dFBhZ2UgPSB7XG4gIGhlcm86IHtcbiAgICBleWVicm93OiAnQWJvdXQgdGhlIGRldmVsb3BlcicsXG4gICAgdGl0bGU6ICdCdWlsZGluZyBvbmUgcHJvamVjdCBhdCBhIHRpbWUuJyxcbiAgICBpbnRybzpcbiAgICAgICdJIGFtIGEgZ3Jvd2luZyB3ZWIgZGV2ZWxvcGVyIGxlYXJuaW5nIHRocm91Z2ggcmVhbCBwcm9qZWN0cywgaW1wcm92aW5nIG15IGZyb250ZW5kIHNraWxscywgdW5kZXJzdGFuZGluZyBiYWNrZW5kIHN5c3RlbXMsIGFuZCBidWlsZGluZyB3ZWJzaXRlcyB0aGF0IGZlZWwgY2xlYW4sIHVzZWZ1bCwgYW5kIGludGVudGlvbmFsLicsXG4gIH0sXG4gIHN0b3J5OiBbXG4gICAgJ0kgc3RhcnRlZCBsZWFybmluZyB3ZWIgZGV2ZWxvcG1lbnQgYnkgcHJhY3RpY2luZyBIVE1MLCBDU1MsIEphdmFTY3JpcHQsIGFuZCBSZWFjdC4gSSBsZWFybiBiZXN0IHdoZW4gSSBjYW4gc2VlIGhvdyBkZXNpZ24sIGNvZGUsIGJhY2tlbmQgbG9naWMsIGFuZCBkYXRhIGNvbm5lY3QgdG9nZXRoZXIgaW4gYSByZWFsIHByb2plY3QuJyxcbiAgICAnVGhpcyBwb3J0Zm9saW8gaXMgcGFydCBvZiB0aGF0IHByb2Nlc3M6IGEgcGhhc2VkIGZ1bGwtc3RhY2sgYnVpbGQgd2hlcmUgZWFjaCBwYWdlLCBjb21wb25lbnQsIGFuZCBkYXRhIG1vZGVsIGlzIGFuIG9wcG9ydHVuaXR5IHRvIHByYWN0aWNlIHN0cnVjdHVyZSwgY29uc2lzdGVuY3ksIGFuZCB0aG91Z2h0ZnVsIGludGVyZmFjZSBkZXNpZ24uJyxcbiAgXSxcbiAgZm9jdXNUaXRsZTogJ0N1cnJlbnQgRm9jdXMnLFxuICB3b3JrVGl0bGU6ICdIb3cgSSBXb3JrJyxcbiAgdmFsdWVzVGl0bGU6ICdWYWx1ZXMnLFxuICBsZWFybmluZ1RpdGxlOiAnQ3VycmVudGx5IExlYXJuaW5nJyxcbiAgY3RhOiB7XG4gICAgdGl0bGU6IFwiV2FudCB0byBzZWUgd2hhdCBJJ20gYnVpbGRpbmc/XCIsXG4gICAgbWVzc2FnZTogJ0V4cGxvcmUgdGhlIHByb2plY3RzIHdoZXJlIEkgcHJhY3RpY2UgdGhlc2Ugc2tpbGxzIGFuZCB0dXJuIGlkZWFzIGludG8gcmVhbCBpbnRlcmZhY2VzLicsXG4gICAgYWN0aW9uOiB7IGxhYmVsOiAnVmlldyBQcm9qZWN0cycsIHBhdGg6ICcvcHJvamVjdHMnIH0sXG4gIH0sXG59XG5cbmV4cG9ydCBjb25zdCBjdXJyZW50Rm9jdXMgPSBbXG4gIHtcbiAgICB0aXRsZTogJ0Zyb250ZW5kIEZvdW5kYXRpb25zJyxcbiAgICBzdW1tYXJ5OlxuICAgICAgJ01hc3RlcmluZyBsYXlvdXQgbWVjaGFuaWNzLCBjb21wb25lbnQgYXJjaGl0ZWN0dXJlLCByZXNwb25zaXZlIGRlc2lnbiwgYW5kIHRoZSBzbWFsbCBkZXRhaWxzIHRoYXQgbWFrZSBpbnRlcmZhY2VzIGZlZWwgY2FsbS4nLFxuICB9LFxuICB7XG4gICAgdGl0bGU6ICdCYWNrZW5kIExvZ2ljJyxcbiAgICBzdW1tYXJ5OlxuICAgICAgJ0xlYXJuaW5nIGhvdyBBUElzIGNvbm5lY3Qgc3lzdGVtcywgbWFuYWdlIHJlcXVlc3RzLCBzaGFwZSByZXNwb25zZXMsIGFuZCBrZWVwIGJ1c2luZXNzIGxvZ2ljIG91dCBvZiB0aGUgZnJvbnRlbmQuJyxcbiAgfSxcbiAge1xuICAgIHRpdGxlOiAnRGF0YWJhc2UgVGhpbmtpbmcnLFxuICAgIHN1bW1hcnk6XG4gICAgICAnUHJhY3RpY2luZyBob3cgZGF0YSByZWxhdGlvbnNoaXBzIGFyZSBzdHJ1Y3R1cmVkLCBzdG9yZWQsIHJldHJpZXZlZCwgYW5kIHByb3RlY3RlZCBhcyBwcm9qZWN0cyBiZWNvbWUgbW9yZSBjb21wbGV0ZS4nLFxuICB9LFxuXVxuXG5leHBvcnQgY29uc3Qgd29ya1Byb2Nlc3MgPSBbXG4gIHsgc3RlcDogJzAxJywgdGl0bGU6ICdQbGFuIHRoZSBzdHJ1Y3R1cmUnIH0sXG4gIHsgc3RlcDogJzAyJywgdGl0bGU6ICdEZXNpZ24gdGhlIGludGVyZmFjZScgfSxcbiAgeyBzdGVwOiAnMDMnLCB0aXRsZTogJ0J1aWxkIHRoZSBmcm9udGVuZCcgfSxcbiAgeyBzdGVwOiAnMDQnLCB0aXRsZTogJ0Nvbm5lY3QgZGF0YSAmIGltcHJvdmUnIH0sXG5dXG5cbmV4cG9ydCBjb25zdCBkZXZlbG9wZXJWYWx1ZXMgPSBbXG4gICdDbGVhbiBhbmQgcmVhZGFibGUgY29kZScsXG4gICdTaW1wbGUgdXNlciBleHBlcmllbmNlJyxcbiAgJ0NvbnNpc3RlbnQgZGVzaWduIHN5c3RlbXMnLFxuICAnTGVhcm5pbmcgd2l0aCBwYXRpZW5jZScsXG4gICdCdWlsZGluZyB1c2VmdWwgdGhpbmdzJyxcbl1cblxuZXhwb3J0IGNvbnN0IGN1cnJlbnRseUxlYXJuaW5nID0gW1xuICAnUmVhY3QgZnVuZGFtZW50YWxzJyxcbiAgJ0phdmFTY3JpcHQgcHJvYmxlbSBzb2x2aW5nJyxcbiAgJ0JhY2tlbmQgQVBJcycsXG4gICdQb3N0Z3JlU1FMIGJhc2ljcycsXG4gICdGdWxsLXN0YWNrIHByb2plY3Qgc3RydWN0dXJlJyxcbl1cblxuZXhwb3J0IGNvbnN0IGNvbnRhY3RQYWdlID0ge1xuICBoZXJvOiB7XG4gICAgZXllYnJvdzogJ0NvbnRhY3QnLFxuICAgIHRpdGxlOiBcIkxldCdzIGJ1aWxkIHNvbWV0aGluZyB0aG91Z2h0ZnVsLlwiLFxuICAgIGhpZ2hsaWdodGVkV29yZDogJ3Rob3VnaHRmdWwuJyxcbiAgICBpbnRybzpcbiAgICAgICdIYXZlIGEgd2Vic2l0ZSBpZGVhLCBwb3J0Zm9saW8gcHJvamVjdCwgbGFuZGluZyBwYWdlLCBvciBjb2xsYWJvcmF0aW9uIGluIG1pbmQ/IFNlbmQgYSBtZXNzYWdlIGFuZCBJIHdpbGwgZ2V0IGJhY2sgdG8geW91LicsXG4gIH0sXG4gIGZvcm06IHtcbiAgICBwcm9qZWN0VHlwZXM6IFtcbiAgICAgIHsgbGFiZWw6ICdQb3J0Zm9saW8gV2Vic2l0ZScsIHZhbHVlOiAncG9ydGZvbGlvJyB9LFxuICAgICAgeyBsYWJlbDogJ0J1c2luZXNzIExhbmRpbmcgUGFnZScsIHZhbHVlOiAnbGFuZGluZycgfSxcbiAgICAgIHsgbGFiZWw6ICdTaW1wbGUgV2ViIEFwcCcsIHZhbHVlOiAnd2ViYXBwJyB9LFxuICAgICAgeyBsYWJlbDogJ1dlYnNpdGUgUmVkZXNpZ24nLCB2YWx1ZTogJ3JlZGVzaWduJyB9LFxuICAgICAgeyBsYWJlbDogJ0NvbGxhYm9yYXRpb24nLCB2YWx1ZTogJ2NvbGxhYicgfSxcbiAgICAgIHsgbGFiZWw6ICdPdGhlcicsIHZhbHVlOiAnb3RoZXInIH0sXG4gICAgXSxcbiAgICBzdWNjZXNzTWVzc2FnZTpcbiAgICAgICdNZXNzYWdlIHByZXZpZXcgcmVjZWl2ZWQgbG9jYWxseS4gUGxlYXNlIHVzZSB0aGUgZW1haWwgbGluayBpZiB5b3Ugd2FudCB0byBzZW5kIGl0IGRpcmVjdGx5LicsXG4gIH0sXG4gIGluZm86IHtcbiAgICBhdmFpbGFiaWxpdHk6XG4gICAgICAnT3BlbiBmb3IgcG9ydGZvbGlvIHdlYnNpdGVzLCBsYW5kaW5nIHBhZ2VzLCBhbmQgcHJhY3RpY2UtYmFzZWQgd2ViIHByb2plY3RzLicsXG4gICAgbm90ZTogJ0kgdXN1YWxseSByZXBseSB3aGVuIGF2YWlsYWJsZSBhbmQgcHJlZmVyIGNsZWFyIHByb2plY3QgZGV0YWlscywgZ29hbHMsIHRpbWVsaW5lLCBhbmQgZXhhbXBsZXMuJyxcbiAgfSxcbiAgc29jaWFsTGlua3M6IFtcbiAgICB7IGxhYmVsOiAnR0gnLCBwbGF0Zm9ybTogJ2dpdGh1YicsIHVybDogbnVsbCB9LFxuICAgIHsgbGFiZWw6ICdJTicsIHBsYXRmb3JtOiAnbGlua2VkaW4nLCB1cmw6IG51bGwgfSxcbiAgICB7IGxhYmVsOiAnRkInLCBwbGF0Zm9ybTogJ2ZhY2Vib29rJywgdXJsOiBudWxsIH0sXG4gIF0sXG4gIHNlcnZpY2VzVGl0bGU6ICdXaGF0IEkgQ2FuIEhlbHAgV2l0aCcsXG4gIHNlcnZpY2VzOiBbXG4gICAge1xuICAgICAgdGl0bGU6ICdQb3J0Zm9saW8gd2Vic2l0ZXMnLFxuICAgICAgc3VtbWFyeTogJ1BlcnNvbmFsIHNpdGVzIHRvIHNob3djYXNlIHlvdXIgd29yaywgc2tpbGxzLCBhbmQgcmVzdW1lIGNsZWFybHkuJyxcbiAgICAgIG1hcms6ICc8Lz4nLFxuICAgIH0sXG4gICAge1xuICAgICAgdGl0bGU6ICdCdXNpbmVzcyBsYW5kaW5nIHBhZ2VzJyxcbiAgICAgIHN1bW1hcnk6ICdDbGVhbiwgZm9jdXNlZCBzaW5nbGUgcGFnZXMgdG8gY2FwdHVyZSBsZWFkcyBvciBleHBsYWluIGEgc2VydmljZS4nLFxuICAgICAgbWFyazogJ1tdJyxcbiAgICB9LFxuICAgIHtcbiAgICAgIHRpdGxlOiAnU2ltcGxlIHdlYiBhcHBzJyxcbiAgICAgIHN1bW1hcnk6ICdJbnRlcmFjdGl2ZSBmcm9udGVuZCB0b29scyBvciBkYXNoYm9hcmRzIGZvciBzcGVjaWZpYyB1dGlsaXRpZXMuJyxcbiAgICAgIG1hcms6ICd7fScsXG4gICAgfSxcbiAgICB7XG4gICAgICB0aXRsZTogJ1dlYnNpdGUgcmVkZXNpZ25zJyxcbiAgICAgIHN1bW1hcnk6ICdUYWtpbmcgYW4gb2xkZXIgZGVzaWduIGFuZCBnaXZpbmcgaXQgYSBtb2Rlcm4sIGNsZWFuIHVwZGF0ZS4nLFxuICAgICAgbWFyazogJ35+JyxcbiAgICB9LFxuICBdLFxuICBjdGE6IHtcbiAgICB0aXRsZTogJ05vdCBzdXJlIHdoZXJlIHRvIHN0YXJ0PycsXG4gICAgbWVzc2FnZTogJ1RlbGwgbWUgd2hhdCB5b3Ugd2FudCB0byBidWlsZCwgYW5kIHdlIGNhbiBzdGFydCB3aXRoIGEgc2ltcGxlIHBsYW4uJyxcbiAgICBhY3Rpb246IHsgbGFiZWw6ICdWaWV3IFByb2plY3RzJywgcGF0aDogJy9wcm9qZWN0cycgfSxcbiAgfSxcbn1cbiJdfQ==

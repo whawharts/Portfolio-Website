@@ -205,9 +205,11 @@ export default function CertificatesPage() {
   return (
     <>
       <PageHero />
-      <FilterTabs activeFilter={activeFilter} onFilterChange={setActiveFilter} />
+      {certificates.length ? (
+        <FilterTabs activeFilter={activeFilter} onFilterChange={setActiveFilter} />
+      ) : null}
       {filteredCertificates.length === 0 ? (
-        <EmptyState message="No certificates match this filter yet." />
+        <EmptyState message="No certificates yet. Verified achievements will appear here as I earn them." />
       ) : null}
       {filteredCertificates.length ? (
         <CertificateGrid items={filteredCertificates} />

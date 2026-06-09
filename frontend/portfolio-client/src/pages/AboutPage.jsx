@@ -2,12 +2,10 @@ import { Link } from 'react-router-dom'
 import {
   aboutPage,
   currentFocus,
-  currentlyLearning,
   developerValues,
   profile,
   workProcess,
 } from '../data/mockPortfolioData'
-import Badge from '../components/ui/Badge'
 import Button from '../components/ui/Button'
 import Card from '../components/ui/Card'
 import HeroEyebrow from '../components/ui/HeroEyebrow'
@@ -151,21 +149,6 @@ function ValuesSection() {
   )
 }
 
-function LearningSection() {
-  return (
-    <RevealOnScroll>
-      <Card className="p-8 md:p-12">
-        <h2 className="mb-8 text-2xl font-semibold text-nocturne-cream">{aboutPage.learningTitle}</h2>
-        <div className="flex flex-wrap gap-3">
-          {currentlyLearning.map((item) => (
-            <Badge key={item}>{item}</Badge>
-          ))}
-        </div>
-      </Card>
-    </RevealOnScroll>
-  )
-}
-
 function BottomCta() {
   return (
     <RevealOnScroll>
@@ -188,7 +171,6 @@ export default function AboutPage() {
       <FocusSection />
       <WorkSection />
       <ValuesSection />
-      <LearningSection />
       <BottomCta />
     </div>
   )

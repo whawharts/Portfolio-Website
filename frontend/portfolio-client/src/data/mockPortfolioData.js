@@ -46,11 +46,7 @@ export const homePage = {
       'I am a frontend-focused developer practicing full-stack structure through clean interfaces, reusable components, and calm user experiences.',
     primaryAction: { label: 'View Projects', path: '/projects' },
     secondaryAction: { label: 'Contact Me', path: '/contact' },
-    stats: [
-      { value: '12+', label: 'Projects Built' },
-      { value: '8+', label: 'Tech Practiced' },
-      { value: 'UI/UX', label: 'Current Focus' },
-    ],
+    currentFocus: 'AI Engineering',
   },
   featuredProjectsTitle: 'Featured Projects',
   techStackTitle: 'Tech Stack',
@@ -66,7 +62,23 @@ export const homePage = {
 
 export const featuredProjects = [
   {
-    title: 'Padayon App',
+    title: 'Task Management Project',
+    slug: 'task-management-project',
+    summary:
+      'A task management web app for organizing work, tracking priorities, and keeping daily progress clear.',
+    description:
+      'A practical task management project focused on organized workflows, clear priorities, and responsive interaction.',
+    category: 'app',
+    status: 'in_progress',
+    isFeatured: true,
+    thumbnailTone: 'amber',
+    liveUrl: null,
+    githubUrl: null,
+    caseStudyUrl: null,
+    techStack: ['React', 'JavaScript', 'Tailwind CSS'],
+  },
+  {
+    title: 'Padayon App Project',
     slug: 'padayon-app',
     summary:
       'A productivity app concept for planning tasks, tracking progress, and keeping work moving with less friction.',
@@ -82,8 +94,8 @@ export const featuredProjects = [
     techStack: ['React', 'Tailwind CSS', 'Node.js'],
   },
   {
-    title: 'Nocturne Portfolio',
-    slug: 'nocturne-portfolio',
+    title: 'Online Portfolio Project',
+    slug: 'online-portfolio-project',
     summary:
       'A dark espresso portfolio system built with reusable React components and a warm minimalist design direction.',
     description:
@@ -96,67 +108,6 @@ export const featuredProjects = [
     githubUrl: null,
     caseStudyUrl: null,
     techStack: ['React', 'Vite', 'Tailwind CSS'],
-  },
-  {
-    title: 'Business Landing Page',
-    slug: 'business-landing-page',
-    summary:
-      'A compact landing page practice build focused on readable sections, strong calls to action, and responsive layout.',
-    description:
-      'A conversion-focused website layout with clear sections, restrained motion, and responsive content hierarchy.',
-    category: 'website',
-    status: 'planned',
-    isFeatured: true,
-    thumbnailTone: 'streetlight',
-    liveUrl: null,
-    githubUrl: null,
-    techStack: ['HTML', 'CSS', 'JavaScript'],
-  },
-  {
-    title: 'Website Redesign Study',
-    slug: 'website-redesign-study',
-    summary:
-      'A UI refresh practice project for improving structure, hierarchy, performance cues, and visual consistency.',
-    description:
-      'A practice redesign study focused on cleaner information architecture, accessibility cues, and reusable interface patterns.',
-    category: 'practice',
-    status: 'planned',
-    isFeatured: true,
-    thumbnailTone: 'code',
-    liveUrl: null,
-    githubUrl: null,
-    techStack: ['React', 'Accessibility', 'Design Systems'],
-  },
-  {
-    title: 'Local Cafe Website',
-    slug: 'local-cafe-website',
-    summary:
-      'A small business website concept with menu highlights, contact details, and a simple content-first structure.',
-    description:
-      'A client-style website concept designed for a neighborhood cafe, using clear sections and a warm visual system.',
-    category: 'client',
-    status: 'planned',
-    isFeatured: false,
-    thumbnailTone: 'warm',
-    liveUrl: null,
-    githubUrl: null,
-    techStack: ['React', 'CSS', 'Responsive UI'],
-  },
-  {
-    title: 'Full-stack Notes API',
-    slug: 'full-stack-notes-api',
-    summary:
-      'A full-stack practice build for notes, authentication basics, REST endpoints, and persistent storage.',
-    description:
-      'A full-stack learning project that connects a simple React UI to REST endpoints and a future database layer.',
-    category: 'fullstack',
-    status: 'planned',
-    isFeatured: false,
-    thumbnailTone: 'database',
-    liveUrl: null,
-    githubUrl: null,
-    caseStudyUrl: null,
-    techStack: ['React', 'Express', 'PostgreSQL'],
   },
 ]
 
@@ -234,6 +185,7 @@ export const coreToolkit = [
       { name: 'JavaScript', status: 'Practicing' },
       { name: 'React', status: 'Learning' },
       { name: 'Tailwind CSS', status: 'Learning' },
+      { name: 'Flutter', status: 'Learning' },
     ],
   },
   {
@@ -256,6 +208,8 @@ export const coreToolkit = [
       { name: 'PostgreSQL', status: 'Learning' },
       { name: 'Prisma', status: 'Exploring' },
       { name: 'Data Modeling', status: 'Practicing' },
+      { name: 'Supabase', status: 'Exploring' },
+      { name: 'Firebase', status: 'Exploring' },
     ],
   },
   {
@@ -268,6 +222,19 @@ export const coreToolkit = [
       { name: 'VS Code', status: 'Daily Driver' },
       { name: 'Figma', status: 'Used in projects' },
       { name: 'Vercel', status: 'Exploring' },
+    ],
+  },
+  {
+    category: 'AI Tools',
+    summary: 'AI assistants and coding tools used for research, development, and interface exploration.',
+    items: [
+      { name: 'Claude', status: 'Used regularly' },
+      { name: 'Claude Code', status: 'Practicing' },
+      { name: 'ChatGPT', status: 'Used regularly' },
+      { name: 'Codex', status: 'Used regularly' },
+      { name: 'Gemini', status: 'Used regularly' },
+      { name: 'Stitch AI', status: 'Exploring' },
+      { name: 'Cursor', status: 'Practicing' },
     ],
   },
 ]
@@ -323,36 +290,14 @@ export const workflowSteps = [
   },
 ]
 
-export const certificatePreview = [
-  {
-    title: 'Responsive Web Design',
-    provider: 'freeCodeCamp',
-    issuedAt: '2024',
-    category: 'frontend',
-    credentialUrl: null,
-  },
-  {
-    title: 'JavaScript Algorithms',
-    provider: 'Practice Certificate',
-    issuedAt: '2024',
-    category: 'frontend',
-    credentialUrl: null,
-  },
-  {
-    title: 'UI/UX Design Foundations',
-    provider: 'Learning Track',
-    issuedAt: '2024',
-    category: 'design',
-    credentialUrl: null,
-  },
-]
+export const certificatePreview = []
 
 export const certificatesPage = {
   hero: {
     eyebrow: 'Learning records and certifications',
     title: 'Certificates',
     intro:
-      'A collection of certificates, courses, and learning milestones from my journey through frontend practice, backend fundamentals, database basics, digital tools, and design foundations.',
+      'I do not have any certificates yet. This page will grow as I complete verified courses and certifications.',
   },
   progressTitle: 'Learning in Progress',
   cta: {
@@ -370,57 +315,7 @@ export const certificateFilters = [
   { label: 'Design', value: 'design' },
 ]
 
-export const certificates = [
-  {
-    title: 'Responsive Web Design',
-    provider: 'freeCodeCamp',
-    category: 'frontend',
-    issuedAt: '2024',
-    credentialUrl: null,
-  },
-  {
-    title: 'JavaScript Fundamentals',
-    provider: 'Practice Certificate',
-    category: 'frontend',
-    issuedAt: '2024',
-    credentialUrl: null,
-  },
-  {
-    title: 'React Basics',
-    provider: 'Learning Track',
-    category: 'frontend',
-    issuedAt: '2025',
-    credentialUrl: null,
-  },
-  {
-    title: 'Backend Fundamentals',
-    provider: 'Sample Provider',
-    category: 'backend',
-    issuedAt: '2025',
-    credentialUrl: null,
-  },
-  {
-    title: 'SQL Fundamentals',
-    provider: 'Sample Provider',
-    category: 'database',
-    issuedAt: '2025',
-    credentialUrl: null,
-  },
-  {
-    title: 'Git and GitHub Essentials',
-    provider: 'Sample Provider',
-    category: 'tools',
-    issuedAt: '2025',
-    credentialUrl: null,
-  },
-  {
-    title: 'UI/UX Design Foundations',
-    provider: 'Learning Track',
-    category: 'design',
-    issuedAt: '2024',
-    credentialUrl: null,
-  },
-]
+export const certificates = []
 
 export const learningProgress = [
   {

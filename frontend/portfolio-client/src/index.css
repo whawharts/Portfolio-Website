@@ -48,6 +48,19 @@ textarea {
   font: inherit;
 }
 
+.tech-skill-icon {
+  color: var(--skill-color);
+  filter: saturate(0.86) brightness(0.92);
+}
+
+.group\/skill:hover .tech-skill-icon {
+  filter: saturate(1.08) brightness(1.08) drop-shadow(0 0 9px var(--skill-color));
+}
+
+.tech-skill-bloom {
+  background: color-mix(in srgb, var(--skill-color) 24%, transparent);
+}
+
 #root {
   min-height: 100vh;
   background: var(--color-background-main);

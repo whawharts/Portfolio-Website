@@ -1,11 +1,15 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { MdAutoAwesome } from 'react-icons/md'
+import { SiClaude, SiGooglegemini, SiOpenai } from 'react-icons/si'
+import { VscCode, VscTerminal } from 'react-icons/vsc'
 import {
   certificatePreview,
+  coreToolkit,
   featuredProjects,
   homePage,
   profile,
-  techStackGroups,
+  resume,
 } from '../data/mockPortfolioData'
 import ArrowLink from '../components/ui/ArrowLink'
 import Badge from '../components/ui/Badge'
@@ -13,6 +17,7 @@ import Button from '../components/ui/Button'
 import Card from '../components/ui/Card'
 import HeroEyebrow from '../components/ui/HeroEyebrow'
 import RevealOnScroll from '../components/RevealOnScroll'
+import TechStackShowcase from '../components/TechStackShowcase'
 
 function isPlaceholderUrl(url) {
   return !url || url === '#'
@@ -39,68 +44,152 @@ function SectionTitle({ title, action }) {
 function HeroVisual({ profileData }) {
   const hasAvatar = !isPlaceholderUrl(profileData?.avatarUrl)
   const [avatarIndex, setAvatarIndex] = useState(0)
-  const homeAvatarImages = [
-    profileData?.avatarUrl || '/images/profile/chibi_joseph.png',
-    '/images/profile/chibi_joseph_2.png',
-    '/images/profile/chibi_joseph_3.png',
+  const avatarStates = [
+    {
+      assistant: 'Claude and Claude Code',
+      src: profileData?.avatarUrl || '/images/profile/chibi_joseph.png',
+      tools: [
+        {
+          name: 'Claude',
+          label: 'AI assistant',
+          Icon: SiClaude,
+          color: '#d97757',
+          position: 'left-[8%] top-[18%] sm:left-[10%]',
+          animation: 'float-soft',
+        },
+        {
+          name: 'Claude Code',
+          label: 'Coding agent',
+          Icon: VscTerminal,
+          color: '#e89572',
+          position: 'bottom-[16%] right-[7%] sm:right-[9%]',
+          animation: 'float-soft-delay',
+        },
+      ],
+    },
+    {
+      assistant: 'ChatGPT and Codex',
+      src: '/images/profile/chibi_joseph_2.png',
+      tools: [
+        {
+          name: 'ChatGPT',
+          label: 'AI assistant',
+          Icon: SiOpenai,
+          color: '#10a37f',
+          position: 'right-[7%] top-[16%] sm:right-[9%]',
+          animation: 'float-soft-delay',
+        },
+        {
+          name: 'Codex',
+          label: 'Coding agent',
+          Icon: VscCode,
+          color: '#ffc880',
+          position: 'bottom-[15%] left-[8%] sm:left-[10%]',
+          animation: 'float-soft-slow',
+        },
+      ],
+    },
+    {
+      assistant: 'Gemini and Stitch AI',
+      src: '/images/profile/chibi_joseph_3.png',
+      tools: [
+        {
+          name: 'Gemini',
+          label: 'AI assistant',
+          Icon: SiGooglegemini,
+          color: '#8e75ff',
+          position: 'left-[7%] top-[30%] sm:left-[9%]',
+          animation: 'float-soft-slow',
+        },
+        {
+          name: 'Stitch AI',
+          label: 'UI generator',
+          Icon: MdAutoAwesome,
+          color: '#4f9cf9',
+          position: 'right-[8%] top-[38%] sm:right-[10%]',
+          animation: 'float-soft',
+        },
+      ],
+    },
   ]
+  const activeAvatar = avatarStates[avatarIndex]
 
-  function handleAvatarHover() {
-    setAvatarIndex((currentIndex) => (currentIndex + 1) % homeAvatarImages.length)
+  function cycleAvatar() {
+    setAvatarIndex((currentIndex) => (currentIndex + 1) % avatarStates.length)
+  }
+
+  function handleAvatarKeyDown(event) {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault()
+      cycleAvatar()
+    }
   }
 
   return (
     <div className="relative flex min-h-[420px] items-center justify-center lg:min-h-[560px]">
       {hasAvatar ? (
         <div
-          className="relative z-10 w-full max-w-[23rem] lg:max-w-[25rem]"
-          onMouseEnter={handleAvatarHover}
+          className="relative z-10 w-full max-w-[23rem] cursor-pointer lg:max-w-[25rem]"
+          onMouseEnter={cycleAvatar}
+          onClick={cycleAvatar}
+          onKeyDown={handleAvatarKeyDown}
+          role="button"
+          tabIndex={0}
+          aria-label={`Showing ${activeAvatar.assistant} character image. Hover or activate to show the next image.`}
         >
           <div className="pointer-events-none absolute inset-6 -z-10 rounded-full bg-nocturne-amber/15 blur-3xl" />
           <div className="pointer-events-none absolute bottom-2 left-1/2 z-0 h-10 w-[68%] -translate-x-1/2 rounded-full bg-black/35 blur-2xl opacity-55" />
-          {homeAvatarImages.map((avatarSrc, index) => (
+          {avatarStates.map((avatar, index) => (
             <img
-              key={avatarSrc}
-              src={avatarSrc}
-              alt="Chibi illustration of Joseph working on a laptop"
+              key={avatar.assistant}
+              src={avatar.src}
+              alt={`Chibi illustration of Joseph representing ${avatar.assistant}`}
+              aria-hidden={index !== avatarIndex}
               className={[
                 'w-full object-contain transition-opacity duration-500 ease-in-out',
                 index === 0 ? 'relative' : 'absolute inset-0',
-                index === avatarIndex ? 'opacity-100' : 'opacity-0',
+                index === avatarIndex ? 'opacity-100' : 'pointer-events-none opacity-0',
               ].join(' ')}
             />
           ))}
         </div>
       ) : null}
 
-      <Card className="float-soft absolute right-0 top-8 z-20 w-56 bg-nocturne-card-muted p-4 backdrop-blur-[20px]">
-        <div className="mb-3 flex items-center gap-2 border-b border-nocturne-border pb-3">
-          <span className="h-2.5 w-2.5 rounded-full bg-[var(--color-error)]" />
-          <span className="h-2.5 w-2.5 rounded-full bg-nocturne-amber" />
-          <span className="h-2.5 w-2.5 rounded-full bg-nocturne-muted" />
-          <span className="ml-2 font-label text-[10px] text-nocturne-muted">terminal</span>
-        </div>
-        <p className="font-label text-sm text-nocturne-amber">~ npm run dev</p>
-        <p className="mt-1 font-label text-xs text-nocturne-muted">Starting server...</p>
-      </Card>
-
-      <Card className="float-soft-delay absolute bottom-16 left-0 z-20 flex items-center gap-3 bg-nocturne-card-muted p-3 backdrop-blur-[20px]">
-        <div className="flex h-11 w-11 items-center justify-center rounded-lg border border-nocturne-border bg-nocturne-bg font-label text-sm text-nocturne-amber">
-          &lt;/&gt;
-        </div>
-        <div>
-          <p className="font-label text-xs text-nocturne-cream">React UI</p>
-          <p className="mt-1 font-label text-[10px] uppercase tracking-normal text-nocturne-muted">
-            Component
-          </p>
-        </div>
-      </Card>
-
-      <Card className="float-soft-slow absolute right-8 top-1/2 z-20 hidden w-32 bg-nocturne-card-muted p-3 backdrop-blur-[20px] md:block">
-        <div className="mb-2 h-2 rounded bg-nocturne-border" />
-        <div className="mb-2 h-2 w-2/3 rounded bg-nocturne-amber/30" />
-        <div className="h-2 w-5/6 rounded bg-nocturne-border" />
-      </Card>
+      {activeAvatar.tools.map(({ name, label, Icon, color, position, animation }) => {
+        return (
+          <div
+            key={`${avatarIndex}-${name}`}
+            className={`ai-tool-enter absolute ${position} z-20`}
+          >
+            <Card
+              className={`${animation} flex items-center gap-2.5 rounded-lg bg-nocturne-card-muted p-2.5 backdrop-blur-[20px]`}
+              style={{
+                borderColor: `${color}99`,
+                boxShadow: `0 0 22px ${color}20`,
+              }}
+            >
+              <div
+                className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-nocturne-border bg-nocturne-bg text-base transition duration-300"
+                style={{
+                  color,
+                  boxShadow: `inset 0 0 14px ${color}28, 0 0 10px ${color}30`,
+                }}
+              >
+                <Icon aria-hidden="true" />
+              </div>
+              <div className="hidden sm:block">
+                <p className="font-label text-[11px] text-nocturne-cream">{name}</p>
+                <p
+                  className="mt-0.5 font-label text-[8px] uppercase tracking-normal text-nocturne-muted"
+                  style={{ color }}
+                >
+                  {label}
+                </p>
+              </div>
+            </Card>
+          </div>
+        )
+      })}
     </div>
   )
 }
@@ -108,31 +197,52 @@ function HeroVisual({ profileData }) {
 function HeroSection({ profileData }) {
   const { hero } = homePage
   const displayAvailability = profileData?.availability || hero.availability
-  const displayHeadline = profileData?.headline || hero.headline
-  const displayIntro = profileData?.shortBio || hero.intro
+  const practicedTechCount = new Set(
+    coreToolkit.flatMap((group) => group.items.map((item) => item.name)),
+  ).size
+  const stats = [
+    { value: featuredProjects.length, label: 'Projects Built' },
+    { value: practicedTechCount, label: 'Tech Practiced' },
+    { value: hero.currentFocus, label: 'Current Focus' },
+  ]
 
   return (
     <section className="grid min-h-[calc(100vh-10rem)] items-center gap-12 py-10 lg:grid-cols-2 lg:gap-6 lg:py-16">
       <div className="relative z-10">
         <HeroEyebrow className="mb-6">{displayAvailability}</HeroEyebrow>
 
-        <h1 className="max-w-3xl text-[40px] font-bold leading-tight text-nocturne-cream md:text-[64px]">
-          {displayHeadline}
+        <p className="text-lg font-semibold tracking-wide text-nocturne-muted md:text-xl">
+          Hey There,
+        </p>
+        <h1 className="mt-4 max-w-3xl text-[48px] font-bold leading-[0.98] tracking-[-0.04em] text-nocturne-cream sm:text-[64px] md:text-[76px]">
+          I&apos;m Joseph
+          <span className="block">Sotomil</span>
         </h1>
 
-        <p className="mt-6 max-w-xl text-lg leading-8 text-nocturne-muted">{displayIntro}</p>
+        <h2 className="mt-7 font-label text-sm font-semibold uppercase tracking-[0.18em] text-nocturne-amber md:text-base">
+          Computer Science Student
+        </h2>
+        <p className="mt-5 max-w-xl text-lg font-medium leading-8 text-nocturne-muted">
+          I build thoughtful, responsive web experiences and mobile applications with AI.
+        </p>
 
         <div className="mt-10 flex flex-wrap gap-4">
-          <Button as={Link} to={hero.primaryAction.path} className="px-8 py-4">
-            {hero.primaryAction.label}
+          <Button as={Link} to="/contact" className="px-8 py-4">
+            Contact Me
           </Button>
-          <Button as={Link} to={hero.secondaryAction.path} variant="secondary" className="px-8 py-4">
-            {hero.secondaryAction.label}
+          <Button
+            as="a"
+            href={resume.downloadUrl}
+            download={resume.fileName}
+            variant="secondary"
+            className="px-8 py-4"
+          >
+            Resume
           </Button>
         </div>
 
         <div className="mt-14 grid max-w-xl grid-cols-3 gap-5 border-t border-nocturne-border pt-8">
-          {hero.stats.map((stat) => (
+          {stats.map((stat) => (
             <div key={stat.label}>
               <p className="mb-1 text-2xl font-semibold text-nocturne-amber md:text-[32px]">
                 {stat.value}
@@ -216,26 +326,7 @@ function TechStackSection({ groups }) {
   return (
     <section className="py-[120px]">
       <SectionTitle title={homePage.techStackTitle} action={{ label: 'View Full Stack', path: '/tech-stack' }} />
-      <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-        {groups.map((group, index) => (
-          <RevealOnScroll key={group.category} delay={index * 75} className="h-full">
-            <Card className="h-full">
-            <h3 className="text-xl font-semibold text-nocturne-cream">{group.category}</h3>
-            <p className="mt-3 min-h-16 text-sm leading-6 text-nocturne-muted">{group.summary}</p>
-            <div className="mt-6 flex flex-col gap-3">
-              {group.items.map((item) => (
-                <div
-                  key={item}
-                  className="rounded-lg border border-nocturne-border bg-nocturne-surface px-4 py-2 font-label text-sm text-nocturne-muted"
-                >
-                  {item}
-                </div>
-              ))}
-            </div>
-            </Card>
-          </RevealOnScroll>
-        ))}
-      </div>
+      <TechStackShowcase groups={groups} compact />
     </section>
   )
 }
@@ -256,30 +347,39 @@ function AboutCertificatesSection({ profileData, certificateItems }) {
 
       <div>
         <SectionTitle title={homePage.certificatesTitle} />
-        <div className="space-y-4">
-          {certificateItems.map((certificate, index) => (
-            <RevealOnScroll key={certificate.title} delay={index * 75}>
-              <Card
-                className="flex items-center justify-between gap-4 p-5 hover:border-nocturne-amber-border"
-              >
-                <div>
-                  <h3 className="text-lg font-semibold text-nocturne-cream">{certificate.title}</h3>
-                  <p className="mt-1 font-label text-xs text-nocturne-muted">
-                    {certificate.provider} - {formatIssuedAt(certificate.issuedAt)}
-                  </p>
-                </div>
-                <ArrowLink
-                  href={certificate.credentialUrl}
-                  disabled={isPlaceholderUrl(certificate.credentialUrl)}
-                  title={isPlaceholderUrl(certificate.credentialUrl) ? 'Credential link coming soon' : undefined}
-                  aria-label={`Open credential for ${certificate.title}`}
+        {certificateItems.length ? (
+          <div className="space-y-4">
+            {certificateItems.map((certificate, index) => (
+              <RevealOnScroll key={certificate.title} delay={index * 75}>
+                <Card
+                  className="flex items-center justify-between gap-4 p-5 hover:border-nocturne-amber-border"
                 >
-                  Open
-                </ArrowLink>
-              </Card>
-            </RevealOnScroll>
-          ))}
-        </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-nocturne-cream">{certificate.title}</h3>
+                    <p className="mt-1 font-label text-xs text-nocturne-muted">
+                      {certificate.provider} - {formatIssuedAt(certificate.issuedAt)}
+                    </p>
+                  </div>
+                  <ArrowLink
+                    href={certificate.credentialUrl}
+                    disabled={isPlaceholderUrl(certificate.credentialUrl)}
+                    title={isPlaceholderUrl(certificate.credentialUrl) ? 'Credential link coming soon' : undefined}
+                    aria-label={`Open credential for ${certificate.title}`}
+                  >
+                    Open
+                  </ArrowLink>
+                </Card>
+              </RevealOnScroll>
+            ))}
+          </div>
+        ) : (
+          <Card className="p-6">
+            <h3 className="text-lg font-semibold text-nocturne-cream">No certificates yet</h3>
+            <p className="mt-2 leading-7 text-nocturne-muted">
+              I will add verified certificates here as I complete them.
+            </p>
+          </Card>
+        )}
         <ArrowLink to="/certificates" className="mt-8">
           View All Certificates
         </ArrowLink>
@@ -320,7 +420,7 @@ export default function HomePage() {
     <>
       <HeroSection profileData={profile} />
       <FeaturedProjectsSection projects={localFeaturedProjects} />
-      <TechStackSection groups={techStackGroups} />
+      <TechStackSection groups={coreToolkit} />
       <AboutCertificatesSection
         profileData={profile}
         certificateItems={localCertificates}

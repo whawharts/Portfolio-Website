@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { FaLinkedin } from 'react-icons/fa6'
+import { SiFacebook, SiGithub } from 'react-icons/si'
 import { contactPage, profile } from '../data/mockPortfolioData'
 import RevealOnScroll from '../components/RevealOnScroll'
 import ArrowLink from '../components/ui/ArrowLink'
@@ -12,6 +14,12 @@ import Textarea from '../components/ui/Textarea'
 
 function isPlaceholderUrl(url) {
   return !url || url === '#'
+}
+
+const socialIcons = {
+  facebook: SiFacebook,
+  github: SiGithub,
+  linkedin: FaLinkedin,
 }
 
 function PageHero() {
@@ -162,12 +170,21 @@ function ContactInfo({ profileData }) {
         <div className="flex gap-4">
           {(profileData.socialLinks || contactPage.socialLinks).map((social) => {
             const isPlaceholder = isPlaceholderUrl(social.url)
+            const SocialIcon = socialIcons[social.platform]
             const classes = [
-              'flex h-12 w-12 items-center justify-center rounded-lg border border-nocturne-border bg-nocturne-card font-label text-sm text-nocturne-muted transition',
+              'group flex h-12 w-12 items-center justify-center rounded-lg border border-nocturne-border bg-nocturne-card text-nocturne-muted transition duration-300',
               isPlaceholder
                 ? 'cursor-not-allowed opacity-70'
-                : 'hover:border-nocturne-amber-border hover:text-nocturne-amber hover:shadow-nocturne-glow',
+                : 'hover:-translate-y-1 hover:border-nocturne-amber-border hover:text-nocturne-amber hover:shadow-nocturne-glow',
             ].join(' ')
+            const icon = SocialIcon ? (
+              <SocialIcon
+                className="text-xl transition duration-300 group-hover:scale-110"
+                aria-hidden="true"
+              />
+            ) : (
+              <span className="font-label text-sm">{social.label}</span>
+            )
 
             return isPlaceholder ? (
               <span
@@ -176,7 +193,7 @@ function ContactInfo({ profileData }) {
                 aria-disabled="true"
                 title={`${social.platform} link coming soon`}
               >
-                {social.label}
+                {icon}
               </span>
             ) : (
               <a
@@ -185,7 +202,7 @@ function ContactInfo({ profileData }) {
                 className={classes}
                 aria-label={social.platform}
               >
-                {social.label}
+                {icon}
               </a>
             )
           })}
