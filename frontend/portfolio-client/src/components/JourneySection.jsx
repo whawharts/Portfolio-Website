@@ -90,6 +90,8 @@ function MilestoneCard({ milestone, isActive = false }) {
           <img
             src={journeyImage}
             alt=""
+            loading="lazy"
+            decoding="async"
             className={[
               'h-full w-full object-cover object-center transition duration-700',
               isActive ? 'scale-100' : 'scale-105',
@@ -160,6 +162,17 @@ export default function JourneySection() {
       }
 
       const rect = timeline.getBoundingClientRect()
+
+      if (rect.top > window.innerHeight * 1.25) {
+        setActiveMilestoneIndex(0)
+        return
+      }
+
+      if (rect.bottom < -window.innerHeight * 0.25) {
+        setActiveMilestoneIndex(journeyMilestones.length - 1)
+        return
+      }
+
       const firstMilestone = milestoneRefs.current[0]
       const lastMilestone = milestoneRefs.current[journeyMilestones.length - 1]
 
@@ -289,19 +302,6 @@ export default function JourneySection() {
             return (
               <RevealOnScroll key={milestone.year} delay={index * 70}>
                 <div className="relative grid grid-cols-[1.25rem_1fr] gap-4 md:grid-cols-[minmax(0,1fr)_2.5rem_minmax(0,1fr)] md:items-center md:gap-6">
-                  <div className="hidden md:col-start-1 md:block">
-                    {cardOnLeft ? (
-                      <MilestoneCard
-                        milestone={milestone}
-                        isActive={activeMilestoneIndex === index}
-                      />
-                    ) : (
-                      <p className="text-right text-4xl font-bold text-nocturne-amber/85">
-                        {milestone.year}
-                      </p>
-                    )}
-                  </div>
-
                   <div
                     ref={(element) => {
                       milestoneRefs.current[index] = element
@@ -311,28 +311,32 @@ export default function JourneySection() {
                     <span className="h-1.5 w-1.5 rounded-full bg-nocturne-amber" />
                   </div>
 
-                  <div className="col-start-2 row-start-1 md:col-start-3 md:block">
-                    <p className="mb-3 text-3xl font-bold text-nocturne-amber/85 md:hidden">
+                  <div
+                    className={[
+                      'col-start-2 row-start-1',
+                      cardOnLeft ? 'md:col-start-3' : 'md:col-start-1',
+                    ].join(' ')}
+                  >
+                    <p
+                      className={[
+                        'mb-3 text-3xl font-bold text-nocturne-amber/85 md:mb-0 md:text-4xl',
+                        cardOnLeft ? 'md:text-left' : 'md:text-right',
+                      ].join(' ')}
+                    >
                       {milestone.year}
                     </p>
-                    {cardOnLeft ? (
-                      <p className="hidden text-left text-4xl font-bold text-nocturne-amber/85 md:block">
-                        {milestone.year}
-                      </p>
-                    ) : (
-                      <div className="hidden md:block">
-                        <MilestoneCard
-                          milestone={milestone}
-                          isActive={activeMilestoneIndex === index}
-                        />
-                      </div>
-                    )}
-                    <div className="md:hidden">
-                      <MilestoneCard
-                        milestone={milestone}
-                        isActive={activeMilestoneIndex === index}
-                      />
-                    </div>
+                  </div>
+
+                  <div
+                    className={[
+                      'col-start-2 row-start-2 min-w-0 md:row-start-1',
+                      cardOnLeft ? 'md:col-start-1' : 'md:col-start-3',
+                    ].join(' ')}
+                  >
+                    <MilestoneCard
+                      milestone={milestone}
+                      isActive={activeMilestoneIndex === index}
+                    />
                   </div>
                 </div>
               </RevealOnScroll>

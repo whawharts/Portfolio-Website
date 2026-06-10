@@ -47,6 +47,8 @@ export default function BiographySection() {
                 <img
                   src="/images/profile/2.png"
                   alt="John Joseph Sotomil portrait"
+                  loading="lazy"
+                  decoding="async"
                   className="aspect-[4/5] w-full object-contain object-bottom"
                 />
                 <div

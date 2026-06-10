@@ -85,7 +85,9 @@ export default function FloatingSocialButton() {
   }, [])
 
   useEffect(() => {
-    if (prefersReducedMotion()) {
+    const isTouchViewport = window.matchMedia('(max-width: 767px), (pointer: coarse)').matches
+
+    if (prefersReducedMotion() || isTouchViewport) {
       return undefined
     }
 
@@ -130,7 +132,7 @@ export default function FloatingSocialButton() {
       >
         <section
           className={[
-            'w-[min(20rem,calc(100vw-2rem))] rounded-xl border border-nocturne-border bg-nocturne-card/95 p-4 text-left shadow-[0_20px_60px_rgba(0,0,0,0.45)] backdrop-blur-xl transition-all duration-300 ease-out motion-reduce:transition-none',
+            'w-[min(20rem,calc(100vw-2rem))] rounded-xl border border-nocturne-border bg-nocturne-card/95 p-4 text-left shadow-[0_20px_60px_rgba(0,0,0,0.45)] backdrop-blur-md transition-all duration-300 ease-out motion-reduce:transition-none md:backdrop-blur-xl',
             menuStateClasses,
           ].join(' ')}
           aria-hidden={!isOpen}

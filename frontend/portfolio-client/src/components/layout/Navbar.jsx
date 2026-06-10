@@ -96,7 +96,7 @@ export default function Navbar() {
   }
 
   return (
-    <header className="sticky top-0 z-50 border-b border-nocturne-border bg-nocturne-nav backdrop-blur-[20px]">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/[0.07] bg-nocturne-bg/75 shadow-[0_8px_30px_rgba(0,0,0,0.14)] backdrop-blur-md backdrop-saturate-150 md:bg-nocturne-bg/65 md:backdrop-blur-xl">
       <nav
         className="relative mx-auto flex min-h-16 w-full max-w-[var(--content-max-width)] flex-wrap items-center justify-between gap-3 px-5 py-2.5 md:px-10"
         aria-label="Primary navigation"
@@ -111,7 +111,7 @@ export default function Navbar() {
 
         <button
           type="button"
-          className="mobile-nav-toggle ml-auto h-10 w-10 items-center justify-center rounded-lg border border-nocturne-border text-nocturne-cream transition hover:border-nocturne-amber-border hover:text-nocturne-amber focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-nocturne-amber"
+          className="mobile-nav-toggle absolute right-5 top-3 flex h-10 w-10 items-center justify-center rounded-lg border border-nocturne-border text-nocturne-cream transition hover:border-nocturne-amber-border hover:text-nocturne-amber focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-nocturne-amber md:right-10 lg:hidden"
           onClick={() => setIsMenuOpen((current) => !current)}
           aria-expanded={isMenuOpen}
           aria-controls="mobile-navigation"

@@ -71,6 +71,8 @@ function ProjectImagePlaceholder({ project }) {
         <img
           src={project.thumbnailUrl}
           alt={`${project.title} homepage preview`}
+          loading="lazy"
+          decoding="async"
           className="h-full w-full object-cover object-top transition duration-500 group-hover:scale-[1.02]"
         />
       ) : (

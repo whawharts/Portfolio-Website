@@ -65,7 +65,7 @@ function HeroVisual({ profileData }) {
           label: 'Coding agent',
           Icon: VscTerminal,
           color: '#e89572',
-          position: 'bottom-[16%] right-[7%] sm:right-[9%]',
+          position: 'bottom-[16%] right-[14%] sm:right-[9%]',
           animation: 'float-soft-delay',
         },
       ],
@@ -79,7 +79,7 @@ function HeroVisual({ profileData }) {
           label: 'AI assistant',
           Icon: SiOpenai,
           color: '#10a37f',
-          position: 'right-[7%] top-[16%] sm:right-[9%]',
+          position: 'right-[14%] top-[16%] sm:right-[9%]',
           animation: 'float-soft-delay',
         },
         {
@@ -109,7 +109,7 @@ function HeroVisual({ profileData }) {
           label: 'UI generator',
           Icon: MdAutoAwesome,
           color: '#4f9cf9',
-          position: 'right-[8%] top-[38%] sm:right-[10%]',
+          position: 'right-[14%] top-[38%] sm:right-[10%]',
           animation: 'float-soft',
         },
       ],
@@ -129,10 +129,10 @@ function HeroVisual({ profileData }) {
   }
 
   return (
-    <div className="relative flex min-h-[360px] items-center justify-center lg:min-h-[470px]">
+    <div className="relative flex min-h-[290px] items-center justify-center sm:min-h-[360px] lg:min-h-[470px]">
       {hasAvatar ? (
         <div
-          className="relative z-10 w-full max-w-[20rem] cursor-pointer lg:max-w-[22rem]"
+          className="relative z-10 w-full max-w-[17rem] cursor-pointer sm:max-w-[20rem] lg:max-w-[22rem]"
           onMouseEnter={cycleAvatar}
           onClick={cycleAvatar}
           onKeyDown={handleAvatarKeyDown}
@@ -142,19 +142,14 @@ function HeroVisual({ profileData }) {
         >
           <div className="pointer-events-none absolute inset-6 -z-10 rounded-full bg-nocturne-amber/15 blur-3xl" />
           <div className="pointer-events-none absolute bottom-2 left-1/2 z-0 h-10 w-[68%] -translate-x-1/2 rounded-full bg-black/35 blur-2xl opacity-55" />
-          {avatarStates.map((avatar, index) => (
-            <img
-              key={avatar.assistant}
-              src={avatar.src}
-              alt={`Chibi illustration of Joseph representing ${avatar.assistant}`}
-              aria-hidden={index !== avatarIndex}
-              className={[
-                'w-full object-contain transition-opacity duration-500 ease-in-out',
-                index === 0 ? 'relative' : 'absolute inset-0',
-                index === avatarIndex ? 'opacity-100' : 'pointer-events-none opacity-0',
-              ].join(' ')}
-            />
-          ))}
+          <img
+            key={activeAvatar.assistant}
+            src={activeAvatar.src}
+            alt={`Joseph representing ${activeAvatar.assistant}`}
+            decoding="async"
+            fetchPriority={avatarIndex === 0 ? 'high' : 'auto'}
+            className="ai-tool-enter relative w-full object-contain"
+          />
           <div
             className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-[22%] bg-gradient-to-b from-transparent via-nocturne-bg/20 to-nocturne-bg/90"
             aria-hidden="true"
@@ -214,7 +209,7 @@ function HeroSection({ profileData }) {
   ]
 
   return (
-    <section className="flex min-h-[calc(100vh-8rem)] flex-col justify-center gap-5 py-4 lg:py-5">
+    <section className="flex flex-col justify-center gap-5 py-4 lg:min-h-[calc(100vh-8rem)] lg:py-5">
       <div className="grid items-center gap-6 lg:grid-cols-[0.98fr_1.02fr] lg:gap-12">
         <HeroVisual profileData={profileData} />
 
@@ -306,6 +301,8 @@ function ProjectCard({ project }) {
           <img
             src={project.thumbnailUrl}
             alt={`${project.title} homepage preview`}
+            loading="lazy"
+            decoding="async"
             className="h-full w-full object-cover object-top transition duration-500 group-hover:scale-[1.02]"
           />
         ) : (
