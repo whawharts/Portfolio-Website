@@ -18,6 +18,8 @@ import Card from '../components/ui/Card'
 import HeroEyebrow from '../components/ui/HeroEyebrow'
 import RevealOnScroll from '../components/RevealOnScroll'
 import TechStackShowcase from '../components/TechStackShowcase'
+import BiographySection from '../components/BiographySection'
+import JourneySection from '../components/JourneySection'
 
 function isPlaceholderUrl(url) {
   return !url || url === '#'
@@ -29,9 +31,9 @@ function formatIssuedAt(issuedAt) {
 
 function SectionTitle({ title, action }) {
   return (
-    <div className="mb-12 flex flex-col gap-5 md:mb-16 md:flex-row md:items-end md:justify-between">
+    <div className="mb-8 flex flex-col gap-4 md:mb-10 md:flex-row md:items-end md:justify-between">
       <div>
-        <h2 className="section-label-line text-[32px] font-semibold leading-10 text-nocturne-cream">
+        <h2 className="section-label-line text-[28px] font-semibold leading-9 text-nocturne-cream">
           {title}
         </h2>
       </div>
@@ -127,10 +129,10 @@ function HeroVisual({ profileData }) {
   }
 
   return (
-    <div className="relative flex min-h-[420px] items-center justify-center lg:min-h-[560px]">
+    <div className="relative flex min-h-[360px] items-center justify-center lg:min-h-[470px]">
       {hasAvatar ? (
         <div
-          className="relative z-10 w-full max-w-[23rem] cursor-pointer lg:max-w-[25rem]"
+          className="relative z-10 w-full max-w-[20rem] cursor-pointer lg:max-w-[22rem]"
           onMouseEnter={cycleAvatar}
           onClick={cycleAvatar}
           onKeyDown={handleAvatarKeyDown}
@@ -212,55 +214,81 @@ function HeroSection({ profileData }) {
   ]
 
   return (
-    <section className="grid min-h-[calc(100vh-10rem)] items-center gap-12 py-10 lg:grid-cols-2 lg:gap-6 lg:py-16">
-      <div className="relative z-10">
-        <HeroEyebrow className="mb-6">{displayAvailability}</HeroEyebrow>
+    <section className="flex min-h-[calc(100vh-8rem)] flex-col justify-center gap-5 py-4 lg:py-5">
+      <div className="grid items-center gap-6 lg:grid-cols-[0.98fr_1.02fr] lg:gap-12">
+        <HeroVisual profileData={profileData} />
 
-        <p className="text-lg font-semibold tracking-wide text-nocturne-muted md:text-xl">
-          Hey There,
-        </p>
-        <h1 className="mt-4 max-w-3xl text-[48px] font-bold leading-[0.98] tracking-[-0.04em] text-nocturne-cream sm:text-[64px] md:text-[76px]">
-          I&apos;m Joseph
-          <span className="block">Sotomil</span>
-        </h1>
-
-        <h2 className="mt-7 font-label text-sm font-semibold uppercase tracking-[0.18em] text-nocturne-amber md:text-base">
-          Computer Science Student
-        </h2>
-        <p className="mt-5 max-w-xl text-lg font-medium leading-8 text-nocturne-muted">
-          I build thoughtful, responsive web experiences and mobile applications with AI.
-        </p>
-
-        <div className="mt-10 flex flex-wrap gap-4">
-          <Button as={Link} to="/contact" className="px-8 py-4 !text-black">
-            Contact Me
-          </Button>
-          <Button
-            as="a"
-            href={resume.downloadUrl}
-            download={resume.fileName}
-            variant="secondary"
-            className="px-8 py-4"
+        <div className="relative z-10 min-w-0 lg:pr-6">
+          <HeroEyebrow
+            className="hero-availability mb-5"
+            textClassName="text-emerald-400"
           >
-            Resume
-          </Button>
-        </div>
+            {displayAvailability}
+          </HeroEyebrow>
 
-        <div className="mt-14 grid max-w-xl grid-cols-3 gap-5 border-t border-nocturne-border pt-8">
-          {stats.map((stat) => (
-            <div key={stat.label}>
-              <p className="mb-1 text-2xl font-semibold text-nocturne-amber md:text-[32px]">
+          <p className="text-base font-semibold tracking-wide text-nocturne-muted md:text-lg">
+            Hey There,
+          </p>
+          <h1 className="mt-3 max-w-3xl text-[42px] font-bold leading-[0.98] tracking-[-0.04em] text-nocturne-cream sm:text-[54px] md:text-[62px]">
+            I&apos;m John Joseph
+            <span className="block">Sotomil</span>
+          </h1>
+
+          <h2 className="mt-5 font-label text-xs font-semibold uppercase tracking-[0.18em] text-nocturne-amber md:text-sm">
+            Computer Science Student
+          </h2>
+          <p className="mt-4 max-w-lg text-base font-medium leading-7 text-nocturne-muted">
+            I build thoughtful, responsive web experiences and mobile applications with AI.
+          </p>
+
+          <div className="mt-7 flex flex-wrap items-center gap-4">
+            <Button
+              as="a"
+              href={resume.downloadUrl}
+              download={resume.fileName}
+              className="min-h-10 px-6 py-2.5 !text-black"
+            >
+              Resume
+            </Button>
+            <Link
+              to="/contact"
+              className="font-label text-xs text-nocturne-cream underline decoration-nocturne-amber/60 underline-offset-4 transition hover:text-nocturne-amber"
+            >
+              Contact Me
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      <div className="grid gap-0 border-y border-nocturne-border/70 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-2 sm:contents lg:contents">
+          {stats.map((stat, index) => (
+            <div
+              key={stat.label}
+              className={[
+                'flex min-w-0 items-center gap-3 border-nocturne-border px-5 py-4',
+                index < 2 ? 'border-b sm:border-b-0' : '',
+                index !== stats.length - 1 ? 'border-r' : '',
+              ].join(' ')}
+            >
+              <p className="shrink-0 text-xl font-semibold leading-tight text-nocturne-amber md:text-2xl">
                 {stat.value}
               </p>
-              <p className="font-label text-[11px] uppercase tracking-normal text-nocturne-muted">
+              <p className="font-label text-[9px] uppercase leading-4 tracking-normal text-nocturne-muted">
                 {stat.label}
               </p>
             </div>
           ))}
         </div>
+        <div className="flex min-w-0 items-center border-t border-nocturne-border px-5 py-4 sm:col-span-2 lg:col-span-1 lg:border-l lg:border-t-0">
+          <div>
+            <p className="font-label text-[9px] uppercase tracking-normal text-nocturne-muted">
+              Availability
+            </p>
+            <p className="mt-1 text-sm font-medium text-nocturne-cream">{displayAvailability}</p>
+          </div>
+        </div>
       </div>
-
-      <HeroVisual profileData={profileData} />
     </section>
   )
 }
@@ -269,20 +297,29 @@ function ProjectCard({ project }) {
   const hasLiveUrl = !isPlaceholderUrl(project.liveUrl)
   const hasGithubUrl = !isPlaceholderUrl(project.githubUrl)
   const hasThumbnail = !isPlaceholderUrl(project.thumbnailUrl)
+  const hasInternalUrl = !isPlaceholderUrl(project.internalUrl)
 
   return (
     <Card className="group flex h-full flex-col overflow-hidden p-0">
       <div className="relative h-56 overflow-hidden border-b border-nocturne-border bg-nocturne-panel">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,var(--color-amber-soft),transparent_35%),linear-gradient(135deg,var(--color-surface-panel),var(--color-surface-card))]" />
-        {!hasThumbnail ? (
-          <div className="absolute inset-0 z-10 flex items-center justify-center">
-            <span className="rounded-full border border-nocturne-amber-border bg-nocturne-bg/80 px-4 py-2 font-label text-xs uppercase tracking-[0.14em] text-nocturne-amber shadow-nocturne-glow backdrop-blur-[20px]">
-              Coming Soon
-            </span>
-          </div>
-        ) : null}
+        {hasThumbnail ? (
+          <img
+            src={project.thumbnailUrl}
+            alt={`${project.title} homepage preview`}
+            className="h-full w-full object-cover object-top transition duration-500 group-hover:scale-[1.02]"
+          />
+        ) : (
+          <>
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,var(--color-amber-soft),transparent_35%),linear-gradient(135deg,var(--color-surface-panel),var(--color-surface-card))]" />
+            <div className="absolute inset-0 z-10 flex items-center justify-center">
+              <span className="rounded-full border border-nocturne-amber-border bg-nocturne-bg/80 px-4 py-2 font-label text-xs uppercase tracking-[0.14em] text-nocturne-amber shadow-nocturne-glow backdrop-blur-[20px]">
+                Coming Soon
+              </span>
+            </div>
+          </>
+        )}
       </div>
-      <div className="flex flex-1 flex-col p-6 md:p-8">
+      <div className="flex flex-1 flex-col p-5 md:p-6">
         <h3 className="text-2xl font-semibold text-nocturne-cream">{project.title}</h3>
         <p className="mt-3 flex-1 leading-7 text-nocturne-muted">{project.summary}</p>
         <div className="mt-6 flex flex-wrap gap-2">
@@ -291,6 +328,11 @@ function ProjectCard({ project }) {
           ))}
         </div>
         <div className="mt-7 flex gap-5 border-t border-nocturne-border pt-5 font-label text-sm">
+          {hasInternalUrl ? (
+            <Link to={project.internalUrl} className="text-nocturne-cream transition hover:text-nocturne-amber">
+              View Homepage
+            </Link>
+          ) : null}
           {hasLiveUrl ? (
             <a href={project.liveUrl} className="text-nocturne-cream transition hover:text-nocturne-amber">
               Live Demo
@@ -317,7 +359,7 @@ function ProjectCard({ project }) {
 
 function FeaturedProjectsSection({ projects }) {
   return (
-    <section className="py-[120px]">
+    <section className="py-16 md:py-20">
       <SectionTitle title={homePage.featuredProjectsTitle} action={{ label: 'View All Projects', path: '/projects' }} />
       <div className="grid gap-6 lg:grid-cols-2">
         {projects.slice(0, 4).map((project, index) => (
@@ -332,7 +374,7 @@ function FeaturedProjectsSection({ projects }) {
 
 function TechStackSection({ groups }) {
   return (
-    <section className="py-[120px]">
+    <section className="py-16 md:py-20">
       <SectionTitle title={homePage.techStackTitle} action={{ label: 'View Full Stack', path: '/tech-stack' }} />
       <TechStackShowcase groups={groups} compact />
     </section>
@@ -341,7 +383,7 @@ function TechStackSection({ groups }) {
 
 function AboutCertificatesSection({ profileData, certificateItems }) {
   return (
-    <section className="grid gap-12 py-[120px] lg:grid-cols-2 lg:gap-16">
+    <section className="grid gap-10 py-16 md:py-20 lg:grid-cols-2 lg:gap-12">
       <div>
         <SectionTitle title={homePage.aboutTitle} />
         <div className="space-y-6 text-lg leading-8 text-nocturne-muted">
@@ -400,9 +442,9 @@ function ContactCtaSection() {
   const { contactCta } = homePage
 
   return (
-    <section className="py-[120px]">
+    <section className="py-16 md:py-20">
       <RevealOnScroll>
-        <Card className="relative mx-auto max-w-3xl overflow-hidden p-8 text-center md:p-12">
+        <Card className="relative mx-auto max-w-3xl overflow-hidden p-7 text-center md:p-9">
           <div className="absolute -right-16 -top-16 h-64 w-64 rounded-full bg-nocturne-amber/5 blur-[80px]" />
           <div className="absolute -bottom-16 -left-16 h-64 w-64 rounded-full bg-nocturne-muted/5 blur-[80px]" />
           <div className="relative z-10">
@@ -427,6 +469,8 @@ export default function HomePage() {
   return (
     <>
       <HeroSection profileData={profile} />
+      <BiographySection />
+      <JourneySection />
       <FeaturedProjectsSection projects={localFeaturedProjects} />
       <TechStackSection groups={coreToolkit} />
       <AboutCertificatesSection

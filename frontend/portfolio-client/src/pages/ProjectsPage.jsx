@@ -24,9 +24,9 @@ function isPlaceholderUrl(url) {
 
 function ProjectsHero() {
   return (
-    <header className="max-w-3xl pb-14 pt-6 md:pb-16">
+    <header className="max-w-3xl pb-10 pt-3 md:pb-12">
       <HeroEyebrow className="mb-6">{projectsPage.eyebrow}</HeroEyebrow>
-      <h1 className="text-[40px] font-bold leading-tight text-nocturne-amber md:text-[64px]">
+      <h1 className="text-[38px] font-bold leading-tight text-nocturne-amber md:text-[52px]">
         {projectsPage.title}
       </h1>
       <p className="mt-6 text-lg leading-8 text-nocturne-muted">{projectsPage.intro}</p>
@@ -67,14 +67,22 @@ function ProjectImagePlaceholder({ project }) {
 
   return (
     <div className={`relative h-64 overflow-hidden bg-gradient-to-br ${gradient}`}>
-      <div className="absolute inset-0 bg-nocturne-bg/40 transition duration-300 group-hover:bg-nocturne-bg/10" />
-      {!hasThumbnail ? (
+      {hasThumbnail ? (
+        <img
+          src={project.thumbnailUrl}
+          alt={`${project.title} homepage preview`}
+          className="h-full w-full object-cover object-top transition duration-500 group-hover:scale-[1.02]"
+        />
+      ) : (
+        <>
+          <div className="absolute inset-0 bg-nocturne-bg/40 transition duration-300 group-hover:bg-nocturne-bg/10" />
         <div className="absolute inset-0 z-10 flex items-center justify-center">
           <span className="rounded-full border border-nocturne-amber-border bg-nocturne-bg/80 px-4 py-2 font-label text-xs uppercase tracking-[0.14em] text-nocturne-amber shadow-nocturne-glow backdrop-blur-[20px]">
             Coming Soon
           </span>
         </div>
-      ) : null}
+        </>
+      )}
     </div>
   )
 }
@@ -83,13 +91,14 @@ function ProjectCard({ project }) {
   const hasLiveUrl = !isPlaceholderUrl(project.liveUrl)
   const hasGithubUrl = !isPlaceholderUrl(project.githubUrl)
   const hasCaseStudyUrl = !isPlaceholderUrl(project.caseStudyUrl)
-  const hasActions = hasLiveUrl || hasGithubUrl || hasCaseStudyUrl
+  const hasInternalUrl = !isPlaceholderUrl(project.internalUrl)
+  const hasActions = hasInternalUrl || hasLiveUrl || hasGithubUrl || hasCaseStudyUrl
 
   return (
     <article className="group flex h-full flex-col">
       <Card className="flex h-full flex-col overflow-hidden p-0">
         <ProjectImagePlaceholder project={project} />
-        <div className="flex flex-1 flex-col p-6 md:p-8">
+        <div className="flex flex-1 flex-col p-5 md:p-6">
           <h2 className="text-2xl font-semibold text-nocturne-cream transition group-hover:text-nocturne-amber md:text-[32px] md:leading-10">
             {project.title}
           </h2>
@@ -101,9 +110,14 @@ function ProjectCard({ project }) {
               </Badge>
             ))}
           </div>
-          <div className="mt-8 flex flex-wrap items-center gap-3 border-t border-nocturne-border pt-6">
+          <div className="mt-6 flex flex-wrap items-center gap-3 border-t border-nocturne-border pt-4">
             {hasActions ? (
               <>
+                {hasInternalUrl ? (
+                  <Button as={Link} to={project.internalUrl} className="min-h-10 px-5 py-2 !text-black">
+                    View Homepage
+                  </Button>
+                ) : null}
                 {hasLiveUrl ? (
                   <Button as="a" href={project.liveUrl} className="min-h-10 px-5 py-2">
                     Live Demo
@@ -139,7 +153,7 @@ function ProjectCard({ project }) {
 
 function ProjectsCta() {
   return (
-    <section className="relative mx-auto max-w-4xl overflow-hidden rounded-xl border border-nocturne-border bg-nocturne-card p-8 text-center md:p-12">
+    <section className="relative mx-auto max-w-4xl overflow-hidden rounded-xl border border-nocturne-border bg-nocturne-card p-7 text-center md:p-9">
       <div className="absolute -right-24 -top-24 h-64 w-64 rounded-full bg-nocturne-amber/5 blur-[80px]" />
       <div className="absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-nocturne-amber/5 blur-[80px]" />
       <div className="relative z-10 flex flex-col items-center">
@@ -174,7 +188,7 @@ export default function ProjectsPage() {
         <EmptyState message="No projects match this filter yet." />
       ) : null}
       {projects.length ? (
-        <section className="mb-[120px] grid gap-8 md:grid-cols-2">
+        <section className="mb-20 grid gap-6 md:grid-cols-2">
           {projects.map((project, index) => (
             <RevealOnScroll key={project.slug} delay={(index % 2) * 75} className="h-full">
               <ProjectCard project={project} />

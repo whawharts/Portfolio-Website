@@ -1,68 +1,57 @@
 import { useEffect, useRef, useState } from 'react'
+import {
+  FaArrowRight,
+  FaCommentDots,
+  FaDiscord,
+  FaFacebookF,
+  FaGithub,
+  FaLinkedinIn,
+  FaXmark,
+  FaYoutube,
+} from 'react-icons/fa6'
 
-// TODO: Replace these constants with profile/social API data once a shared profile context exists.
-const contactProfile = {
-  name: 'Joseph Sotomil',
-  status: 'Available',
-  message:
-    "Hey! Want to work together or have a question? Reach out anytime - I'd love to hear from you.",
-  avatarUrl: '/images/profile/chibi_joseph.png',
-  email: 'Josephsotomil2000@gmail.com',
-  phone: '',
-  facebookUrl: 'https://www.facebook.com/whawharts/',
-  linkedinUrl: 'https://www.linkedin.com/in/joseph-sotomil-7b63173b5/',
-  githubUrl: 'https://github.com/whawharts',
-}
-
-const secondaryLinks = [
-  { label: 'LinkedIn', href: contactProfile.linkedinUrl },
-  { label: 'GitHub', href: contactProfile.githubUrl },
+const contactRows = [
+  {
+    label: 'LinkedIn',
+    value: 'Joseph Sotomil',
+    href: 'https://www.linkedin.com/in/joseph-sotomil-7b63173b5/',
+    Icon: FaLinkedinIn,
+    color: '#0a66c2',
+  },
+  {
+    label: 'Facebook',
+    value: 'whawharts',
+    href: 'https://www.facebook.com/whawharts/',
+    Icon: FaFacebookF,
+    color: '#1877f2',
+  },
+  {
+    label: 'YouTube',
+    value: '@WhahTv',
+    href: 'https://www.youtube.com/@WhahTv',
+    Icon: FaYoutube,
+    color: '#ff0033',
+  },
+  {
+    label: 'Discord',
+    value: 'promi_1',
+    href: null,
+    Icon: FaDiscord,
+    color: '#5865f2',
+  },
+  {
+    label: 'GitHub',
+    value: 'whawharts',
+    href: 'https://github.com/whawharts',
+    Icon: FaGithub,
+    color: '#f5f5f5',
+  },
 ]
 
 function prefersReducedMotion() {
   return (
     typeof window !== 'undefined' &&
     window.matchMedia('(prefers-reduced-motion: reduce)').matches
-  )
-}
-
-function isRealValue(value) {
-  return Boolean(value && value !== '#')
-}
-
-function ContactAction({
-  children,
-  href,
-  variant = 'secondary',
-  external = false,
-  isPanelOpen,
-}) {
-  const variantClasses =
-    variant === 'primary'
-      ? 'border-transparent bg-nocturne-amber-strong text-[#291800] shadow-[0_0_22px_rgba(245,166,35,0.2)] hover:bg-[#ffb23a] hover:shadow-[0_0_28px_rgba(245,166,35,0.28)]'
-      : 'border-nocturne-border bg-nocturne-panel/80 text-nocturne-cream hover:border-nocturne-amber-border hover:text-nocturne-amber hover:shadow-[0_0_18px_rgba(245,166,35,0.14)]'
-
-  return (
-    <a
-      href={href}
-      target={external ? '_blank' : undefined}
-      rel={external ? 'noreferrer' : undefined}
-      tabIndex={isPanelOpen ? undefined : -1}
-      className={[
-        'inline-flex min-h-10 items-center justify-center rounded-lg border px-4 py-2 text-sm font-semibold transition duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-nocturne-amber',
-        variantClasses,
-      ].join(' ')}
-    >
-      {children}
-    </a>
-  )
-}
-
-function DisabledAction({ children }) {
-  return (
-    <span className="inline-flex min-h-10 items-center justify-center rounded-lg border border-nocturne-border bg-nocturne-bg/35 px-4 py-2 text-sm font-semibold text-nocturne-muted/75">
-      {children}
-    </span>
   )
 }
 
@@ -133,12 +122,6 @@ export default function FloatingSocialButton() {
   const menuStateClasses = isOpen
     ? 'translate-y-0 opacity-100 pointer-events-auto'
     : 'translate-y-3 opacity-0 pointer-events-none'
-  const hasAvatar = isRealValue(contactProfile.avatarUrl)
-  const hasEmail = isRealValue(contactProfile.email)
-  const hasPhone = isRealValue(contactProfile.phone)
-  const hasFacebook = isRealValue(contactProfile.facebookUrl)
-  const visibleSecondaryLinks = secondaryLinks.filter((link) => isRealValue(link.href))
-
   return (
     <div ref={widgetRef} className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
       <div
@@ -153,69 +136,67 @@ export default function FloatingSocialButton() {
           aria-hidden={!isOpen}
           aria-label="Contact options"
         >
-          <div className="flex items-center gap-3 border-b border-nocturne-border/70 pb-4">
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-full border border-nocturne-amber-border bg-nocturne-panel">
-              {hasAvatar ? (
-                <img
-                  src={contactProfile.avatarUrl}
-                  alt=""
-                  className="h-full w-full object-cover"
-                />
-              ) : (
-                <span className="font-label text-sm text-nocturne-amber">JS</span>
-              )}
-            </div>
-            <div className="min-w-0">
-              <h2 className="truncate text-base font-semibold text-nocturne-cream">
-                {contactProfile.name}
-              </h2>
-              <p className="mt-1 flex items-center gap-2 font-label text-xs text-nocturne-muted">
-                <span className="h-1.5 w-1.5 rounded-full bg-nocturne-amber-strong shadow-[0_0_10px_rgba(245,166,35,0.32)]" />
-                {contactProfile.status}
-              </p>
-            </div>
+          <div className="border-b border-nocturne-border/70 pb-3">
+            <h2 className="text-base font-semibold text-nocturne-cream">Contact Me</h2>
+            <p className="mt-1 text-xs text-nocturne-muted">Find me on these platforms.</p>
           </div>
 
-          <p className="py-4 text-sm leading-6 text-nocturne-muted">{contactProfile.message}</p>
+          <div className="mt-3 flex flex-col gap-2">
+            {contactRows.map(({ label, value, href, Icon, color }) => {
+              const rowContent = (
+                <>
+                  <span
+                    className="absolute inset-y-2 left-0 w-0.5 origin-center scale-y-0 rounded-full transition-transform duration-300 group-hover:scale-y-100"
+                    style={{
+                      backgroundColor: color,
+                      boxShadow: `0 0 14px ${color}88`,
+                    }}
+                    aria-hidden="true"
+                  />
+                  <span
+                    className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-nocturne-border bg-nocturne-bg transition duration-300 group-hover:-rotate-3 group-hover:scale-110"
+                    style={{
+                      color,
+                      boxShadow: `inset 0 0 14px ${color}18, 0 0 0 0 ${color}00`,
+                    }}
+                  >
+                    <Icon aria-hidden="true" />
+                  </span>
+                  <span className="min-w-0 flex-1">
+                    <span className="block text-sm font-semibold text-nocturne-cream">{label}</span>
+                    <span className="block truncate font-label text-[10px] text-nocturne-muted">
+                      {value}
+                    </span>
+                  </span>
+                  {href ? (
+                    <FaArrowRight
+                      className="text-xs text-nocturne-muted transition duration-300 group-hover:translate-x-1 group-hover:text-nocturne-amber"
+                      aria-hidden="true"
+                    />
+                  ) : null}
+                </>
+              )
+              const rowClasses =
+                'group relative flex min-h-14 w-full items-center gap-3 overflow-hidden rounded-lg border border-nocturne-border bg-nocturne-panel/70 px-3 py-2 text-left transition duration-300 hover:translate-x-1 hover:border-nocturne-amber-border hover:bg-nocturne-card hover:shadow-[0_8px_24px_rgba(0,0,0,0.24)]'
 
-          <div className="grid gap-2">
-            {hasEmail ? (
-              <ContactAction
-                href={`mailto:${contactProfile.email}`}
-                variant="primary"
-                isPanelOpen={isOpen}
-              >
-                Email Me
-              </ContactAction>
-            ) : null}
-            {hasPhone ? (
-              <ContactAction href={`tel:${contactProfile.phone}`} isPanelOpen={isOpen}>
-                Call Me
-              </ContactAction>
-            ) : (
-              <DisabledAction>Call Me - Coming soon</DisabledAction>
-            )}
-            {hasFacebook ? (
-              <ContactAction href={contactProfile.facebookUrl} external isPanelOpen={isOpen}>
-                Facebook
-              </ContactAction>
-            ) : null}
-          </div>
-
-          {visibleSecondaryLinks.length ? (
-            <div className="mt-3 grid grid-cols-2 gap-2">
-              {visibleSecondaryLinks.map((link) => (
-                <ContactAction
-                  key={link.label}
-                  href={link.href}
-                  external
-                  isPanelOpen={isOpen}
+              return href ? (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noreferrer"
+                  tabIndex={isOpen ? undefined : -1}
+                  className={rowClasses}
                 >
-                  {link.label}
-                </ContactAction>
-              ))}
-            </div>
-          ) : null}
+                  {rowContent}
+                </a>
+              ) : (
+                <div key={label} className={rowClasses}>
+                  {rowContent}
+                </div>
+              )
+            })}
+          </div>
         </section>
 
         <button
@@ -223,18 +204,23 @@ export default function FloatingSocialButton() {
           aria-label={isOpen ? 'Close contact panel' : 'Open contact panel'}
           aria-expanded={isOpen}
           onClick={() => setIsOpen((current) => !current)}
-          className="group relative flex h-14 w-14 items-center justify-center rounded-full border border-nocturne-amber-border bg-nocturne-amber-strong text-[#291800] shadow-[0_0_28px_rgba(245,166,35,0.28)] transition duration-200 hover:shadow-[0_0_36px_rgba(245,166,35,0.38)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-nocturne-amber"
+          className={[
+            'group relative flex h-14 w-14 touch-manipulation items-center justify-center overflow-hidden rounded-full border border-nocturne-amber-border shadow-[0_0_28px_rgba(245,166,35,0.24)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_0_38px_rgba(245,166,35,0.36)] active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-nocturne-amber',
+            isOpen
+              ? 'rotate-90 bg-nocturne-card text-nocturne-amber'
+              : 'bg-nocturne-amber-strong text-[#291800]',
+          ].join(' ')}
         >
-          <span className="absolute inset-0 rounded-full border border-nocturne-amber opacity-20 motion-safe:animate-ping" />
-          <span className="relative z-10 font-label text-base font-semibold">
-            {isOpen ? 'X' : (
-              <span className="flex h-5 w-7 items-center justify-center gap-1 rounded-full border-2 border-[#291800]">
-                <span className="h-1 w-1 rounded-full bg-[#291800]" />
-                <span className="h-1 w-1 rounded-full bg-[#291800]" />
-                <span className="h-1 w-1 rounded-full bg-[#291800]" />
-              </span>
-            )}
-          </span>
+          <span className="absolute inset-1 rounded-full border border-current/15 transition-all duration-300 group-hover:inset-0" />
+          <span className="absolute inset-0 scale-50 rounded-full bg-white/10 opacity-0 transition-all duration-300 group-hover:scale-100 group-hover:opacity-100" />
+          {isOpen ? (
+            <FaXmark className="relative z-10 -rotate-90 text-xl transition duration-300 group-hover:scale-110" aria-hidden="true" />
+          ) : (
+            <FaCommentDots
+              className="relative z-10 text-xl transition duration-300 group-hover:-rotate-6 group-hover:scale-110"
+              aria-hidden="true"
+            />
+          )}
         </button>
       </div>
     </div>

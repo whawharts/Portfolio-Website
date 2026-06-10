@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import {
   SiCss,
   SiClaude,
@@ -20,8 +21,8 @@ import {
   SiVite,
   SiGooglegemini,
 } from 'react-icons/si'
-import { MdAutoAwesome, MdHub, MdOutlineSecurity } from 'react-icons/md'
-import { TbApi, TbDatabase, TbPointer, TbRelationManyToMany, TbSql } from 'react-icons/tb'
+import { MdAutoAwesome, MdOutlineSecurity } from 'react-icons/md'
+import { TbApi, TbDatabase, TbPointer, TbSql } from 'react-icons/tb'
 import { VscCode, VscTerminal } from 'react-icons/vsc'
 import RevealOnScroll from './RevealOnScroll'
 
@@ -35,12 +36,10 @@ const skillIcons = {
   'Node.js': SiNodedotjs,
   Express: SiExpress,
   'REST APIs': TbApi,
-  Middleware: MdHub,
   'Auth Basics': MdOutlineSecurity,
   SQL: TbSql,
   PostgreSQL: SiPostgresql,
   Prisma: SiPrisma,
-  'Data Modeling': TbRelationManyToMany,
   Supabase: SiSupabase,
   Firebase: SiFirebase,
   Git: SiGit,
@@ -69,12 +68,10 @@ const skillColors = {
   'Node.js': '#5fa04e',
   Express: '#f5f5f5',
   'REST APIs': '#00c7b7',
-  Middleware: '#a78bfa',
   'Auth Basics': '#e06f5f',
   SQL: '#4479a1',
   PostgreSQL: '#4169e1',
   Prisma: '#8b9cf7',
-  'Data Modeling': '#f59e0b',
   Supabase: '#3ecf8e',
   Firebase: '#ffca28',
   Git: '#f05032',
@@ -101,7 +98,7 @@ function SkillTile({ skill }) {
 
   return (
     <div
-      className="group/skill relative flex min-h-24 flex-col items-center justify-center overflow-hidden rounded-xl border border-nocturne-border bg-nocturne-bg/65 px-3 py-4 text-center transition duration-300 ease-out hover:-translate-y-1 hover:border-nocturne-amber-border hover:bg-nocturne-card hover:shadow-[0_12px_32px_rgba(0,0,0,0.34),0_0_24px_rgba(245,166,35,0.12)]"
+      className="group/skill relative flex min-h-20 flex-col items-center justify-center overflow-hidden rounded-lg border border-nocturne-border bg-nocturne-bg/65 px-2.5 py-3 text-center transition duration-300 ease-out hover:-translate-y-1 hover:border-nocturne-amber-border hover:bg-nocturne-card hover:shadow-[0_12px_32px_rgba(0,0,0,0.34),0_0_24px_rgba(245,166,35,0.12)]"
       style={{ '--skill-color': skillColor }}
     >
       <div
@@ -112,47 +109,89 @@ function SkillTile({ skill }) {
       />
       <div className="tech-skill-bloom absolute -top-8 h-16 w-16 rounded-full opacity-0 blur-2xl transition duration-300 group-hover/skill:opacity-100" />
       <Icon
-        className="tech-skill-icon relative z-10 text-[30px] transition duration-300 group-hover/skill:scale-110"
+        className="tech-skill-icon relative z-10 text-[26px] transition duration-300 group-hover/skill:scale-110"
         aria-hidden="true"
       />
-      <span className="relative z-10 mt-3 font-label text-[11px] text-nocturne-muted transition group-hover/skill:text-nocturne-cream">
+      <span className="relative z-10 mt-2 font-label text-[10px] text-nocturne-muted transition group-hover/skill:text-nocturne-cream">
         {skill.name}
       </span>
     </div>
   )
 }
 
-function SkillGroup({ group, compact = false }) {
+function SkillGroup({ group, compact = false, isActive, onActivate, onDeactivate }) {
+  const hasMoreSkills = group.items.length > 4
+
   return (
-    <article className="group/category relative overflow-hidden rounded-2xl border border-nocturne-border bg-nocturne-card-muted p-5 transition duration-500 hover:border-nocturne-amber-border hover:shadow-[0_24px_70px_rgba(0,0,0,0.28),0_0_38px_rgba(245,166,35,0.08)] md:p-7">
+    <article
+      className={[
+        'tech-category-card group/category relative flex flex-col overflow-hidden rounded-xl border border-nocturne-border bg-nocturne-card-muted p-4 transition duration-500 hover:border-nocturne-amber-border hover:shadow-[0_24px_70px_rgba(0,0,0,0.28),0_0_38px_rgba(245,166,35,0.08)] focus-visible:border-nocturne-amber-border focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-nocturne-amber',
+        isActive ? 'is-active' : '',
+      ].join(' ')}
+      tabIndex={hasMoreSkills ? 0 : undefined}
+      onMouseEnter={hasMoreSkills ? onActivate : undefined}
+      onMouseLeave={hasMoreSkills ? onDeactivate : undefined}
+      onFocus={hasMoreSkills ? onActivate : undefined}
+      onBlur={hasMoreSkills ? onDeactivate : undefined}
+      aria-label={
+        hasMoreSkills
+          ? `${group.category}: hover or focus to reveal ${group.items.length - 4} more technologies`
+          : undefined
+      }
+    >
       <div className="pointer-events-none absolute -right-20 -top-24 h-48 w-48 rounded-full bg-nocturne-amber/0 blur-[70px] transition duration-500 group-hover/category:bg-nocturne-amber/10" />
-      <div className="relative z-10 mb-6 flex items-start gap-3">
+      <div className="relative z-10 mb-4 flex min-h-7 items-start gap-2.5">
         <span className="mt-1.5 h-2.5 w-2.5 shrink-0 rounded-full bg-nocturne-amber shadow-[0_0_12px_rgba(245,166,35,0.38)]" />
-        <div>
-          <h3 className="font-label text-sm font-semibold uppercase tracking-[0.12em] text-nocturne-cream">
+        <div className="min-w-0">
+          <h3 className="font-label text-xs font-semibold uppercase tracking-[0.1em] text-nocturne-cream">
             {group.category}
           </h3>
           {!compact ? (
-            <p className="mt-2 max-w-2xl text-sm leading-6 text-nocturne-muted">{group.summary}</p>
+            <p className="mt-2 line-clamp-2 text-xs leading-5 text-nocturne-muted">{group.summary}</p>
           ) : null}
         </div>
       </div>
 
-      <div className="relative z-10 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 2xl:grid-cols-10">
-        {group.items.map((skill) => (
-          <SkillTile key={`${group.category}-${skill.name}`} skill={skill} />
+      <div className="relative z-10 grid grid-cols-2 gap-2.5">
+        {group.items.map((skill, index) => (
+          <div
+            key={`${group.category}-${skill.name}`}
+            className={index >= 4 ? 'tech-extra-skill' : ''}
+          >
+            <SkillTile skill={skill} />
+          </div>
         ))}
       </div>
+
+      {hasMoreSkills ? (
+        <p className="tech-hover-hint relative z-10 mt-auto border-t border-nocturne-border pt-4 text-center font-label text-[9px] uppercase tracking-[0.1em] text-nocturne-muted">
+          Hover to reveal {group.items.length - 4} more
+        </p>
+      ) : (
+        <div className="mt-auto pt-4" aria-hidden="true" />
+      )}
     </article>
   )
 }
 
 export default function TechStackShowcase({ groups, compact = false }) {
+  const [activeCategory, setActiveCategory] = useState(null)
+
   return (
-    <div className="flex flex-col gap-6">
+    <div className="grid items-start gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
       {groups.map((group, index) => (
-        <RevealOnScroll key={group.category} delay={(index % 3) * 50}>
-          <SkillGroup group={group} compact={compact} />
+        <RevealOnScroll key={group.category} delay={(index % 5) * 50}>
+          <SkillGroup
+            group={group}
+            compact={compact}
+            isActive={activeCategory === group.category}
+            onActivate={() => setActiveCategory(group.category)}
+            onDeactivate={() =>
+              setActiveCategory((currentCategory) =>
+                currentCategory === group.category ? null : currentCategory,
+              )
+            }
+          />
         </RevealOnScroll>
       ))}
     </div>

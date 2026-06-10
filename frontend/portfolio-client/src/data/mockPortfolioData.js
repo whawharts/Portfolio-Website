@@ -104,6 +104,8 @@ export const featuredProjects = [
     status: 'in_progress',
     isFeatured: true,
     thumbnailTone: 'panel',
+    thumbnailUrl: '/images/projects/online-portfolio-homepage.png',
+    internalUrl: '/',
     liveUrl: null,
     githubUrl: null,
     caseStudyUrl: null,
@@ -148,7 +150,7 @@ export const techStackGroups = [
   {
     category: 'Database',
     summary: 'Relational data modeling and practical persistence workflows.',
-    items: ['PostgreSQL', 'Prisma', 'SQL Basics', 'Data Modeling'],
+    items: ['PostgreSQL', 'Prisma', 'SQL Basics'],
   },
   {
     category: 'Tools',
@@ -196,7 +198,6 @@ export const coreToolkit = [
       { name: 'Node.js', status: 'Learning' },
       { name: 'Express', status: 'Learning' },
       { name: 'REST APIs', status: 'Learning' },
-      { name: 'Middleware', status: 'Exploring' },
     ],
   },
   {
@@ -207,7 +208,6 @@ export const coreToolkit = [
       { name: 'SQL', status: 'Learning' },
       { name: 'PostgreSQL', status: 'Learning' },
       { name: 'Prisma', status: 'Exploring' },
-      { name: 'Data Modeling', status: 'Practicing' },
       { name: 'Supabase', status: 'Exploring' },
       { name: 'Firebase', status: 'Exploring' },
     ],

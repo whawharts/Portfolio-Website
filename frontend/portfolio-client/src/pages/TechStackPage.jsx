@@ -13,7 +13,7 @@ import { EmptyState } from '../components/ui/PageState'
 function SectionTitle({ title }) {
   return (
     <div className="mb-8">
-      <h2 className="section-label-line text-[32px] font-semibold leading-10 text-nocturne-cream">
+      <h2 className="section-label-line text-[28px] font-semibold leading-9 text-nocturne-cream">
         {title}
       </h2>
     </div>
@@ -24,9 +24,9 @@ function PageHero() {
   const { hero } = techStackPage
 
   return (
-    <header className="mb-[120px] max-w-3xl pt-6">
+    <header className="mb-16 max-w-3xl pt-3">
       <HeroEyebrow className="mb-6 bg-nocturne-panel">{hero.eyebrow}</HeroEyebrow>
-      <h1 className="text-[40px] font-bold leading-tight text-nocturne-cream md:text-[64px]">
+      <h1 className="text-[38px] font-bold leading-tight text-nocturne-cream md:text-[52px]">
         {hero.title}
       </h1>
       <p className="mt-6 max-w-2xl text-lg leading-8 text-nocturne-muted">{hero.intro}</p>
@@ -36,7 +36,7 @@ function PageHero() {
 
 function CoreToolkitSection({ groups }) {
   return (
-    <section className="mb-[120px]">
+    <section className="mb-20">
       <SectionTitle title={techStackPage.toolkitTitle} />
       <TechStackShowcase groups={groups} />
     </section>
@@ -45,7 +45,7 @@ function CoreToolkitSection({ groups }) {
 
 function AppliedProjectsSection({ projects }) {
   return (
-    <section className="mb-[120px]">
+    <section className="mb-20">
       <SectionTitle title={techStackPage.practiceTitle} />
       <div className="grid gap-6 lg:grid-cols-3">
         {projects.map((project, index) => (
@@ -75,7 +75,7 @@ function AppliedProjectsSection({ projects }) {
 
 function BottomCta() {
   return (
-    <section className="border-t border-nocturne-border py-16 text-center">
+    <section className="border-t border-nocturne-border py-12 text-center">
       <h2 className="mb-6 text-2xl font-semibold text-nocturne-cream">{techStackPage.cta.title}</h2>
       <Button as={Link} to={techStackPage.cta.action.path} className="px-8 py-4">
         {techStackPage.cta.action.label}

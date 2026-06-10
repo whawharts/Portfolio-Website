@@ -61,11 +61,16 @@ textarea {
   background: color-mix(in srgb, var(--skill-color) 24%, transparent);
 }
 
+.hero-availability > span:first-child {
+  background: #34d399;
+  box-shadow: 0 0 10px rgba(52, 211, 153, 0.42);
+}
+
 .section-label-line::after {
   display: block;
   width: 4rem;
   height: 0.25rem;
-  margin-top: 1rem;
+  margin-top: 0.75rem;
   border-radius: 9999px;
   background: var(--color-primary-strong);
   content: "";
@@ -76,7 +81,92 @@ textarea {
   margin-left: auto;
 }
 
+.desktop-resume-button {
+  display: none;
+}
+
+.mobile-nav-toggle {
+  display: flex;
+}
+
+@media (min-width: 64rem) {
+  .desktop-resume-button {
+    display: inline-flex;
+  }
+
+  .mobile-nav-toggle {
+    display: none;
+  }
+}
+
 #root {
   min-height: 100vh;
   background: var(--color-background-main);
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tech-extra-skill {
+  min-height: 0;
+}
+
+.tech-hover-hint {
+  display: none;
+}
+
+.journey-traveler {
+  transition: top 420ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: top;
+}
+
+.journey-progress-line {
+  transition: height 420ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: height;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .journey-traveler,
+  .journey-progress-line {
+    transition: none;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) and (min-width: 1280px) {
+  .tech-extra-skill {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(8px);
+    transition:
+      max-height 360ms ease,
+      opacity 240ms ease,
+      transform 360ms ease;
+  }
+
+  .tech-category-card.is-active .tech-extra-skill {
+    max-height: 8rem;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .tech-hover-hint {
+    display: block;
+    transition:
+      color 240ms ease,
+      opacity 240ms ease;
+  }
+
+  .tech-category-card.is-active .tech-hover-hint {
+    color: var(--color-amber);
+    opacity: 0.75;
+  }
 }

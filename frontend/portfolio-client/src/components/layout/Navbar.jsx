@@ -1,7 +1,92 @@
 import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
+import { FaDiscord, FaFacebookF, FaGithub, FaLinkedinIn, FaYoutube } from 'react-icons/fa6'
 import { navigationItems, profile, resume } from '../../data/mockPortfolioData'
 import Button from '../ui/Button'
+
+const socialItems = [
+  {
+    platform: 'youtube',
+    label: 'YouTube',
+    url: 'https://www.youtube.com/@WhahTv',
+    Icon: FaYoutube,
+    color: '#ff0033',
+  },
+  {
+    platform: 'linkedin',
+    label: 'LinkedIn',
+    url: profile.socialLinks.find((item) => item.platform === 'linkedin')?.url,
+    Icon: FaLinkedinIn,
+    color: '#0a66c2',
+  },
+  {
+    platform: 'facebook',
+    label: 'Facebook',
+    url: profile.socialLinks.find((item) => item.platform === 'facebook')?.url,
+    Icon: FaFacebookF,
+    color: '#1877f2',
+  },
+  {
+    platform: 'discord',
+    label: 'Discord',
+    url: null,
+    Icon: FaDiscord,
+    color: '#5865f2',
+  },
+  {
+    platform: 'github',
+    label: 'GitHub',
+    url: profile.socialLinks.find((item) => item.platform === 'github')?.url,
+    Icon: FaGithub,
+    color: '#f5f5f5',
+  },
+]
+
+function SocialButtons({ mobile = false }) {
+  return (
+    <div className={mobile ? 'mt-4 flex flex-wrap gap-2 border-t border-nocturne-border pt-4' : 'flex items-center gap-1.5'}>
+      {socialItems.map(({ platform, label, url, Icon, color }) => {
+        const classes = [
+          'group flex items-center justify-center rounded-full border border-transparent text-nocturne-muted transition duration-300',
+          mobile ? 'h-10 w-10 bg-nocturne-card' : 'h-8 w-8',
+          url
+            ? 'hover:-translate-y-0.5 hover:border-nocturne-border hover:bg-nocturne-card'
+            : 'cursor-not-allowed opacity-45',
+        ].join(' ')
+        const icon = (
+          <Icon
+            className="text-sm transition duration-300 group-hover:scale-110"
+            style={{ color }}
+            aria-hidden="true"
+          />
+        )
+
+        return url ? (
+          <a
+            key={platform}
+            href={url}
+            target="_blank"
+            rel="noreferrer"
+            className={classes}
+            aria-label={label}
+            title={label}
+          >
+            {icon}
+          </a>
+        ) : (
+          <span
+            key={platform}
+            className={classes}
+            aria-disabled="true"
+            title={`${label} link coming soon`}
+          >
+            {icon}
+          </span>
+        )
+      })}
+    </div>
+  )
+}
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -13,21 +98,20 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-nocturne-border bg-nocturne-nav backdrop-blur-[20px]">
       <nav
-        className="mx-auto flex min-h-20 w-full max-w-[var(--content-max-width)] flex-wrap items-center justify-between gap-4 px-5 py-4 md:px-20"
+        className="relative mx-auto flex min-h-16 w-full max-w-[var(--content-max-width)] flex-wrap items-center justify-between gap-3 px-5 py-2.5 md:px-10"
         aria-label="Primary navigation"
       >
-        <NavLink to="/" className="group" onClick={closeMenu}>
-          <span className="block font-label text-xs uppercase tracking-normal text-nocturne-muted">
-            Portfolio
-          </span>
-          <span className="text-lg font-semibold text-nocturne-cream transition group-hover:text-nocturne-amber">
-            {profile.name}
-          </span>
+        <NavLink
+          to="/"
+          className="text-base font-semibold text-nocturne-cream transition hover:text-nocturne-amber lg:hidden"
+          onClick={closeMenu}
+        >
+          {profile.name}
         </NavLink>
 
         <button
           type="button"
-          className="flex h-11 w-11 items-center justify-center rounded-lg border border-nocturne-border text-nocturne-cream transition hover:border-nocturne-amber-border hover:text-nocturne-amber focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-nocturne-amber lg:hidden"
+          className="mobile-nav-toggle ml-auto h-10 w-10 items-center justify-center rounded-lg border border-nocturne-border text-nocturne-cream transition hover:border-nocturne-amber-border hover:text-nocturne-amber focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-nocturne-amber"
           onClick={() => setIsMenuOpen((current) => !current)}
           aria-expanded={isMenuOpen}
           aria-controls="mobile-navigation"
@@ -55,14 +139,14 @@ export default function Navbar() {
           </span>
         </button>
 
-        <div className="hidden items-center gap-1 lg:flex">
+        <div className="hidden items-center gap-0.5 lg:flex">
           {navigationItems.map((item) => (
             <NavLink
               key={item.path}
               to={item.path}
               className={({ isActive }) =>
                 [
-                  'group relative shrink-0 px-3 py-2 text-sm transition-colors duration-300',
+                  'group relative shrink-0 px-2.5 py-2 text-[13px] transition-colors duration-300',
                   isActive ? 'text-nocturne-amber' : 'text-nocturne-muted',
                 ].join(' ')
               }
@@ -85,9 +169,17 @@ export default function Navbar() {
           ))}
         </div>
 
-        <Button as="a" href={resume.downloadUrl} download className="hidden !text-black lg:inline-flex">
-          {resume.label}
-        </Button>
+        <NavLink
+          to="/"
+          className="absolute left-1/2 hidden h-10 w-10 -translate-x-1/2 items-center justify-center rounded-full border border-nocturne-amber-border bg-nocturne-card font-label text-xs font-semibold text-nocturne-cream transition hover:border-nocturne-amber hover:text-nocturne-amber hover:shadow-nocturne-glow lg:flex"
+          aria-label="Joseph Sotomil homepage"
+        >
+          JS
+        </NavLink>
+
+        <div className="hidden lg:block">
+          <SocialButtons />
+        </div>
 
         <div
           id="mobile-navigation"
@@ -112,6 +204,7 @@ export default function Navbar() {
                 {item.label}
               </NavLink>
             ))}
+            <SocialButtons mobile />
             <Button
               as="a"
               href={resume.downloadUrl}

@@ -31,7 +31,7 @@ function PageHero() {
       <HeroEyebrow className="mb-6" textClassName="text-xs uppercase tracking-normal">
         {hero.eyebrow}
       </HeroEyebrow>
-      <h1 className="text-[40px] font-bold leading-tight text-nocturne-cream md:text-[64px]">
+      <h1 className="text-[38px] font-bold leading-tight text-nocturne-cream md:text-[52px]">
         {parts[0]}
         <span className="text-nocturne-amber italic">{hero.highlightedWord}</span>
       </h1>
@@ -95,9 +95,9 @@ function ContactForm() {
   }
 
   return (
-    <Card className="p-6 md:p-8">
-      <form className="flex flex-col gap-8" onSubmit={handleSubmit}>
-        <div className="grid gap-8 md:grid-cols-2">
+    <Card className="p-5 md:p-6">
+      <form className="flex flex-col gap-6" onSubmit={handleSubmit}>
+        <div className="grid gap-6 md:grid-cols-2">
           <Field label="Name">
             <Input name="name" required />
           </Field>
@@ -143,7 +143,7 @@ function ContactForm() {
 
 function ContactInfo({ profileData }) {
   return (
-    <aside className="flex flex-col gap-8">
+    <aside className="flex flex-col gap-6">
       <Card className="flex flex-col gap-4 p-6">
         <div className="flex h-10 w-10 items-center justify-center rounded-full border border-nocturne-border bg-nocturne-panel font-label text-nocturne-muted">
           @
@@ -216,8 +216,8 @@ function ContactInfo({ profileData }) {
 
 function ServicesSection() {
   return (
-    <section className="border-t border-nocturne-border/50 pt-12">
-      <h2 className="section-label-line mb-12 text-[32px] font-semibold leading-10 text-nocturne-cream">
+    <section className="border-t border-nocturne-border/50 pt-9">
+      <h2 className="section-label-line mb-8 text-[28px] font-semibold leading-9 text-nocturne-cream">
         {contactPage.servicesTitle}
       </h2>
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
@@ -241,7 +241,7 @@ function ServicesSection() {
 
 function BottomCta() {
   return (
-    <Card className="relative flex flex-col items-start justify-between gap-8 overflow-hidden p-8 md:flex-row md:items-center md:p-12">
+    <Card className="relative flex flex-col items-start justify-between gap-6 overflow-hidden p-7 md:flex-row md:items-center md:p-9">
       <div className="absolute inset-0 bg-gradient-to-r from-nocturne-amber/5 to-transparent" />
       <div className="relative z-10 max-w-xl">
         <h2 className="mb-4 text-[32px] font-semibold leading-10 text-nocturne-cream">
@@ -258,9 +258,9 @@ function BottomCta() {
 
 export default function ContactPage() {
   return (
-    <div className="flex flex-col gap-[120px]">
+    <div className="flex flex-col gap-16 md:gap-20">
       <PageHero />
-      <section className="grid gap-8 lg:grid-cols-12 lg:gap-16">
+      <section className="grid gap-8 lg:grid-cols-12 lg:gap-10">
         <RevealOnScroll className="lg:col-span-7">
           <ContactForm />
         </RevealOnScroll>

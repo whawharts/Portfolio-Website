@@ -17,11 +17,11 @@ function PageHero() {
   const { hero } = certificatesPage
 
   return (
-    <header className="mx-auto mb-[120px] max-w-[1120px] pt-6">
+    <header className="mx-auto mb-16 max-w-[1040px] pt-3">
       <HeroEyebrow className="mb-6" textClassName="text-nocturne-amber">
         {hero.eyebrow}
       </HeroEyebrow>
-      <h1 className="text-[40px] font-bold leading-tight text-nocturne-cream md:text-[64px]">
+      <h1 className="text-[38px] font-bold leading-tight text-nocturne-cream md:text-[52px]">
         {hero.title}
       </h1>
       <p className="mt-6 max-w-2xl text-lg leading-8 text-nocturne-muted">{hero.intro}</p>
@@ -64,7 +64,7 @@ function FilterTabs({ activeFilter, onFilterChange }) {
   }, [activeFilter])
 
   return (
-    <section className="mx-auto mb-12 max-w-[1120px]">
+    <section className="mx-auto mb-9 max-w-[1040px]">
       <div className="overflow-x-auto">
         <div
           ref={tabsContainerRef}
@@ -146,7 +146,7 @@ function CertificateCard({ certificate }) {
 
 function CertificateGrid({ items }) {
   return (
-    <section className="mx-auto mb-[120px] grid max-w-[1120px] gap-6 md:grid-cols-2 lg:grid-cols-3">
+    <section className="mx-auto mb-20 grid max-w-[1040px] gap-5 md:grid-cols-2 lg:grid-cols-3">
       {items.map((certificate, index) => (
         <RevealOnScroll
           key={`${certificate.title}-${certificate.provider}`}
@@ -162,8 +162,8 @@ function CertificateGrid({ items }) {
 
 function LearningProgressSection() {
   return (
-    <section className="mx-auto mb-[120px] max-w-[1120px]">
-      <h2 className="section-label-line mb-8 text-[32px] font-semibold leading-10 text-nocturne-cream">
+    <section className="mx-auto mb-20 max-w-[1040px]">
+      <h2 className="section-label-line mb-8 text-[28px] font-semibold leading-9 text-nocturne-cream">
         {certificatesPage.progressTitle}
       </h2>
       <div className="grid gap-6 md:grid-cols-3">
@@ -182,7 +182,7 @@ function LearningProgressSection() {
 
 function BottomCta() {
   return (
-    <section className="relative mx-auto max-w-[1120px] overflow-hidden rounded-xl border border-nocturne-border bg-nocturne-card px-6 py-16 text-center">
+    <section className="relative mx-auto max-w-[1040px] overflow-hidden rounded-xl border border-nocturne-border bg-nocturne-card px-6 py-12 text-center">
       <div className="absolute inset-0 bg-nocturne-amber/5" />
       <div className="relative z-10">
         <h2 className="mb-6 text-[32px] font-semibold leading-10 text-nocturne-cream">

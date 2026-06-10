@@ -4,7 +4,7 @@ import { navigationItems, profile } from '../../data/mockPortfolioData'
 export default function Footer() {
   return (
     <footer className="border-t border-nocturne-border bg-nocturne-surface/80">
-      <div className="mx-auto flex w-full max-w-[var(--content-max-width)] flex-col gap-6 px-5 py-12 text-sm text-nocturne-muted md:px-20 lg:flex-row lg:items-center lg:justify-between">
+      <div className="mx-auto flex w-full max-w-[var(--content-max-width)] flex-col gap-4 px-5 py-8 text-sm text-nocturne-muted md:px-10 lg:flex-row lg:items-center lg:justify-between">
         <p>
           {profile.name} - {profile.title}
         </p>

@@ -8,9 +8,9 @@ export default function PageShell() {
   const location = useLocation()
 
   return (
-    <div className="nocturne-app flex min-h-screen flex-col bg-nocturne-bg font-nocturne text-nocturne-cream">
+    <div className="nocturne-app flex min-h-screen flex-col overflow-x-hidden bg-nocturne-bg font-nocturne text-nocturne-cream">
       <Navbar />
-      <main className="mx-auto w-full max-w-[var(--content-max-width)] flex-1 px-5 py-14 md:px-20 md:py-20">
+      <main className="mx-auto w-full max-w-[var(--content-max-width)] flex-1 px-5 py-10 md:px-10 md:py-12">
         <div key={location.pathname} className="page-enter">
           <Outlet />
         </div>

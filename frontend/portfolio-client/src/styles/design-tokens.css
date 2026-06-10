@@ -39,7 +39,7 @@
   --font-display: "Hanken Grotesk", system-ui, sans-serif;
   --font-body: "Hanken Grotesk", system-ui, sans-serif;
   --font-label: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
-  --content-max-width: 1440px;
+  --content-max-width: 1200px;
 }
 
 @layer components {
