@@ -8,6 +8,7 @@ import Button from '../components/ui/Button'
 import HeroEyebrow from '../components/ui/HeroEyebrow'
 import RevealOnScroll from '../components/RevealOnScroll'
 import TechStackShowcase from '../components/TechStackShowcase'
+import InteractiveSkillMap from '../components/InteractiveSkillMap'
 import { EmptyState } from '../components/ui/PageState'
 
 function SectionTitle({ title }) {
@@ -96,6 +97,9 @@ export default function TechStackPage() {
       ) : (
         <EmptyState message="No tech stack items are available yet." />
       )}
+      <RevealOnScroll>
+        <InteractiveSkillMap />
+      </RevealOnScroll>
       <AppliedProjectsSection projects={appliedProjects} />
       <RevealOnScroll>
         <BottomCta />

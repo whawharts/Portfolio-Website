@@ -222,6 +222,7 @@ export const coreToolkit = [
       { name: 'VS Code', status: 'Daily Driver' },
       { name: 'Figma', status: 'Used in projects' },
       { name: 'Vercel', status: 'Exploring' },
+      { name: 'Railway', status: 'Exploring' },
     ],
   },
   {

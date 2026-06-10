@@ -132,10 +132,87 @@ textarea {
   will-change: height;
 }
 
+.skill-map-node {
+  left: var(--skill-map-mobile-x);
+  top: var(--skill-map-mobile-y);
+  animation: skill-map-family-float var(--skill-map-float-duration) ease-in-out
+    var(--skill-map-float-delay) infinite;
+  will-change: translate;
+}
+
+.skill-map-node:hover,
+.skill-map-node:focus-visible,
+.skill-map-node:active {
+  animation-play-state: paused;
+}
+
+.skill-map-node.is-active {
+  border-color: var(--color-primary);
+  box-shadow:
+    0 0 0 1px rgba(255, 200, 128, 0.22),
+    0 0 22px rgba(245, 166, 35, 0.34);
+  animation:
+    skill-map-family-float var(--skill-map-float-duration) ease-in-out
+      var(--skill-map-float-delay) infinite,
+    skill-map-active-pulse 3.4s ease-in-out infinite;
+}
+
+@keyframes skill-map-family-float {
+  0%,
+  100% {
+    translate: -50% -50%;
+  }
+
+  50% {
+    translate:
+      calc(-50% + var(--skill-map-motion-x))
+      calc(-50% + var(--skill-map-motion-y));
+  }
+}
+
+.skill-map-line {
+  stroke: rgba(255, 200, 128, 0.25);
+  stroke-width: 1.2;
+  transition:
+    stroke 300ms ease,
+    stroke-width 300ms ease,
+    opacity 300ms ease;
+}
+
+.skill-map-line.is-active {
+  stroke: rgba(245, 166, 35, 0.82);
+  stroke-width: 1.8;
+}
+
+.skill-map-desktop-connections {
+  display: none;
+}
+
+@keyframes skill-map-active-pulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 1px rgba(255, 200, 128, 0.2),
+      0 0 18px rgba(245, 166, 35, 0.24);
+  }
+
+  50% {
+    box-shadow:
+      0 0 0 1px rgba(255, 200, 128, 0.34),
+      0 0 30px rgba(245, 166, 35, 0.42);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .journey-traveler,
-  .journey-progress-line {
+  .journey-progress-line,
+  .skill-map-node.is-active {
     transition: none;
+    animation: none;
+  }
+
+  .skill-map-node {
+    animation: none;
   }
 }
 
@@ -183,5 +260,20 @@ textarea {
   .tech-category-card.is-active .tech-hover-hint {
     color: var(--color-amber);
     opacity: 0.75;
+  }
+}
+
+@media (min-width: 1024px) {
+  .skill-map-node {
+    left: var(--skill-map-desktop-x);
+    top: var(--skill-map-desktop-y);
+  }
+
+  .skill-map-mobile-connections {
+    display: none;
+  }
+
+  .skill-map-desktop-connections {
+    display: block;
   }
 }
