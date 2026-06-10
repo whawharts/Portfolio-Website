@@ -41,10 +41,21 @@ const journeyMilestones = [
 ]
 
 function MilestoneCard({ milestone, isActive = false }) {
+  const journeyImages = {
+    2022: '/images/journey/2022.png',
+    2023: '/images/journey/2023-transparent.png',
+    2024: '/images/journey/2024.png',
+    2025: '/images/journey/2025.png',
+    2026: '/images/journey/2026.png',
+  }
+  const journeyImage = journeyImages[milestone.year]
+  const hasJourneyImage = Boolean(journeyImage)
+
   return (
     <article
       className={[
-        'group relative overflow-hidden rounded-lg border bg-nocturne-card-muted p-5 transition duration-500',
+        'group relative overflow-hidden rounded-lg border p-5 transition duration-500',
+        hasJourneyImage ? 'bg-nocturne-bg/25' : 'bg-nocturne-card-muted',
         isActive
           ? '-translate-y-1 border-nocturne-amber-border shadow-[0_18px_48px_rgba(0,0,0,0.34),0_0_34px_rgba(245,166,35,0.2)]'
           : 'border-nocturne-border hover:-translate-y-1 hover:border-nocturne-amber-border hover:shadow-[0_16px_42px_rgba(0,0,0,0.3),0_0_26px_rgba(245,166,35,0.08)]',
@@ -66,36 +77,66 @@ function MilestoneCard({ milestone, isActive = false }) {
         ].join(' ')}
         aria-hidden="true"
       />
-      <div className="flex items-center justify-between gap-4">
-        <p className="font-label text-[9px] uppercase tracking-[0.12em] text-nocturne-amber">
-          Chapter {milestone.year}
-        </p>
-        {milestone.current ? (
-          <span className="rounded-full border border-emerald-400/25 bg-emerald-400/10 px-2 py-1 font-label text-[8px] uppercase tracking-normal text-emerald-400">
-            Current
-          </span>
-        ) : null}
-      </div>
-      <h3
-        className={[
-          'relative mt-3 text-lg font-semibold leading-6 transition',
-          isActive ? 'text-nocturne-amber' : 'text-nocturne-cream group-hover:text-nocturne-amber',
-        ].join(' ')}
-      >
-        {milestone.title}
-      </h3>
-      <p className="relative mt-3 text-sm leading-6 text-nocturne-muted">
-        {milestone.description}
-      </p>
-      <div className="relative mt-4 flex flex-wrap gap-2">
-        {milestone.tags.map((tag) => (
-          <span
-            key={tag}
-            className="rounded border border-nocturne-border bg-nocturne-bg/70 px-2 py-1 font-label text-[8px] uppercase tracking-normal text-nocturne-muted"
-          >
-            {tag}
-          </span>
-        ))}
+      {hasJourneyImage ? (
+        <div
+          className={[
+            'pointer-events-none absolute inset-0 transition duration-700',
+            isActive
+              ? 'opacity-100 saturate-100'
+              : 'opacity-20 grayscale saturate-0 group-hover:opacity-35',
+          ].join(' ')}
+          aria-hidden="true"
+        >
+          <img
+            src={journeyImage}
+            alt=""
+            className={[
+              'h-full w-full object-cover object-center transition duration-700',
+              isActive ? 'scale-100' : 'scale-105',
+            ].join(' ')}
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-nocturne-bg/95 via-nocturne-bg/68 to-nocturne-bg/10" />
+          <div
+            className={[
+              'pointer-events-none absolute inset-0 bg-nocturne-amber/10 mix-blend-screen transition duration-700',
+              isActive ? 'opacity-100' : 'opacity-0',
+            ].join(' ')}
+          />
+        </div>
+      ) : null}
+
+      <div className="relative">
+        <div className="flex items-center justify-between gap-4">
+          <p className="font-label text-[9px] uppercase tracking-[0.12em] text-nocturne-amber">
+            Chapter {milestone.year}
+          </p>
+          {milestone.current ? (
+            <span className="rounded-full border border-emerald-400/25 bg-emerald-400/10 px-2 py-1 font-label text-[8px] uppercase tracking-normal text-emerald-400">
+              Current
+            </span>
+          ) : null}
+        </div>
+        <h3
+          className={[
+            'mt-3 text-lg font-semibold leading-6 transition',
+            isActive
+              ? 'text-nocturne-amber'
+              : 'text-nocturne-cream group-hover:text-nocturne-amber',
+          ].join(' ')}
+        >
+          {milestone.title}
+        </h3>
+        <p className="mt-3 text-sm leading-6 text-nocturne-muted">{milestone.description}</p>
+        <div className="mt-4 flex flex-wrap gap-2">
+          {milestone.tags.map((tag) => (
+            <span
+              key={tag}
+              className="rounded border border-nocturne-border bg-nocturne-bg/70 px-2 py-1 font-label text-[8px] uppercase tracking-normal text-nocturne-muted"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
       </div>
     </article>
   )
